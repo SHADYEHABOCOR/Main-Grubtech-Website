@@ -127,12 +127,19 @@ export default defineConfig({
     ],
   },
   build: {
+    // Cloudflare Pages output configuration
+    // Output to 'dist' folder which Cloudflare Pages expects by default
+    outDir: 'dist',
+    // Clean output directory before build for consistent deployments
+    emptyOutDir: true,
     // Target modern browsers for smaller bundles
+    // Cloudflare edge network supports modern JavaScript
     target: 'esnext',
     // Enable CSS code splitting for better caching and parallel loading
+    // Works well with Cloudflare's global CDN caching
     cssCodeSplit: true,
     // Inline small CSS files (< 4KB) directly into JS to reduce HTTP requests
-    // Larger CSS files are extracted for better caching
+    // Larger CSS files are extracted for better caching on Cloudflare's CDN
     assetsInlineLimit: 4096,
     // Enable hidden source maps for Sentry error tracking
     // 'hidden' means they're generated but not linked in the JS files
@@ -140,7 +147,8 @@ export default defineConfig({
     sourcemap: 'hidden',
     rollupOptions: {
       output: {
-        // Optimize chunk naming for better caching
+        // Optimize chunk naming for better caching on Cloudflare's CDN
+        // Hash-based filenames enable aggressive long-term caching
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
@@ -162,6 +170,8 @@ manualChunks: {
         },
       },
     },
+    // Chunk size warning limit optimized for Cloudflare Pages
+    // 500KB per chunk balances bundle size with HTTP/2 parallel loading
     chunkSizeWarningLimit: 500,
     // Remove console statements in production build
     // Keeps console.error for critical error reporting
