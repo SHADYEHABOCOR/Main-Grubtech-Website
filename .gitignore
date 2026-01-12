@@ -44,10 +44,6 @@ dist-ssr
 *.sqlite
 *.sqlite3
 
-# Uploads
-backend/public/uploads/*
-!backend/public/uploads/.gitkeep
-
 # Backup files
 *.backup
 *.bak
@@ -62,14 +58,13 @@ docs/
 /src/
 /public/
 /index.html
-/vite.config.ts
 /tsconfig*.json
 /tailwind.config.js
 /postcss.config.js
 /eslint.config.js
 /vercel.json
 /test-*.js
-/vite-remove-console.config.ts
+/render.yaml
 
 # Auto-claude and worktrees
 .auto-claude/
@@ -83,7 +78,6 @@ test-production-safeguard.sh
 test-security.sh
 verification-summary.md
 MANUAL_TESTING_GUIDE.md
-backend/POLICIES_TEST_VERIFICATION.md
 
 # Email preview files (for local testing only)
 email-preview.html
