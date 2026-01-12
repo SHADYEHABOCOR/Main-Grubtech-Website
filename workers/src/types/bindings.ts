@@ -29,6 +29,7 @@ export interface Env {
   JWT_SECRET: string;
   EMAIL_API_KEY: string;
   ADMIN_EMAIL: string;
+  SETUP_SECRET_TOKEN: string;
   SENTRY_DSN?: string;
 }
 
