@@ -1,0 +1,131 @@
+# Cloudflare Pages Custom Headers
+# https://developers.cloudflare.com/pages/platform/headers/
+
+# =============================================================================
+# Global Security Headers - Apply to all pages
+# =============================================================================
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# =============================================================================
+# HTML Pages - Short cache, security headers
+# =============================================================================
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+
+# =============================================================================
+# JavaScript & CSS Assets - Long cache with immutable (hashed filenames)
+# =============================================================================
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/assets/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# =============================================================================
+# Static Images - Long cache
+# =============================================================================
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
+
+/*.jpg
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
+
+/*.jpeg
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
+
+/*.webp
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
+
+/*.svg
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
+
+/*.ico
+  Cache-Control: public, max-age=604800
+
+/favicon.png
+  Cache-Control: public, max-age=604800
+
+# =============================================================================
+# Fonts - Long cache
+# =============================================================================
+/assets/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/assets/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/*.woff
+  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
+
+/*.woff2
+  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
+
+# =============================================================================
+# Localization Files - Medium cache (allow updates)
+# =============================================================================
+/locales/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Content-Type-Options: nosniff
+
+/locales/*.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: application/json; charset=utf-8
+
+# =============================================================================
+# PWA Files - Short cache for updates
+# =============================================================================
+/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: application/manifest+json; charset=utf-8
+
+/service-worker.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: application/javascript; charset=utf-8
+  Service-Worker-Allowed: /
+
+# =============================================================================
+# SEO Files - Medium cache
+# =============================================================================
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+# =============================================================================
+# JSON Data Files - Short cache
+# =============================================================================
+/*.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=600
+  X-Content-Type-Options: nosniff
