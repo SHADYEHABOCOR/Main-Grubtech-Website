@@ -1,0 +1,21 @@
+# Cloudflare Pages SPA Redirects
+# https://developers.cloudflare.com/pages/platform/redirects/
+
+# API requests - proxy to Workers (if using custom domain)
+# /api/*  https://grubtech-api.workers.dev/api/:splat  200
+
+# Static assets - let them pass through
+/assets/*  /assets/:splat  200
+/images/*  /images/:splat  200
+/locales/*  /locales/:splat  200
+
+# Service worker and manifest
+/manifest.json  /manifest.json  200
+/service-worker.js  /service-worker.js  200
+/robots.txt  /robots.txt  200
+/sitemap.xml  /sitemap.xml  200
+/favicon.png  /favicon.png  200
+
+# SPA fallback - all other routes serve index.html
+# This enables client-side routing with React Router
+/*  /index.html  200

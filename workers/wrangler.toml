@@ -1,0 +1,190 @@
+# Cloudflare Workers configuration for Grubtech API
+# Documentation: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "grubtech-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Account ID (set via environment variable CLOUDFLARE_ACCOUNT_ID or wrangler login)
+# account_id = ""
+
+# Workers Logs
+# https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+[observability]
+enabled = true
+
+# ============================================================================
+# Cloudflare Bindings
+# ============================================================================
+
+# D1 Database - SQLite-compatible serverless database
+# Create with: wrangler d1 create grubtech-production
+[[d1_databases]]
+binding = "DB"
+database_name = "grubtech-production"
+database_id = ""  # Set after running: wrangler d1 create grubtech-production
+migrations_dir = "migrations"
+
+# KV Namespace - Key-value storage for caching and rate limiting
+# Create with: wrangler kv:namespace create CACHE
+[[kv_namespaces]]
+binding = "CACHE"
+id = ""  # Set after running: wrangler kv:namespace create CACHE
+
+# R2 Bucket - Object storage for file uploads
+# Create with: wrangler r2 bucket create grubtech-uploads
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "grubtech-uploads"
+
+# Cloudflare Images binding for image transformation
+# Requires Cloudflare Images subscription
+[images]
+binding = "IMAGES"
+
+# ============================================================================
+# Environment Variables (non-sensitive)
+# ============================================================================
+
+[vars]
+ENVIRONMENT = "production"
+ALLOWED_ORIGINS = "https://grubtech.com,https://www.grubtech.com"
+LOG_LEVEL = "info"
+RATE_LIMIT_WINDOW_MS = "900000"
+RATE_LIMIT_MAX_REQUESTS = "100"
+
+# ============================================================================
+# Secrets (DO NOT store sensitive values here)
+# Set via: wrangler secret put SECRET_NAME
+# Required secrets:
+#   - JWT_SECRET: JWT signing secret for authentication
+#   - EMAIL_API_KEY: Resend/SendGrid API key for email notifications
+#   - ADMIN_EMAIL: Admin notification email address
+# Optional secrets:
+#   - SENTRY_DSN: Sentry error tracking DSN
+# ============================================================================
+
+# ============================================================================
+# Development Environment
+# Run with: wrangler dev --env development
+# ============================================================================
+
+[env.development]
+name = "grubtech-api-dev"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+ALLOWED_ORIGINS = "http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000"
+LOG_LEVEL = "debug"
+RATE_LIMIT_WINDOW_MS = "60000"
+RATE_LIMIT_MAX_REQUESTS = "1000"
+
+# D1 Database for development
+[[env.development.d1_databases]]
+binding = "DB"
+database_name = "grubtech-development"
+database_id = ""  # Set after running: wrangler d1 create grubtech-development
+migrations_dir = "migrations"
+
+# KV Namespace for development
+[[env.development.kv_namespaces]]
+binding = "CACHE"
+id = ""  # Set after running: wrangler kv:namespace create CACHE --env development
+
+# R2 Bucket for development
+[[env.development.r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "grubtech-uploads-dev"
+
+# Images binding for development
+[env.development.images]
+binding = "IMAGES"
+
+# ============================================================================
+# Staging Environment
+# Run with: wrangler dev --env staging
+# ============================================================================
+
+[env.staging]
+name = "grubtech-api-staging"
+
+[env.staging.vars]
+ENVIRONMENT = "staging"
+ALLOWED_ORIGINS = "https://staging.grubtech.com,https://grubtech-website.pages.dev"
+LOG_LEVEL = "debug"
+RATE_LIMIT_WINDOW_MS = "900000"
+RATE_LIMIT_MAX_REQUESTS = "500"
+
+# D1 Database for staging
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "grubtech-staging"
+database_id = ""  # Set after running: wrangler d1 create grubtech-staging
+migrations_dir = "migrations"
+
+# KV Namespace for staging
+[[env.staging.kv_namespaces]]
+binding = "CACHE"
+id = ""  # Set after running: wrangler kv:namespace create CACHE --env staging
+
+# R2 Bucket for staging
+[[env.staging.r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "grubtech-uploads-staging"
+
+# Images binding for staging
+[env.staging.images]
+binding = "IMAGES"
+
+# ============================================================================
+# Build Configuration
+# ============================================================================
+
+[build]
+command = "npm run build"
+
+# ============================================================================
+# Routing and Triggers
+# ============================================================================
+
+# Custom routes (configure after deployment)
+# routes = [
+#   { pattern = "api.grubtech.com/*", zone_name = "grubtech.com" }
+# ]
+
+# Cron triggers for scheduled tasks (if needed)
+# [triggers]
+# crons = ["0 0 * * *"]  # Daily at midnight UTC
+
+# ============================================================================
+# Limits and Performance
+# ============================================================================
+
+# Worker size limits (default is fine for most cases)
+# Maximum uncompressed size is 10MB for bundled workers
+
+# CPU time limits
+# Free: 10ms, Paid: 30s for Bundled, 15min for Unbound
+
+# ============================================================================
+# Local Development
+# ============================================================================
+
+# Use local persistence for D1, KV, and R2 during development
+# Run with: wrangler dev --local --persist
+
+# Miniflare configuration for local dev
+[miniflare]
+d1_persist = ".wrangler/state/v3/d1"
+kv_persist = ".wrangler/state/v3/kv"
+r2_persist = ".wrangler/state/v3/r2"
+
+# ============================================================================
+# Tail Workers (Logging)
+# ============================================================================
+
+# Optional: Configure tail workers for log processing
+# [tail_consumers]
+# [[tail_consumers]]
+# service = "log-processor"
