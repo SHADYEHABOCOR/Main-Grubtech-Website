@@ -16,6 +16,7 @@
 import { Hono } from 'hono';
 import { getCookie } from 'hono/cookie';
 import { verify } from 'hono/jwt';
+import bcrypt from 'bcrypt-edge';
 import type { Env, Variables } from '../types/bindings';
 import { createDatabaseService } from '../db';
 import {
@@ -44,7 +45,7 @@ interface UserRecord {
 const authRoutes = new Hono<{ Bindings: Env; Variables: Variables }>();
 
 /**
- * Verify password against bcrypt hash using Web Crypto API
+ * Verify password against bcrypt hash using bcrypt-edge
  * This implementation handles bcrypt-style password verification
  * Compatible with Cloudflare Workers runtime
  */
@@ -52,32 +53,12 @@ async function verifyPassword(
   plainPassword: string,
   hashedPassword: string
 ): Promise<boolean> {
-  // For bcrypt hashes, we need to use the same algorithm
-  // Since Workers doesn't support bcrypt natively, we use a timing-safe comparison
-  // In production, consider using @node-rs/bcrypt or bcrypt-edge package
-
-  // If the hash is a bcrypt hash (starts with $2a$, $2b$, or $2y$)
+  // Handle bcrypt hashes (starts with $2a$, $2b$, or $2y$)
   if (hashedPassword.startsWith('$2')) {
-    // For bcrypt compatibility, we need an external library
-    // This is a placeholder that should be replaced with proper bcrypt verification
-    // For now, we'll use a simple SHA-256 based verification for development
-    // TODO: Add bcrypt-edge or similar package for production
-
-    // Fallback: Check if it's a development SHA-256 hash
-    const encoder = new TextEncoder();
-    const data = encoder.encode(plainPassword);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = new Uint8Array(hashBuffer);
-    const hashHex = Array.from(hashArray)
-      .map((b) => b.toString(16).padStart(2, '0'))
-      .join('');
-
-    // In development, we might have SHA-256 hashed passwords
-    // This is NOT secure for production - use proper bcrypt
-    return false; // Return false for bcrypt hashes until proper library is added
+    return await bcrypt.compare(plainPassword, hashedPassword);
   }
 
-  // For SHA-256 hashes (development/testing)
+  // SHA-256 fallback for development/testing
   const encoder = new TextEncoder();
   const data = encoder.encode(plainPassword);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);

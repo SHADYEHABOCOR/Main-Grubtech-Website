@@ -46,10 +46,8 @@ export interface Variables {
  * JWT payload structure for authenticated users
  */
 export interface JWTPayload {
-  userId: string;
-  email: string;
-  role: 'admin' | 'user';
-  sessionId: string;
+  id: string;
+  username: string;
   iat: number;
   exp: number;
 }
