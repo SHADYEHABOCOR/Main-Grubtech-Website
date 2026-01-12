@@ -1,0 +1,92 @@
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment files - NEVER commit secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env*.local
+*/.env
+*/.env.*
+!.env.example
+!*/.env.example
+!.env.production.example
+!*/.env.production.example
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Uploads
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+
+# Backup files
+*.backup
+*.bak
+
+# Documentation (keep important docs)
+docs/
+!README.md
+!DEPLOYMENT.md
+!QUICKSTART.md
+
+# Old structure cleanup (for migration period)
+/src/
+/public/
+/index.html
+/vite.config.ts
+/tsconfig*.json
+/tailwind.config.js
+/postcss.config.js
+/eslint.config.js
+/vercel.json
+/test-*.js
+/vite-remove-console.config.ts
+
+# Auto-claude and worktrees
+.auto-claude/
+.worktrees/
+CHANGELOG.md
+.auto-claude-status
+.claude_settings.json
+
+# Test scripts and verification files
+test-production-safeguard.sh
+test-security.sh
+verification-summary.md
+MANUAL_TESTING_GUIDE.md
+backend/POLICIES_TEST_VERIFICATION.md
+
+# Email preview files (for local testing only)
+email-preview.html
+
+# Claude AI assistant files
+.claude/

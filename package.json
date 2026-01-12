@@ -1,0 +1,42 @@
+{
+  "name": "grubtech-monorepo",
+  "version": "1.0.7",
+  "private": true,
+  "description": "Grubtech Website - Monorepo containing frontend and backend",
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:frontend dev:backend",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm-run-all build:frontend build:backend",
+    "build:frontend": "cd frontend && npm install --include=dev && npm run build",
+    "build:backend": "cd backend && npm install --include=dev && npm run build",
+    "build:backend-only": "cd backend && npm install",
+    "install:all": "npm-run-all install:frontend install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "start": "cd backend && npm run start:seed",
+    "start:frontend": "cd frontend && npm run preview",
+    "start:backend": "cd backend && npm start",
+    "typecheck": "cd frontend && npm run typecheck",
+    "lint": "cd frontend && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/grubtech-website"
+  },
+  "keywords": [
+    "grubtech",
+    "restaurant",
+    "pos",
+    "food-delivery"
+  ],
+  "author": "Grubtech",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": ">=9.0.0"
+  }
+}

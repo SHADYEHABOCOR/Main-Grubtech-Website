@@ -1,0 +1,2083 @@
+{
+  "header": {
+    "logo": "Grubtech",
+    "home": "Inicio",
+    "solutions": "Soluciones",
+    "restaurants": "Restaurantes",
+    "integrations": "Integraciones",
+    "resources": "Recursos",
+    "company": "Empresa",
+    "letsTalk": "Hablemos"
+  },
+  "homepage": {
+    "hero": {
+      "headline": "Los restaurantes inteligentes funcionan con Grubtech",
+      "headlinePart1": "Un sistema gestiona",
+      "headlinePart2": "tu restaurante completo.",
+      "subheading": "Conectamos los sistemas de tu restaurante - desde pedidos en línea hasta TPV y entregas - para que todo funcione mejor, más rápido e inteligente.",
+      "primaryCTA": "Hablemos",
+      "secondaryCTA": "Saber Más",
+      "connect": "Conectar",
+      "deliver": "Entregar",
+      "optimize": "Optimizar",
+      "posSystems": "Sistemas TPV",
+      "deliveryApps": "Apps de Entrega",
+      "activeSync": "Sincronización Activa",
+      "live": "En Vivo",
+      "dashboard": {
+        "connect": "CONECTAR",
+        "performance": "Rendimiento",
+        "syncProgress": "Progreso de Sincronización",
+        "orders": "Pedidos",
+        "revenue": "Ingresos",
+        "efficiency": "Eficiencia"
+      },
+      "activeOrders": "Pedidos Activos",
+      "completedToday": "Completados Hoy",
+      "efficiency": "Eficiencia",
+      "revenue": "Ingresos",
+      "allSystemsOperational": "Todos los Sistemas Operativos",
+      "realTimeSyncActive": "Sincronización en Tiempo Real Activa",
+      "uptimeStatus": "99.9% de Tiempo de Actividad"
+    },
+    "stats": {
+      "restaurants": "10,000+",
+      "restaurantsLabel": "Restaurantes",
+      "restaurantsDescription": "Activos globalmente",
+      "coverage": "50+",
+      "coverageLabel": "Cobertura",
+      "coverageDescription": "Países en todo el mundo",
+      "deliveryTime": "15min",
+      "deliveryLabel": "Entrega",
+      "deliveryDescription": "Tiempo promedio",
+      "satisfaction": "99%",
+      "satisfactionLabel": "Satisfacción",
+      "satisfactionDescription": "Calificación del cliente",
+      "uptime": "99.9%",
+      "uptimeLabel": "Tiempo de Actividad Garantizado",
+      "uptimeDescription": "Siempre disponible cuando lo necesitas",
+      "orders": "100M+",
+      "ordersLabel": "Pedidos Procesados",
+      "ordersDescription": "Potenciando millones de transacciones",
+      "partners": "250+",
+      "partnersLabel": "Socios de Integración",
+      "partnersDescription": "Conéctate con todas tus herramientas"
+    },
+    "partners": {
+      "title": "IMPULSANDO MÁS DE 10K RESTAURANTES GLOBALMENTE"
+    },
+    "solutions": {
+      "title": "Nuestras",
+      "titleHighlight": "Soluciones",
+      "subtitle": "Herramientas potentes diseñadas para optimizar cada aspecto de las operaciones de tu restaurante — desde pedidos hasta entregas."
+    },
+    "seo": {
+      "title": "Plataforma Unificada de Operaciones y Gestión de Restaurantes",
+      "description": "¡Opera, delega y gestiona todo tu restaurante sin esfuerzo! Grubtech trae todos los puntos de contacto de tu restaurante a tus manos a través de un único panel de control.",
+      "keywords": "gestión de restaurantes, operaciones de restaurantes, integración TPV, pedidos en línea, gestión de entregas, sistema de display de cocina, analítica de restaurantes, restaurante multisucursal, tecnología de servicios alimentarios"
+    },
+    "videoGallery": {
+      "title": "Mira Grubtech en Acción",
+      "subtitle": "Descubre cómo nuestra plataforma transforma las operaciones de restaurantes a través de estos recorridos de funciones."
+    },
+    "dashboard": {
+      "badge": "Panel Potente",
+      "title": "Ve Tu Negocio",
+      "titleHighlight": "de un Vistazo",
+      "subtitle": "Nuestro panel intuitivo te ofrece información en tiempo real sobre pedidos, ventas y rendimiento en todos tus canales — todo en una vista unificada.",
+      "tabs": {
+        "home": "Inicio",
+        "sales": "Ventas"
+      },
+      "sidebar": {
+        "home": "Inicio",
+        "realTimeReports": "Reportes en Tiempo Real",
+        "dashboard": "Panel",
+        "sales": "Ventas",
+        "menuPerformance": "Rendimiento del Menú",
+        "menuManagement": "Gestión de Menú",
+        "inventory": "Inventario",
+        "applications": "Aplicaciones",
+        "marketing": "Marketing",
+        "gLend": "gLend",
+        "new": "Nuevo",
+        "userManagement": "Gestión de Usuarios",
+        "accountSettings": "Configuración de Cuenta"
+      },
+      "home": {
+        "welcome": "Bienvenido,",
+        "salesSummary": "Resumen de Ventas",
+        "today": "Hoy",
+        "filter": "Filtrar",
+        "numberOfOrders": "Número de Pedidos",
+        "netSales": "Ventas Netas",
+        "vat": "IVA",
+        "discounts": "Descuentos",
+        "orderDistribution": "Distribución de Pedidos",
+        "ordersByChannel": "Pedidos por canal hoy",
+        "recentOrders": "Pedidos Recientes",
+        "completed": "Completado",
+        "preparing": "Preparando",
+        "inTransit": "En Tránsito"
+      },
+      "sales": {
+        "title": "Ventas",
+        "lastDays": "Últimos 7 Días",
+        "grossSales": "Ventas Brutas",
+        "currentPeriod": "Período Actual",
+        "previousPeriod": "Período Anterior",
+        "salesSummary": "Resumen de Ventas",
+        "download": "Descargar",
+        "date": "Fecha",
+        "orders": "Pedidos",
+        "discounts": "Descuentos",
+        "netSales": "Ventas Netas",
+        "avg": "Promedio"
+      },
+      "tutorial": {
+        "home": {
+          "welcome": "¡Bienvenido de nuevo! Aquí está tu resumen diario.",
+          "dateFilter": "Filtra tus ventas por Hoy, Semana o Mes.",
+          "ordersTrack": "Rastrea el total de pedidos procesados hoy.",
+          "netSalesMonitor": "Monitorea las Ventas Netas en tiempo real.",
+          "filterExport": "Exporta datos o aplica filtros.",
+          "chartTitle": "Ve la distribución de pedidos en todos los canales.",
+          "chartBar": "¡Los pedidos de recogida lideran hoy!"
+        },
+        "sales": {
+          "sidebarItem": "Accede a Reportes en Tiempo Real desde la barra lateral.",
+          "tabs": "Cambia entre Vista General, Marcas o Ubicaciones.",
+          "metricDropdown": "Selecciona diferentes métricas para visualizar.",
+          "chart": "Compara tendencias del período actual vs anterior.",
+          "downloadBtn": "Descarga reportes CSV al instante.",
+          "table": "Desglose detallado por fecha."
+        }
+      },
+      "features": [
+        { "title": "Actualizaciones en Tiempo Real", "description": "Ve los datos de pedidos y ventas actualizarse en vivo mientras ocurren las transacciones en todos los canales." },
+        { "title": "Analíticas Inteligentes", "description": "Insights impulsados por IA te ayudan a identificar tendencias y optimizar tus operaciones." },
+        { "title": "Vista Multi-Canal", "description": "Vista unificada de todas las plataformas de entrega, pedidos en local y recogida en un solo lugar." },
+        { "title": "Alertas Instantáneas", "description": "Recibe notificaciones sobre eventos importantes como inventario bajo o patrones inusuales." }
+      ]
+    },
+    "testimonials": {
+      "badge": "Testimonios",
+      "title": "Lo Que Dicen",
+      "titleHighlight": "Nuestros Clientes",
+      "subtitle": "Confiado por restaurantes líderes en todo el mundo para optimizar operaciones e impulsar el crecimiento."
+    }
+  },
+  "hero": {
+    "headline": "Sistema Operativo para Restaurantes de Marcas Globales e Independientes",
+    "subheading": "Gestión unificada de pedidos, inventario, entregas y datos desde una única plataforma",
+    "scheduleCTA": "Agendar Demo",
+    "watchCTA": "Ver Demo"
+  },
+  "problems": {
+    "title": "Desafíos que Resolvemos",
+    "cards": [
+      {
+        "title": "Operaciones Fragmentadas",
+        "description": "Múltiples sistemas en TPV, entregas, inventario. Una plataforma unificada."
+      },
+      {
+        "title": "Sin Datos en Tiempo Real",
+        "description": "Información retrasada lleva a malas decisiones. Análisis en vivo, visibilidad instantánea."
+      },
+      {
+        "title": "Problemas de Experiencia del Cliente",
+        "description": "Pedidos lentos, errores, mal servicio. Grubtech optimiza todo el recorrido."
+      },
+      {
+        "title": "Caos en las Entregas",
+        "description": "Cumplimiento no integrado. Despacho y seguimiento fluido en todos los canales."
+      }
+    ]
+  },
+  "solutions": {
+    "common": {
+      "whyChoose": "Por Qué Elegir",
+      "transformYourDelivery": "Transforme Sus Operaciones de Entrega"
+    },
+    "gOnline": {
+      "title": "gOnline",
+      "heroTitle": "Un solo lugar para gestionar todos tus pedidos en línea",
+      "tagline": "Un solo lugar para gestionar todos tus pedidos en línea.",
+      "heroSubtitle": "Centraliza plataformas de delivery, integraciones POS y menús — y mantén cada pedido fluyendo sin problemas.",
+      "description": "Canales conectados. Flujos de trabajo más inteligentes. Todo lo que tu negocio necesita. Una plataforma.",
+      "madeFor": "Diseñado para equipos ocupados, horas pico y cero margen de error.",
+      "whatIs": {
+        "title": "¿Qué es gOnline?",
+        "description": "gOnline conecta tu restaurante con plataformas de delivery y sistemas POS, automatiza los flujos de trabajo de pedidos y te proporciona un panel único para gestionar pedidos en línea, menús y rendimiento."
+      },
+      "whyChoose": {
+        "title": "Por qué los restaurantes eligen gOnline",
+        "benefits": [
+          {
+            "title": "Conecta plataformas de delivery y sistemas POS",
+            "description": "Deja de saltar entre tablets. gOnline se integra con los principales agregadores de comida, software POS y aplicaciones de terceros — para que todo permanezca conectado.",
+            "features": [
+              "Integración perfecta con agregadores y POS",
+              "Conectividad de apps de terceros",
+              "Sincronización de menú en tiempo real entre plataformas",
+              "Flujo de pedidos automatizado (sin entrada manual)"
+            ]
+          },
+          {
+            "title": "Gestiona cada pedido desde una sola pantalla",
+            "description": "Ve lo que está pasando en tiempo real — y mantén los pedidos fluyendo sin caos.",
+            "features": [
+              "Panel de gestión de pedidos centralizado",
+              "Enrutamiento automático de pedidos a cocina",
+              "Seguimiento en vivo de pedidos y despachos",
+              "Gestión de horarios de servicio y disponibilidad"
+            ]
+          },
+          {
+            "title": "Mantén los menús precisos en todas partes",
+            "description": "Actualiza una vez. Mantén la consistencia en las plataformas de delivery — incluso entre marcas y ubicaciones.",
+            "features": [
+              "Control de menú unificado y modificaciones instantáneas",
+              "Precios dinámicos y promociones",
+              "Soporte de menú multi-marca",
+              "Etiquetas de personalización y modificadores de artículos"
+            ]
+          },
+          {
+            "title": "Mejora las operaciones de delivery",
+            "description": "Rastrea el cumplimiento y rendimiento entre plataformas — para reducir retrasos y proteger la calidad del servicio.",
+            "features": [
+              "Actualizaciones de estado de pedidos en tiempo real",
+              "Seguimiento y monitoreo de tiempos de entrega",
+              "Visibilidad operativa desde preparación hasta entrega",
+              "Insights de rendimiento entre canales"
+            ]
+          },
+          {
+            "title": "Comprende el rendimiento (y previene cancelaciones)",
+            "description": "Conoce qué se vende, qué te ralentiza y qué se cancela — con reportes que realmente puedes usar.",
+            "features": [
+              "Analíticas de ventas y menú",
+              "Reportes de cancelación de pedidos con marcas de tiempo",
+              "Reportes en vivo y monitoreo de rendimiento",
+              "Patrones de pedidos estacionales y en horas pico"
+            ]
+          }
+        ]
+      },
+      "comparison": {
+        "title": "gOnline vs flujos de trabajo manuales",
+        "subtitle": "Deja de gestionar tablets. Empieza a gestionar tu negocio.",
+        "manual": [
+          "Pedidos dispersos en múltiples tablets",
+          "Actualizaciones de menú plataforma por plataforma",
+          "Enrutamiento manual de pedidos y tickets perdidos",
+          "Visibilidad limitada sobre cancelaciones",
+          "Difícil rastrear rendimiento entre canales"
+        ],
+        "withGOnline": [
+          "Todos los pedidos en un panel",
+          "Actualiza una vez, sincroniza en todas partes",
+          "Flujo de pedidos automatizado a cocina",
+          "Reportes de cancelación + marcas de tiempo",
+          "Analíticas e insights en tiempo real"
+        ]
+      },
+      "features": [
+        "Un panel. Sin cambiar entre apps.",
+        "Sincronización instantánea del menú",
+        "Automatización integrada",
+        "Funciona con tu tecnología actual"
+      ],
+      "cta": "Empezar con gOnline",
+      "ctaSection": {
+        "title": "Pedidos en línea. Completamente bajo control.",
+        "description": "Centraliza plataformas, menús e integraciones POS — y mantén cada pedido fluyendo sin problemas."
+      },
+      "buttons": {
+        "scheduleDemo": "Programar Demo",
+        "downloadBrochure": "Descargar Folleto",
+        "getStartedToday": "Empezar Hoy"
+      },
+      "perfectFor": {
+        "title": "Perfecto Para",
+        "items": [
+          "Restaurantes de servicio completo",
+          "Restaurantes de servicio rápido (QSR)",
+          "Restaurantes casual rápido",
+          "Cadenas de múltiples ubicaciones",
+          "Operaciones de franquicia",
+          "Patios de comida"
+        ]
+      },
+      "benefits": [
+        {
+          "title": "Aumentar Ingresos",
+          "description": "Impulsa los pedidos en línea un 40% con una experiencia de pedido digital optimizada"
+        },
+        {
+          "title": "Reducir Errores",
+          "description": "Elimina errores de pedidos con integración automática de cocina"
+        },
+        {
+          "title": "Ahorrar Tiempo",
+          "description": "Automatiza operaciones y reduce el trabajo manual en un 60%"
+        },
+        {
+          "title": "Mejores Insights",
+          "description": "Toma decisiones basadas en datos con analíticas en tiempo real"
+        }
+      ]
+    },
+    "gOnlineLite": {
+      "title": "gOnline Lite",
+      "heroTitle": "Actívate rápido. Recibe pedidos en línea hoy.",
+      "tagline": "Sin integraciones. Sin esperas. Solo empieza a recibir pedidos.",
+      "badge": "Configuración Rápida",
+      "heroSubtitle": "gOnline Lite ofrece a los restaurantes de una sola ubicación un panel para pedidos y menús — sin integración POS y configuración en menos de 30 minutos.",
+      "description": "Todo lo esencial para empezar a gestionar pedidos en línea — rápido de configurar y fácil de operar. Diseñado para restaurantes de una sola ubicación en línea.",
+      "madeFor": "Sin integración POS. Sin complejidad. Solo pedidos funcionando.",
+      "whatIs": {
+        "title": "¿Qué es gOnline Lite?",
+        "description": "gOnline Lite te proporciona todo lo que necesitas para gestionar pedidos en línea, menús y reportes — sin integración POS. Es la forma más rápida de comenzar y mantener el control desde el primer día."
+      },
+      "whyChoose": {
+        "title": "¿Por qué elegir gOnline Lite?",
+        "benefits": [
+          {
+            "title": "Configúrate en menos de 30 minutos",
+            "description": "Evita los proyectos de TI. Empieza a recibir pedidos rápidamente.",
+            "features": [
+              "Incorporación rápida sin configuración técnica",
+              "Sin necesidad de integración POS",
+              "Actívate sin tiempo de inactividad",
+              "Configuración simple que tu equipo puede manejar"
+            ]
+          },
+          {
+            "title": "Gestiona cada pedido desde un panel",
+            "description": "Sin más saltar entre apps. Solo una vista limpia de cada pedido.",
+            "features": [
+              "Consolida pedidos de recogida y delivery en un solo lugar",
+              "Seguimiento en vivo de pedidos y actualizaciones de estado",
+              "Flujo de pedidos automatizado para reducir errores",
+              "Operaciones diarias fluidas"
+            ]
+          },
+          {
+            "title": "Mantén los menús actualizados en todas partes",
+            "description": "Actualiza una vez. Mantente preciso en todos los canales.",
+            "features": [
+              "Actualizaciones de menú en tiempo real",
+              "Cambios instantáneos de artículos y precios",
+              "Reduce errores de menú y problemas de agotamiento",
+              "Menús consistentes en plataformas de delivery"
+            ]
+          },
+          {
+            "title": "Obtén insights que te ayudan a mejorar",
+            "description": "Conoce qué se vende, cuándo estás más ocupado y dónde optimizar.",
+            "features": [
+              "Analíticas de ventas y menú",
+              "Patrones de pedidos de clientes",
+              "Reportes en tiempo real",
+              "Instantáneas de rendimiento claras (sin hojas de cálculo)"
+            ]
+          }
+        ]
+      },
+      "features": [
+        "Activo en minutos",
+        "Sin necesidad de integración POS",
+        "Configuración en 30 minutos",
+        "Fácil actualización a gOnline completo"
+      ],
+      "cta": "Actívate rápido",
+      "ctaSection": {
+        "title": "Empieza a recibir pedidos en línea de la manera fácil.",
+        "description": "Empieza a recibir pedidos hoy."
+      },
+      "buttons": {
+        "startFreeTrial": "Comenzar",
+        "comparePlans": "Ver Lite vs Completo"
+      },
+      "benefits": [
+        {
+          "title": "Configúrate en menos de 30 minutos",
+          "description": "Evita los proyectos de TI. Empieza a recibir pedidos rápidamente."
+        },
+        {
+          "title": "Gestiona cada pedido desde un panel",
+          "description": "Sin más saltar entre apps. Solo una vista limpia de cada pedido."
+        },
+        {
+          "title": "Mantén los menús actualizados en todas partes",
+          "description": "Actualiza una vez. Mantente preciso en todos los canales."
+        },
+        {
+          "title": "Obtén insights que te ayudan a mejorar",
+          "description": "Conoce qué se vende, cuándo estás más ocupado y dónde optimizar."
+        }
+      ],
+      "comparison": {
+        "title": "Lite vs gOnline Completo",
+        "subtitle": "Comienza con Lite. Actualiza cuando estés listo.",
+        "description": "Lite te da lo esencial para gestionar pedidos en línea hoy — y gOnline completo está ahí cuando necesites analíticas avanzadas, integraciones personalizadas y operaciones multi-ubicación.",
+        "tableHeaders": {
+          "feature": "Característica",
+          "lite": "gOnline Lite",
+          "full": "gOnline"
+        },
+        "features": [
+          "Gestión de pedidos multiplataforma",
+          "Gestión de menú",
+          "Informes básicos",
+          "Panel móvil",
+          "Analíticas avanzadas",
+          "Programas de lealtad",
+          "Soporte multisitio",
+          "Integraciones personalizadas"
+        ]
+      },
+      "perfectFor": {
+        "title": "Perfecto Para",
+        "items": [
+          "Restaurantes de una sola ubicación",
+          "Nuevas configuraciones de pedidos en línea",
+          "Restaurantes sin integración POS",
+          "Equipos que quieren velocidad y simplicidad"
+        ]
+      }
+    },
+    "gKDS": {
+      "title": "gKDS",
+      "heroTitle": "Mantén la cocina en movimiento. En tiempo real.",
+      "tagline": "Control en tiempo real para cocinas ocupadas.",
+      "description": "Un sistema de display de cocina (KDS) que reemplaza los tickets de papel, dirige los pedidos automáticamente y mantiene cada estación sincronizada — para que el servicio sea rápido y preciso.",
+      "madeFor": "Cada ticket. Cada estación. Sincronizados.",
+      "whatIs": {
+        "title": "¿Qué es gKDS?",
+        "description": "gKDS es un sistema de gestión de cocina en tiempo real que muestra pedidos digitalmente, asigna tickets a las estaciones correctas y mantiene tu cocina alineada desde la preparación hasta el emplatado."
+      },
+      "whyChoose": {
+        "title": "Por qué las cocinas eligen gKDS",
+        "benefits": [
+          {
+            "title": "Reemplaza los tickets de papel con pantallas de cocina en vivo",
+            "description": "Opera cada turno con claridad — y deja de perder pedidos en el ajetreo.",
+            "features": [
+              "Display digital interactivo de pedidos para cada estación",
+              "Actualizaciones y cancelaciones de pedidos en tiempo real",
+              "Priorización clara para una preparación más rápida",
+              "Menos caos durante las horas pico"
+            ]
+          },
+          {
+            "title": "Enrutamiento inteligente de pedidos, directo desde tu POS",
+            "description": "Mantén el frente y la cocina perfectamente alineados.",
+            "features": [
+              "Integración directa con POS",
+              "Pedidos automáticamente dirigidos a las estaciones correctas",
+              "Displays específicos por estación para preparación organizada",
+              "Entrega más rápida y servicio más fluido"
+            ]
+          },
+          {
+            "title": "Gestión automatizada de tickets que reduce errores",
+            "description": "Sin artículos perdidos. Sin lecturas erróneas. Sin confusión.",
+            "features": [
+              "Creación y seguimiento automatizado de tickets",
+              "Integración de barra de golpe para completar rápidamente",
+              "Prioridades codificadas por colores para velocidad y precisión",
+              "Menos errores y menos desperdicio de comida"
+            ]
+          },
+          {
+            "title": "Seguimiento del tiempo de preparación y visibilidad del rendimiento",
+            "description": "Conoce qué te ralentiza — y corrígelo rápido.",
+            "features": [
+              "Seguimiento del tiempo de preparación por estación",
+              "Monitoreo de rendimiento entre turnos",
+              "Insights operativos para mejorar el rendimiento",
+              "Mejor control sobre la productividad de la cocina"
+            ]
+          }
+        ]
+      },
+      "features": [
+        "Visualización de pedidos en tiempo real",
+        "Gestión automática de tickets",
+        "Displays específicos por estación",
+        "Prioridades codificadas por colores",
+        "Seguimiento del tiempo de preparación",
+        "Integración de barra de golpe"
+      ],
+      "cta": "Opera mi cocina de forma más inteligente",
+      "ctaSection": {
+        "title": "Haz que cada estación sea más rápida — sin añadir presión.",
+        "description": "gKDS mantiene tu cocina alineada, tus tickets digitales y tu servicio a tiempo."
+      },
+      "buttons": {
+        "scheduleDemo": "Programar una demo",
+        "watchVideo": "Ver gKDS+",
+        "requestDemo": "Solicitar Demo"
+      },
+      "gkdsPlus": {
+        "title": "gKDS+ (para Cocinas Virtuales)",
+        "description": "Diseñado para cocinas virtuales — con o sin POS.",
+        "subtitle": "gKDS+ dirige cada artículo a la estación correcta, mantiene la preparación multi-marca organizada y te ayuda a operar una cocina fantasma sin problemas desde un solo sistema.",
+        "features": [
+          "Flujo de trabajo KDS todo en uno para cocinas virtuales",
+          "Enrutamiento de estaciones para pedidos complejos de múltiples artículos",
+          "Sin necesidad de POS",
+          "Ensamblaje más rápido con menos errores"
+        ]
+      },
+      "metrics": [
+        {
+          "value": "Más Rápido",
+          "label": "Servicio"
+        },
+        {
+          "value": "Menos",
+          "label": "Errores"
+        },
+        {
+          "value": "Mayor",
+          "label": "Rendimiento"
+        }
+      ]
+    },
+    "gDispatch": {
+      "title": "gDispatch",
+      "heroTitle": "Deja de perseguir repartidores. Empieza a controlar entregas.",
+      "tagline": "Control más inteligente sobre cada entrega.",
+      "badge": "Gestión de Entregas",
+      "heroSubtitle": "gDispatch automatiza la asignación, optimiza rutas y te da visibilidad en vivo desde la recogida hasta la entrega.",
+      "madeFor": "Controla la última milla.",
+      "description": "gDispatch automatiza la asignación de entregas, optimiza rutas y rastrea conductores en tiempo real. Obtienes visibilidad y control total desde la recogida hasta la entrega — para que cada pedido llegue a tiempo.",
+      "whatIs": {
+        "title": "¿Qué es gDispatch?",
+        "description": "gDispatch ayuda a los restaurantes a gestionar la última milla con asignación automática de conductores, seguimiento en vivo y optimización de rutas — ya sea que operes tu propia flota, uses conductores de terceros o ambos."
+      },
+      "whyChoose": {
+        "title": "Por qué los restaurantes eligen gDispatch",
+        "benefits": [
+          {
+            "title": "Despacho automatizado que mantiene los pedidos en movimiento",
+            "description": "Asigna conductores instantáneamente y reduce retrasos — sin coordinación manual.",
+            "features": [
+              "Asignación inteligente de pedidos",
+              "Flujos de despacho automatizados",
+              "Coincidencia instantánea de conductores",
+              "Entrega fluida de conductor a cocina"
+            ]
+          },
+          {
+            "title": "Seguimiento de conductores en tiempo real y monitoreo de entregas en vivo",
+            "description": "Sabe dónde está cada conductor — y qué está pasando con cada pedido.",
+            "features": [
+              "Seguimiento de conductores en tiempo real",
+              "Monitoreo de pedidos en vivo",
+              "Actualizaciones de estado de pedidos a lo largo del ciclo de entrega",
+              "Registros de marcas de tiempo para total responsabilidad"
+            ]
+          },
+          {
+            "title": "Rutas más inteligentes. Entregas más rápidas.",
+            "description": "Optimiza la planificación de rutas automáticamente y mantén los ETAs precisos.",
+            "features": [
+              "Optimización de rutas en tiempo real",
+              "Asignación inteligente de rutas para múltiples pedidos",
+              "Mejor rendimiento en tiempos de entrega",
+              "Mayor consistencia de entrega durante horas pico"
+            ]
+          },
+          {
+            "title": "Funciona con servicios de flota de terceros",
+            "description": "Conéctate con socios de entrega y proveedores de flota sin cambiar de herramientas.",
+            "features": [
+              "Conéctate con plataformas de entrega de terceros",
+              "Una vista de todos los proveedores de entrega",
+              "Reduce el malabarismo de tablets y ruido operativo",
+              "Coordinación fluida entre opciones de cumplimiento"
+            ]
+          },
+          {
+            "title": "Insights de entrega que impulsan el rendimiento",
+            "description": "Rastrea qué funciona — y corrige lo que te ralentiza.",
+            "features": [
+              "Paneles de analíticas y reportes",
+              "Visibilidad del rendimiento de conductores",
+              "Seguimiento de retroalimentación y calificaciones",
+              "Insights operativos para mejor cumplimiento"
+            ]
+          }
+        ]
+      },
+      "comparison": {
+        "title": "Tus entregas, bajo tus términos.",
+        "manual": [
+          "Pedidos asignados manualmente, a menudo tarde",
+          "Conductores rastreados en múltiples apps",
+          "Rutas planificadas sobre la marcha",
+          "Llamadas y verificaciones constantes",
+          "Sin responsabilidad cuando algo sale mal",
+          "Difícil mejorar el rendimiento"
+        ],
+        "withGDispatch": [
+          "Asignación automática de conductor en segundos",
+          "Una vista en vivo de conductores y pedidos",
+          "Optimización de rutas en tiempo real",
+          "Estado de pedido en vivo + actualizaciones",
+          "Registros de marcas de tiempo para cada paso",
+          "Analíticas, retroalimentación y reportes integrados"
+        ]
+      },
+      "features": [
+        "Optimización inteligente de rutas",
+        "Despacho automatizado",
+        "Seguimiento de conductores en tiempo real",
+        "Registros de marcas de tiempo"
+      ],
+      "cta": "Despacha de forma más inteligente",
+      "ctaSection": {
+        "title": "Deja de perseguir entregas. Empieza a controlarlas.",
+        "description": "gDispatch te da visibilidad en vivo, enrutamiento inteligente y despacho automatizado — desde la recogida hasta la entrega."
+      },
+      "buttons": {
+        "scheduleDemo": "Programar Demo",
+        "watchVideo": "Ver Video",
+        "seeHowItWorks": "Ver Cómo Funciona"
+      },
+      "stats": [
+        {
+          "value": "30%",
+          "label": "Entregas Más Rápidas"
+        },
+        {
+          "value": "25%",
+          "label": "Reducción de Costos"
+        },
+        {
+          "value": "99%",
+          "label": "Tasa de Puntualidad"
+        },
+        {
+          "value": "4.8/5",
+          "label": "Calificación de Clientes"
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Entregas Más Rápidas",
+          "description": "Reduce el tiempo de entrega hasta un 30% con enrutamiento inteligente"
+        },
+        {
+          "title": "Costos Más Bajos",
+          "description": "Optimiza rutas para reducir combustible y costos operativos"
+        },
+        {
+          "title": "Clientes Felices",
+          "description": "El seguimiento en tiempo real y ETAs precisos mejoran la satisfacción"
+        },
+        {
+          "title": "Mejor Control",
+          "description": "Visibilidad y control completos sobre tu flota"
+        }
+      ],
+      "perfectFor": {
+        "title": "Perfecto Para",
+        "items": [
+          "Gestión de flota propia",
+          "Coordinación de conductores de terceros",
+          "Modelos de entrega híbridos",
+          "Despacho de múltiples ubicaciones",
+          "Entregas de cocinas oscuras",
+          "Pedidos de catering y grandes volúmenes"
+        ]
+      }
+    },
+    "gData": {
+      "title": "gData",
+      "heroTitle": "Convierte los datos de tu restaurante en decisiones.",
+      "tagline": "Toma decisiones más inteligentes, más rápido.",
+      "badge": "Inteligencia de Negocios",
+      "heroSubtitle": "Analíticas y reportes avanzados para restaurantes que centralizan tus datos operativos en paneles, informes programados y exportaciones listas para BI — para que puedas ver qué está pasando y actuar rápido.",
+      "madeFor": "Menos suposiciones. Más control.",
+      "description": "gData centraliza todos tus datos operativos en paneles e informes claros — para que puedas ver qué funciona, detectar problemas temprano y tomar mejores decisiones cada día.",
+      "whatIs": {
+        "title": "¿Qué es gData?",
+        "description": "gData centraliza los datos de tu restaurante entre sistemas y ubicaciones, luego los convierte en reportes e insights claros — desde ventas y rendimiento del menú hasta operaciones y tendencias de clientes."
+      },
+      "whyChoose": {
+        "title": "Por qué los restaurantes eligen gData",
+        "benefits": [
+          {
+            "title": "Todos tus datos en un solo lugar",
+            "description": "Deja de buscar en reportes. Obtén una vista clara del rendimiento entre canales y ubicaciones.",
+            "features": [
+              "Centraliza datos entre sistemas y ubicaciones",
+              "Paneles prediseñados para visibilidad rápida",
+              "Control de acceso basado en roles para equipos",
+              "Informes programados automatizados (diarios, semanales, mensuales)"
+            ]
+          },
+          {
+            "title": "Datos estructurados, listos para BI — al instante",
+            "description": "Usa tus herramientas BI existentes sin exportaciones desordenadas ni limpieza manual.",
+            "features": [
+              "Paquete completo de datos estructurados",
+              "Listo para Tableau, Power BI y más",
+              "Formato de reportes consistente y limpio",
+              "Análisis fácil para equipos de finanzas y operaciones"
+            ]
+          },
+          {
+            "title": "Toma decisiones más inteligentes, más rápido",
+            "description": "Detecta problemas temprano, comprende patrones y mejora el rendimiento sin suposiciones.",
+            "features": [
+              "Insights de rendimiento del menú y rentabilidad de artículos",
+              "Análisis de patrones de pedidos por canal y tiempo",
+              "Visibilidad del rendimiento del personal",
+              "Reportes listos para empresas y cumplimiento"
+            ]
+          },
+          {
+            "title": "Diseñado para visibilidad multi-ubicación",
+            "description": "Rastrea el rendimiento entre sucursales y franquiciados — sin perder detalle.",
+            "features": [
+              "Reportes y comparaciones entre ubicaciones",
+              "Seguimiento sin esfuerzo de franquiciados",
+              "Visibilidad multi-mercado con reportes consistentes",
+              "Una vista de qué funciona (y dónde)"
+            ]
+          }
+        ]
+      },
+      "whatYouCanDo": {
+        "title": "Qué puedes hacer con gData",
+        "subtitle": "Convierte datos en crecimiento — sin hojas de cálculo",
+        "items": [
+          {
+            "title": "Tomar mejores decisiones",
+            "description": "Insights en tiempo real para operaciones, finanzas y liderazgo"
+          },
+          {
+            "title": "Aumentar ingresos",
+            "description": "Encuentra oportunidades de precios y menú más rápido"
+          },
+          {
+            "title": "Reducir desperdicio",
+            "description": "Detecta ineficiencias y brechas de rendimiento temprano"
+          },
+          {
+            "title": "Entender a los clientes",
+            "description": "Rastrea comportamiento, retención y patrones de pedidos"
+          }
+        ]
+      },
+      "features": [
+        "Paneles prediseñados y personalizados",
+        "Informes programados automatizados",
+        "Control de acceso basado en roles",
+        "Seguimiento del rendimiento del personal",
+        "Insights del menú y patrones de pedidos"
+      ],
+      "cta": "Convierte datos en decisiones",
+      "ctaSection": {
+        "title": "Conoce qué funciona — y corrige lo que no.",
+        "description": "gData te da una única fuente de verdad para el rendimiento del restaurante, para que puedas tomar decisiones más inteligentes con confianza."
+      },
+      "buttons": {
+        "scheduleDemo": "Ver gData en acción",
+        "viewSampleReports": "Ver Informes de Muestra",
+        "viewSampleDashboard": "Ver Panel de Muestra"
+      },
+      "stats": [
+        {
+          "value": "50+",
+          "label": "Informes Prediseñados"
+        },
+        {
+          "value": "100%",
+          "label": "Personalizable"
+        },
+        {
+          "value": "24/7",
+          "label": "Acceso desde Cualquier Lugar"
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Decisiones Basadas en Datos",
+          "description": "Toma decisiones informadas basadas en insights en tiempo real"
+        },
+        {
+          "title": "Aumentar Ingresos",
+          "description": "Identifica oportunidades para optimizar precios y menú"
+        },
+        {
+          "title": "Reducir Desperdicio",
+          "description": "Rastrea y minimiza el desperdicio de alimentos con insights de inventario"
+        },
+        {
+          "title": "Comprender Clientes",
+          "description": "Insights profundos sobre preferencias y comportamiento del cliente"
+        }
+      ],
+      "reportsSection": {
+        "title": "Suite de reportes",
+        "subtitle": "Reportes prediseñados + paneles personalizados",
+        "description": "Obtén visibilidad rápida con paneles listos — y construye vistas personalizadas cuando las necesites.",
+        "includes": "Incluye: Constructor de reportes personalizado, Reportes programados automatizados, Control de acceso basado en roles",
+        "categoriesTitle": "Categorías de reportes",
+        "categoriesSubtitle": "Todo lo que necesitas para operar de forma más inteligente",
+        "categories": [
+          {
+            "category": "Ventas e Ingresos",
+            "items": [
+              "Resumen de ventas diarias",
+              "Ingresos por canal",
+              "Análisis de horas pico",
+              "Tendencias de ventas comparativas"
+            ]
+          },
+          {
+            "category": "Rendimiento del Menú",
+            "items": [
+              "Artículos más vendidos",
+              "Rentabilidad por artículo",
+              "Matriz de ingeniería de menú",
+              "Tendencias estacionales"
+            ]
+          },
+          {
+            "category": "Operaciones",
+            "items": [
+              "Tiempos de cumplimiento de pedidos",
+              "Eficiencia de cocina",
+              "Rendimiento del personal",
+              "Métricas de entrega"
+            ]
+          },
+          {
+            "category": "Insights de Clientes",
+            "items": [
+              "Valor de vida del cliente",
+              "Patrones de pedido",
+              "Análisis de retención",
+              "Tendencias de comentarios"
+            ]
+          }
+        ]
+      },
+      "benefitsSection": {
+        "title": "Convierte Datos en Crecimiento"
+      }
+    },
+    "gPicker": {
+      "title": "gPicker",
+      "heroTitle": "Pedidos recibidos. Preparados. Empaquetados. Despachados.",
+      "tagline": "Cumplimiento, resuelto.",
+      "heroSubtitle": "gPicker centraliza cada pedido y guía al personal a través de la preparación, impresión y despacho con actualizaciones en tiempo real en todos los canales.",
+      "madeFor": "Diseñado para tiendas ocupadas.",
+      "whatIs": {
+        "title": "¿Qué es gPicker?",
+        "description": "gPicker ofrece al personal del punto de venta un solo lugar para gestionar cada pedido — desde la aceptación hasta el despacho — con actualizaciones en tiempo real y menos errores manuales."
+      },
+      "builtFor": {
+        "title": "Para quién es",
+        "subtitle": "Diseñado para:",
+        "items": [
+          "Tiendas de comestibles y supermercados",
+          "Tiendas de conveniencia",
+          "Puntos de venta de alimentos y bebidas",
+          "Dark stores",
+          "Conceptos híbridos de retail y cocina"
+        ]
+      },
+      "howItWorks": {
+        "title": "Cómo funciona",
+        "subtitle": "Un flujo más rápido para el cumplimiento",
+        "description": "Todos los pedidos llegan a un solo panel; el personal sigue un flujo de preparación guiado, imprime lo que necesita y despacha con los estados sincronizados instantáneamente.",
+        "steps": [
+          {
+            "title": "Recibir",
+            "description": "Todos los pedidos entrantes de cada agregador, POS y canal aparecen instantáneamente en una sola vista."
+          },
+          {
+            "title": "Preparar / Recoger",
+            "description": "Una vista de preparación optimizada guía al personal a través de cada pedido para confirmar artículos, anotar faltantes y mantener el cumplimiento en movimiento."
+          },
+          {
+            "title": "Imprimir",
+            "description": "Impresión Bluetooth con un solo toque para recibos de preparación, etiquetas y tickets."
+          },
+          {
+            "title": "Despachar",
+            "description": "Completa el pedido y entrégalo con confianza. Los estados se sincronizan con los agregadores y POS para una visibilidad precisa."
+          }
+        ]
+      },
+      "capabilities": {
+        "title": "Capacidades clave",
+        "items": [
+          {
+            "title": "Un panel de pedidos unificado",
+            "description": "Sin más cambiar entre tablets de agregadores.",
+            "features": [
+              "Ve los pedidos sin reclamar y en progreso de un vistazo",
+              "Soporta cestas de comestibles, comida y artículos mixtos",
+              "Actualizaciones en tiempo real para modificaciones y cancelaciones de clientes"
+            ]
+          },
+          {
+            "title": "Control de tienda en tiempo real",
+            "description": "Abre o cierra tiendas instantáneamente en todas las marcas y agregadores.",
+            "features": [
+              "Abre/cierra tiendas en tiempo real en los canales conectados",
+              "Cambio masivo: activa/desactiva todos los canales instantáneamente",
+              "Busca y filtra por marca o agregador",
+              "Permisos aplicados desde GrubCenter"
+            ]
+          },
+          {
+            "title": "Control de artículos en tiempo real",
+            "description": "Soluciona problemas de disponibilidad en segundos — sin interrumpir las operaciones.",
+            "features": [
+              "Busca artículos o modificadores y márcalos como no disponibles",
+              "Acciones masivas para múltiples artículos a la vez",
+              "Programa disponibilidad (\"No disponible hasta X hora\")",
+              "Los cambios se sincronizan instantáneamente en los menús conectados"
+            ]
+          },
+          {
+            "title": "Cumplimiento parcial",
+            "description": "Mantén los pedidos en movimiento incluso cuando faltan artículos — sin necesidad de cancelación completa.",
+            "features": [
+              "Marca los artículos faltantes como no disponibles instantáneamente",
+              "Confirma los artículos disponibles",
+              "Envía cantidades actualizadas directamente al agregador",
+              "El pedido continúa sin problemas con solo los ajustes necesarios"
+            ]
+          },
+          {
+            "title": "Flujo de trabajo de sustitución inteligente",
+            "description": "Maneja las variaciones de stock sin ralentizar el cumplimiento.",
+            "features": [
+              "Alternativas sugeridas basadas en la configuración del catálogo",
+              "El personal selecciona artículos sustitutos aprobados",
+              "Las actualizaciones se sincronizan con los agregadores en tiempo real",
+              "Reduce cancelaciones y mantiene a los clientes satisfechos"
+            ]
+          },
+          {
+            "title": "Sincronización con POS",
+            "description": "Entregas más limpias. Menos errores. Mayor precisión.",
+            "features": [
+              "Los pedidos fluyen de POS → gPicker sin demoras ni desajustes",
+              "Los cambios de artículos, actualizaciones de disponibilidad y cancelaciones se sincronizan en tiempo real"
+            ]
+          },
+          {
+            "title": "Precisión con código QR",
+            "description": "Identificación instantánea, entregas más rápidas.",
+            "features": [
+              "Código QR escaneable por pedido",
+              "Elimina la entrada manual y los números de pedido mal escritos",
+              "Acelera la entrega a sistemas POS, ERP o estaciones de empaque"
+            ]
+          },
+          {
+            "title": "Pedidos programados",
+            "description": "Prepara con anticipación sin prisas.",
+            "features": [
+              "Los pedidos programados están claramente marcados en el panel",
+              "El personal puede preparar artículos antes de la ventana de recogida/entrega",
+              "Asegura que los pedidos estén listos en el momento previsto"
+            ]
+          }
+        ]
+      },
+      "cta": "Ejecuta el cumplimiento de forma más fluida",
+      "ctaSection": {
+        "title": "Cumplimiento, resuelto.",
+        "description": "Centraliza cada pedido y mantén el cumplimiento en movimiento — desde la recepción hasta el despacho — sin cambiar de pantallas ni perder el control."
+      },
+      "buttons": {
+        "scheduleDemo": "Programar una demo",
+        "learnMore": "Saber más"
+      }
+    },
+    "common": {
+      "transformYourDelivery": "Transforma tus Operaciones de Entrega",
+      "whyChoose": "Por qué Elegir"
+    }
+  },
+  "restaurantTypes": {
+    "title": "Un sistema. Para cada configuración de restaurante.",
+    "subtitle": "Diseñado para operar ubicaciones individuales, marcas con múltiples locales y operaciones de solo delivery — sin perder el control.",
+    "description": "Diferentes operaciones necesitan diferentes niveles de control. Grubtech se adapta a cómo operas tus restaurantes.",
+    "tabs": [
+      {
+        "id": "smbs",
+        "title": "Restaurantes de Una y Varias Ubicaciones",
+        "heading": "Mantén el servicio ágil y las operaciones eficientes",
+        "description": "Simplifica las operaciones del restaurante y concéntrate en lo que importa: servir buena comida.",
+        "features": [
+          "Procesa pedidos para comer en el lugar, para llevar y entregas sin problemas",
+          "Automatiza el enrutamiento de pedidos",
+          "Comprende los hábitos de los clientes, los platos más vendidos y las horas pico con información en tiempo real"
+        ],
+        "cta": "Gestiona mi restaurante de forma más inteligente"
+      },
+      {
+        "id": "regional",
+        "title": "Cadenas Regionales",
+        "heading": "Ten todas las ubicaciones sincronizadas, sin dolores de cabeza",
+        "description": "Grubtech ayuda a las marcas regionales a actualizar menús centralmente, rastrear el rendimiento de las sucursales y evitar la sobrecarga tecnológica mientras creces.",
+        "features": [
+          "Sincronización de menú en tiempo real en todas las ubicaciones",
+          "Panel central para todos los pedidos e informes",
+          "Ve qué está funcionando (y dónde) con analíticas entre ubicaciones"
+        ],
+        "cta": "Obtén visibilidad completa"
+      },
+      {
+        "id": "global",
+        "title": "Marcas Internacionales",
+        "heading": "Operaciones locales, visibilidad global",
+        "description": "Gestiona todas tus marcas, cocinas y canales de venta desde un solo sistema, y mantén tus operaciones tan fluidas como tu servicio.",
+        "features": [
+          "Gestiona operaciones en múltiples ubicaciones",
+          "Rastrea pedidos y optimiza flujos de trabajo en tiempo real",
+          "Sincronización automática de precios, promociones y menús por mercado"
+        ],
+        "cta": "Controla operaciones globales"
+      },
+      {
+        "id": "dark-kitchens",
+        "title": "Cocinas Solo para Entregas",
+        "heading": "Haz que la entrega de múltiples marcas sea simple",
+        "description": "Grubtech ayuda a las cocinas solo para entregas a gestionar sus operaciones con adaptabilidad local.",
+        "features": [
+          "Gestiona todos los pedidos desde un solo punto de venta",
+          "Actualiza o pausa elementos del menú en tiempo real",
+          "Conéctate con las principales plataformas de entrega para un cumplimiento más rápido e inteligente"
+        ],
+        "cta": "Simplifica las operaciones de entrega"
+      }
+    ],
+    "readMore": "Leer más"
+  },
+  "personas": {
+    "smbs": {
+      "title": "Restaurantes Independientes y PYMEs",
+      "hero": {
+        "badge": "Para Restaurantes Independientes y PYMEs",
+        "headline": "Operaciones de primer nivel. Diseñadas para restaurantes independientes.",
+        "subheading": "grubtech le proporciona las herramientas para gestionar pedidos en línea, menús y flujos de trabajo de cocina como un profesional — sin necesidad de un equipo de TI ni un gran presupuesto.",
+        "primaryCTA": "Comenzar"
+      },
+      "challenges": {
+        "title": "Demasiadas tablets. Muy poco control.",
+        "subtitle": "Gestionar un restaurante ya es difícil. Una configuración incorrecta lo hace más difícil.",
+        "items": [
+          "Demasiadas tablets de delivery y pasos manuales",
+          "Menús y precios desincronizados entre plataformas",
+          "Sin visibilidad clara de lo que funciona (o lo que le cuesta)",
+          "Las horas punta se sienten caóticas — y los errores se acumulan",
+          "Las marcas grandes operan mejor porque su tecnología está conectada",
+          "Procesamiento de pedidos manual que consume tiempo"
+        ]
+      },
+      "howWeHelp": {
+        "title": "Cómo Ayudamos a Su Restaurante a Prosperar",
+        "subtitle": "Descubra cómo Grubtech hace que gestionar su restaurante sea más fácil y rentable",
+        "slides": [
+          {
+            "title": "Comience en Minutos",
+            "description": "No se requiere experiencia técnica. Nuestra interfaz intuitiva le ayuda a configurar y comenzar a gestionar pedidos de inmediato."
+          },
+          {
+            "title": "Un Panel para Todos los Pedidos",
+            "description": "Gestione pedidos de todas las plataformas de delivery en un solo lugar. Sin más malabarismos con múltiples tablets y apps."
+          },
+          {
+            "title": "Manténgase Sincronizado Automáticamente",
+            "description": "Los cambios de menú, actualizaciones de inventario y precios se sincronizan en todas las plataformas al instante. Ahorre horas de trabajo manual."
+          },
+          {
+            "title": "Crezca Sin Arruinarse",
+            "description": "Precios flexibles que escalan con su negocio. Obtenga funciones empresariales a precios para pequeñas empresas."
+          },
+          {
+            "title": "Estamos Aquí Cuando Nos Necesite",
+            "description": "Equipo de soporte dedicado disponible 24/7 para ayudarle a tener éxito. Nunca estará solo en su camino de crecimiento."
+          }
+        ]
+      },
+      "solutions": {
+        "title": "Lo que Grubtech cambia",
+        "items": [
+          {
+            "title": "Un panel para cada pedido en línea",
+            "description": "Gestione todas las plataformas de delivery desde un solo lugar — sin cambiar de app, sin pedidos perdidos."
+          },
+          {
+            "title": "Sincronización instantánea del menú en todas las plataformas",
+            "description": "Actualice una vez. Manténgase preciso en todas partes — artículos, precios, disponibilidad."
+          },
+          {
+            "title": "Enrutamiento de pedidos más inteligente",
+            "description": "Mantenga la cocina alineada y el servicio fluido — especialmente durante las horas punta."
+          },
+          {
+            "title": "Información de rendimiento en tiempo real",
+            "description": "Rastree los productos más vendidos, picos, cancelaciones y tendencias — para actuar rápidamente."
+          }
+        ]
+      },
+      "features": {
+        "title": "Todo lo que Necesita para Triunfar",
+        "subtitle": "Acceda a funciones de nivel empresarial a precios accesibles para PYMEs",
+        "items": [
+          "Gestión unificada de pedidos en todas las plataformas",
+          "Sincronización de menú en tiempo real",
+          "Enrutamiento automático de pedidos a cocina",
+          "Seguimiento de inventario simple",
+          "Datos e insights de clientes",
+          "Herramientas de marketing y promociones",
+          "App móvil para gestión en movimiento",
+          "Configuración e incorporación rápidas"
+        ]
+      },
+      "cta": {
+        "title": "Detenga el caos de las tablets",
+        "subtitle": "Confiado por operadores independientes que no tienen tiempo para el caos.",
+        "primaryCTA": "Comenzar",
+        "secondaryCTA": "Programar Demo"
+      }
+    },
+    "regional": {
+      "title": "Cadenas de Restaurantes Regionales",
+      "hero": {
+        "badge": "Para Cadenas de Restaurantes Regionales",
+        "headline": "Gestione cada ubicación como la mejor.",
+        "subheading": "grubtech proporciona a las cadenas regionales un sistema para gestionar menús, operaciones y rendimiento en cada sucursal — con visibilidad y control total.",
+        "primaryCTA": "Programar Demo",
+        "secondaryCTA": "Ver Casos de Estudio"
+      },
+      "challenges": {
+        "title": "Las operaciones multi-ubicación se complican — rápidamente.",
+        "subtitle": "Incluso con una marca sólida, la ejecución diaria falla cuando los sistemas no están conectados.",
+        "items": [
+          "El rendimiento varía entre ubicaciones",
+          "Menús, precios y promociones se desincronizan",
+          "Los informes toman demasiado tiempo (y aún faltan detalles)",
+          "Los equipos operan diferente en cada sucursal",
+          "Las actualizaciones se convierten en hojas de cálculo, llamadas y correcciones manuales",
+          "Escalar la infraestructura tecnológica"
+        ]
+      },
+      "howWeHelp": {
+        "title": "Cómo Ayudamos a las Cadenas Regionales a Escalar",
+        "subtitle": "Gestión multi-ubicación simplificada y eficiente",
+        "slides": [
+          {
+            "title": "Controle Todas las Ubicaciones desde Un Panel",
+            "description": "Gestione menús, precios, promociones y operaciones en todas sus ubicaciones desde una plataforma unificada. Sin más hojas de cálculo ni actualizaciones manuales."
+          },
+          {
+            "title": "Mantenga la Consistencia de Marca",
+            "description": "Asegúrese de que cada ubicación ofrezca la misma excelente experiencia. Estandarice operaciones mientras permite personalización específica por ubicación cuando sea necesario."
+          },
+          {
+            "title": "Escale con Confianza",
+            "description": "Crezca de 5 a más de 50 ubicaciones sin complejidad operativa. Nuestra plataforma escala perfectamente a medida que expande su presencia regional."
+          },
+          {
+            "title": "Compare y Optimice el Rendimiento",
+            "description": "Vea qué ubicaciones prosperan y cuáles necesitan atención. Las analíticas entre ubicaciones le ayudan a identificar mejores prácticas y oportunidades."
+          },
+          {
+            "title": "Diseñado para Operaciones de Franquicia",
+            "description": "Gestione franquiciados y ubicaciones corporativas con permisos e informes apropiados. Perfecto para modelos de propiedad mixta."
+          }
+        ]
+      },
+      "solutions": {
+        "title": "Esto es lo que grubtech cambia",
+        "items": [
+          {
+            "title": "Un panel para cada ubicación",
+            "description": "Monitoree operaciones y rendimiento en todas las sucursales en una vista — sin perseguir actualizaciones."
+          },
+          {
+            "title": "Menús, precios y promociones centralizados",
+            "description": "Actualice una vez, sincronice en todas partes. Mantenga la consistencia de marca mientras permite anulaciones por ubicación cuando sea necesario."
+          },
+          {
+            "title": "Analíticas entre ubicaciones para tomar acción",
+            "description": "Compare sucursales, detecte brechas temprano y replique lo que funciona — basado en datos reales."
+          },
+          {
+            "title": "Actualizaciones masivas, menos trabajo tedioso",
+            "description": "Implemente cambios en todas las ubicaciones en minutos, no en días."
+          }
+        ]
+      },
+      "features": {
+        "title": "Diseñado para el Éxito Multi-Ubicación",
+        "subtitle": "Herramientas potentes para gestionar, monitorear y hacer crecer su cadena regional",
+        "items": [
+          "Panel e informes multi-ubicación",
+          "Gestión centralizada de menús con anulaciones por ubicación",
+          "Seguimiento de inventario unificado",
+          "Promociones y precios por ubicación",
+          "Gestión de personal y permisos",
+          "Monitoreo de rendimiento en tiempo real",
+          "Herramientas de gestión de franquicias",
+          "Opciones de personalización regional",
+          "Operaciones y actualizaciones masivas",
+          "Analíticas entre ubicaciones"
+        ]
+      },
+      "cta": {
+        "title": "Vea todas las ubicaciones en una vista",
+        "subtitle": "Diseñado para operadores que necesitan control rápido.",
+        "primaryCTA": "Programar Demo",
+        "secondaryCTA": "Contactar Ventas"
+      }
+    },
+    "global": {
+      "title": "Cadenas Globales",
+      "hero": {
+        "badge": "Para Marcas de Restaurantes Globales",
+        "headline": "Operaciones globales. Ejecución local. Control total.",
+        "subheading": "grubtech proporciona a las marcas de restaurantes globales un sistema para controlar menús, operaciones, rendimiento e informes entre regiones — con la flexibilidad de adaptarse localmente.",
+        "primaryCTA": "Contactar Ventas Empresariales",
+        "secondaryCTA": "Descargar Resumen Empresarial"
+      },
+      "challenges": {
+        "title": "Complejidad Empresarial, Simplificada",
+        "subtitle": "Satisfaciendo las necesidades únicas de las marcas de restaurantes globales",
+        "items": [
+          "Gestionar operaciones en países y continentes",
+          "Soporte multi-moneda y multi-idioma",
+          "Cumplimiento de regulaciones regionales",
+          "Coordinar la cadena de suministro global",
+          "Estandarizar operaciones mientras se permite flexibilidad local",
+          "Seguridad y fiabilidad de nivel empresarial"
+        ]
+      },
+      "howWeHelp": {
+        "title": "Cómo Apoyamos la Excelencia Global",
+        "subtitle": "Soluciones empresariales diseñadas para las marcas de restaurantes líderes del mundo",
+        "slides": [
+          {
+            "title": "Opere Sin Problemas Across Continentes",
+            "description": "Gestione más de 1000 ubicaciones en todo el mundo desde una sola plataforma. Soporte multi-moneda, multi-idioma y multi-región integrado desde el primer día."
+          },
+          {
+            "title": "Seguridad de Nivel Bancario en la que Puede Confiar",
+            "description": "Certificación SOC2 e ISO con seguridad de nivel empresarial. Sus datos y operaciones están protegidos con los más altos estándares de la industria."
+          },
+          {
+            "title": "Estándares Globales, Flexibilidad Local",
+            "description": "Mantenga la consistencia de marca mientras permite personalización regional. Adapte menús, precios y operaciones a mercados locales sin comprometer el control."
+          },
+          {
+            "title": "Integración de Nivel Empresarial",
+            "description": "APIs potentes e integraciones personalizadas se conectan sin problemas con sus sistemas existentes. ERP, POS, herramientas BI — nos integramos con todo."
+          },
+          {
+            "title": "Soporte Empresarial Premium",
+            "description": "Equipo de soporte dedicado 24/7 con SLAs garantizados. Su éxito es nuestra misión, respaldado por compromisos reales y responsabilidad."
+          }
+        ]
+      },
+      "solutions": {
+        "title": "Plataforma de Nivel Empresarial",
+        "items": [
+          {
+            "title": "Escala Global",
+            "description": "Plataforma probada que soporta más de 1000 ubicaciones en todo el mundo"
+          },
+          {
+            "title": "Seguridad Empresarial",
+            "description": "Seguridad de nivel bancario con cumplimiento SOC2 e ISO"
+          },
+          {
+            "title": "Flexibilidad Local",
+            "description": "Estándares globales con personalización regional"
+          },
+          {
+            "title": "Soporte Dedicado",
+            "description": "Soporte empresarial 24/7 con equipo de cuenta dedicado"
+          }
+        ]
+      },
+      "features": {
+        "title": "Conjunto Completo de Funciones Empresariales",
+        "subtitle": "Todo lo que necesita para gestionar una marca de restaurantes global",
+        "items": [
+          "Gestión multi-ubicación global",
+          "Soporte multi-moneda y multi-idioma",
+          "Variaciones regionales de menú y precios",
+          "API e integraciones de nivel empresarial",
+          "Control de acceso avanzado basado en roles",
+          "Capacidades de marca blanca",
+          "Informes personalizados e integración BI",
+          "Garantías de SLA y compromisos de tiempo de actividad",
+          "Gestión de cadena de suministro global",
+          "Cumplimiento y rastros de auditoría",
+          "Opciones de infraestructura dedicada",
+          "Desarrollo e integraciones personalizadas"
+        ]
+      },
+      "stats": [
+        { "value": "50+", "label": "Países Atendidos" },
+        { "value": "99.9%", "label": "SLA de Tiempo de Actividad" },
+        { "value": "1000+", "label": "Ubicaciones Empresariales" },
+        { "value": "24/7", "label": "Soporte Disponible" }
+      ],
+      "cta": {
+        "title": "Las operaciones globales no tienen que sentirse complicadas.",
+        "subtitle": "Con grubtech, obtiene visibilidad, control y consistencia entre mercados — mientras los equipos locales se mantienen rápidos y efectivos.",
+        "primaryCTA": "Contactar Ventas Empresariales",
+        "secondaryCTA": "Programar Sesión Ejecutiva"
+      }
+    },
+    "darkKitchens": {
+      "title": "Cocinas Fantasma",
+      "hero": {
+        "badge": "Para Cocinas en la Nube y Cocinas Fantasma",
+        "headline": "Múltiples marcas. Una cocina. Cero caos.",
+        "subheading": "grubtech impulsa cocinas fantasma de alto volumen con un sistema para pedidos, flujo de cocina, despacho y rendimiento — para que avance más rápido, pierda menos tiempo y mantenga el control.",
+        "primaryCTA": "Iniciar Prueba Gratuita",
+        "secondaryCTA": "Ver Cómo Funciona"
+      },
+      "challenges": {
+        "title": "Desafíos de Cocinas Fantasma, Resueltos",
+        "subtitle": "Tecnología diseñada específicamente para operaciones solo de entrega",
+        "items": [
+          "Gestionar múltiples marcas virtuales desde una cocina",
+          "Optimizar operaciones solo de entrega",
+          "Alta dependencia de plataformas de entrega",
+          "Ingeniería de menú compleja para entrega",
+          "Coordinación en tiempo real con múltiples repartidores",
+          "Maximizar la capacidad y rendimiento de la cocina"
+        ]
+      },
+      "howWeHelp": {
+        "title": "Cómo Potenciamos Sus Marcas Virtuales",
+        "subtitle": "Todo lo que necesita para dominar el mercado de solo entrega",
+        "slides": [
+          {
+            "title": "Gestione Todas las Marcas Virtuales Sin Problemas",
+            "description": "Opere marcas virtuales ilimitadas desde un panel unificado. Cambie entre marcas, gestione menús y rastree el rendimiento sin esfuerzo."
+          },
+          {
+            "title": "Maximice la Eficiencia de la Cocina",
+            "description": "El agrupamiento inteligente de pedidos y enrutamiento optimiza el flujo de trabajo de su cocina. Procese más pedidos con los mismos recursos."
+          },
+          {
+            "title": "Optimice Cada Entrega",
+            "description": "El enrutamiento inteligente y la coordinación en tiempo real aseguran entregas más rápidas y clientes más satisfechos. Rastree repartidores y gestione despachos en tiempo real."
+          },
+          {
+            "title": "Ingeniería de Menú Basada en Datos",
+            "description": "Entienda qué se vende, qué no y por qué. Tome decisiones informadas para optimizar el rendimiento del menú en todas las marcas."
+          },
+          {
+            "title": "Lance Nuevas Marcas en Minutos",
+            "description": "Pruebe nuevos conceptos y expanda su portafolio de marcas virtuales sin infraestructura adicional. Escale rápido, falle rápido, tenga éxito más rápido."
+          }
+        ]
+      },
+      "solutions": {
+        "title": "Diseñado para el Éxito Virtual",
+        "items": [
+          {
+            "title": "Gestión Multimarca",
+            "description": "Opere marcas virtuales ilimitadas desde un solo panel"
+          },
+          {
+            "title": "Optimización de Entregas",
+            "description": "Enrutamiento inteligente y despacho para entregas más rápidas"
+          },
+          {
+            "title": "Eficiencia de Cocina",
+            "description": "Maximice la producción con agrupamiento inteligente de pedidos"
+          },
+          {
+            "title": "Analítica de Datos",
+            "description": "Insights profundos para optimizar menú y operaciones"
+          }
+        ]
+      },
+      "features": {
+        "title": "Todo para Marcas Virtuales",
+        "subtitle": "Kit completo de herramientas para operar cocinas fantasma exitosas",
+        "items": [
+          "Gestión de restaurantes virtuales multimarca",
+          "Panel de pedidos unificado para todas las plataformas",
+          "Optimización del Sistema de Display de Cocina (KDS)",
+          "Agrupamiento y enrutamiento inteligente de pedidos",
+          "Coordinación de entregas en tiempo real",
+          "Analíticas de rendimiento del menú",
+          "Gestión de inventario entre marcas",
+          "Precios dinámicos y promociones",
+          "Gestión y seguimiento de repartidores",
+          "Planificación de capacidad de cocina",
+          "Métricas de rendimiento por marca",
+          "Integración con todas las plataformas principales"
+        ]
+      },
+      "stats": [
+        { "value": "3x", "label": "Procesamiento de Pedidos Más Rápido" },
+        { "value": "40%", "label": "Mayor Capacidad de Cocina" },
+        { "value": "25%", "label": "Tiempo de Entrega Reducido" },
+        { "value": "100%", "label": "Precisión en Pedidos" }
+      ],
+      "cta": {
+        "title": "Opere liviano. Cumpla rápido. Mantenga el control.",
+        "subtitle": "Ya sea que opere una marca o diez, grubtech mantiene las operaciones de solo entrega fluidas — incluso bajo la presión de las horas pico.",
+        "primaryCTA": "Iniciar Prueba Gratuita",
+        "secondaryCTA": "Programar Demo"
+      }
+    }
+  },
+  "benefits": {
+    "title": "¿Por Qué Elegir gOnline?",
+    "items": [
+      {
+        "title": "Conecta todos tus canales de venta",
+        "description": "Integra directamente con los principales Agregadores de Alimentos y gestiona todo desde un solo lugar.",
+        "features": [
+          "Integración perfecta de agregadores y TPV",
+          "Conectividad de aplicaciones de terceros",
+          "Sincronización de menú en tiempo real",
+          "Flujo de pedidos automatizado"
+        ]
+      },
+      {
+        "title": "Optimiza tus operaciones",
+        "description": "Gestiona todos tus pedidos desde un panel centralizado con enrutamiento automático.",
+        "features": [
+          "Panel de gestión de pedidos unificado",
+          "Enrutamiento automático de pedidos a cocina",
+          "Seguimiento de estado de pedidos en tiempo real",
+          "Sistema de notificación instantánea"
+        ]
+      },
+      {
+        "title": "Optimiza el rendimiento de entregas",
+        "description": "Rastrea y gestiona todas tus entregas en un solo lugar con información en tiempo real.",
+        "features": [
+          "Enrutamiento inteligente de entregas",
+          "Seguimiento de pedidos en vivo",
+          "Métricas de rendimiento de conductores",
+          "Optimización de tiempos de entrega"
+        ]
+      },
+      {
+        "title": "Mantén el control con alertas",
+        "description": "Recibe notificaciones instantáneas para todos los eventos críticos del restaurante.",
+        "features": [
+          "Notificaciones de pedidos en tiempo real",
+          "Sistema de alerta de cocina",
+          "Alertas de inventario bajo",
+          "Actualizaciones de estado de entrega"
+        ]
+      }
+    ],
+    "cta": "Saber Más"
+  },
+  "featureBoard": {
+    "title": "Impulsa tu restaurante a máxima velocidad",
+    "description": "Actualiza menús y gestiona todos los pedidos instantáneamente, incluso sin una integración de TPV.",
+    "features": [
+      "Gestión de Pedidos",
+      "Gestión de Menú",
+      "Gestión de Entregas",
+      "Actualizaciones de Estado de Pedidos",
+      "Análisis de Menú",
+      "Integración de Agregadores",
+      "Enrutamiento Automático de Pedidos",
+      "Informes en Tiempo Real",
+      "Control de Múltiples Ubicaciones"
+    ],
+    "cta": "Comenzar"
+  },
+  "whyGrubtech": {
+    "title": "Por Qué Elegir Grubtech",
+    "cards": [
+      {
+        "title": "Operando en 4 Continentes",
+        "description": "Apoyando a más de 10,000 restaurantes en EAU, Arabia Saudita, España, Portugal y más"
+      },
+      {
+        "title": "Construido por Expertos en Restaurantes",
+        "description": "Nuestro equipo tiene más de 50 años de experiencia combinada en operaciones de restaurantes"
+      },
+      {
+        "title": "Tus Datos, Tus Reglas",
+        "description": "Seguridad de nivel empresarial, cumplimiento GDPR, con opciones de residencia de datos local"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "loading": "Cargando testimonios...",
+    "empty": "No hay testimonios disponibles.",
+    "cards": [
+      {
+        "quote": "Grubtech transformó cómo gestionamos pedidos en 5 ubicaciones. Nuestros tiempos de entrega cayeron un 30%.",
+        "author": "Ahmed Al-Mansouri",
+        "title": "Fundador, Grupo de Restaurantes Al-Reef"
+      },
+      {
+        "quote": "Finalmente, un sistema que se comunica con nuestro TPV, apps de entrega e inventario. Un cambio de juego.",
+        "author": "Maria Garcia",
+        "title": "Gerente de Operaciones, Madrid Bistro"
+      },
+      {
+        "quote": "Los análisis en tiempo real nos ayudaron a reducir el desperdicio de alimentos en un 20%. Datos que ni sabíamos que necesitábamos.",
+        "author": "João Silva",
+        "title": "CEO, Grupo de Alimentos Silva"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a preguntas comunes sobre Grubtech",
+    "searchPlaceholder": "Buscar en las FAQs...",
+    "categories": {
+      "all": "Todas",
+      "general": "General",
+      "pricing": "Precios",
+      "technical": "Técnico",
+      "integrations": "Integraciones",
+      "support": "Soporte"
+    },
+    "questions": [
+      {
+        "category": "general",
+        "question": "¿Qué es Grubtech?",
+        "answer": "Grubtech es una plataforma integral de gestión de restaurantes que conecta todos tus sistemas - desde pedidos en línea hasta TPV y entregas - en una solución unificada."
+      },
+      {
+        "category": "integrations",
+        "question": "¿Con qué plataformas de entrega se integra Grubtech?",
+        "answer": "Nos integramos con todas las principales plataformas de entrega incluyendo Uber Eats, Deliveroo, Talabat y muchas más. Nuestra plataforma soporta más de 250 socios de integración."
+      },
+      {
+        "category": "general",
+        "question": "¿Grubtech es adecuado para restaurantes pequeños?",
+        "answer": "¡Absolutamente! Ofrecemos gOnline Lite diseñado específicamente para restaurantes independientes y PYMEs con precios asequibles y funciones esenciales."
+      },
+      {
+        "category": "technical",
+        "question": "¿Cuánto tiempo toma configurar Grubtech?",
+        "answer": "La mayoría de los restaurantes están en funcionamiento en 48 horas. Nuestro equipo proporciona soporte completo de incorporación para asegurar una transición fluida."
+      },
+      {
+        "category": "technical",
+        "question": "¿Necesito hardware especial para usar Grubtech?",
+        "answer": "No se requiere hardware especial. Grubtech funciona en cualquier dispositivo moderno con conexión a internet. Sin embargo, ofrecemos sistemas de visualización de cocina si es necesario."
+      },
+      {
+        "category": "support",
+        "question": "¿Puede Grubtech ayudarme a reducir errores de pedidos?",
+        "answer": "¡Sí! Se ha demostrado que nuestro Sistema de Display de Cocina (gKDS) reduce los errores de pedidos hasta en un 90% a través de la visualización de pedidos en tiempo real y flujos de trabajo automatizados."
+      },
+      {
+        "category": "technical",
+        "question": "¿Grubtech proporciona analíticas e informes?",
+        "answer": "Sí, gData proporciona analíticas e informes completos con insights en tiempo real sobre tus operaciones, ventas y métricas de rendimiento."
+      },
+      {
+        "category": "support",
+        "question": "¿Qué tipo de soporte ofrece Grubtech?",
+        "answer": "Ofrecemos soporte al cliente 24/7 por teléfono, correo electrónico y chat. Nuestro equipo siempre está listo para ayudarte con cualquier pregunta o problema."
+      }
+    ],
+    "stillHaveQuestions": "¿Aún tienes preguntas?",
+    "contactUs": "Contáctanos",
+    "noResults": "No se encontraron FAQs que coincidan con tu búsqueda. Prueba diferentes palabras clave o contacta a nuestro equipo de soporte."
+  },
+  "cta": {
+    "headline": "Vamos a configurarte",
+    "subheading": "Únete a más de 10,000 restaurantes que usan Grubtech para optimizar su negocio",
+    "button": "Habla Con Nosotros"
+  },
+  "about": {
+    "hero": {
+      "title": "Donde la innovación se encuentra con la cocina",
+      "subtitle": "Grubtech está construido para el mundo acelerado del servicio de alimentos. Proporcionamos a los restaurantes la tecnología que necesitan para operar de manera más inteligente, crecer más rápido y servir mejor - sin estrés, solo soluciones."
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "paragraph1": "Grubtech nació en 2019 con un objetivo: ayudar a restaurantes y negocios de alimentos a prosperar en un mundo digital. Vimos cómo los sistemas tradicionales luchaban por mantenerse al día con los pedidos en línea, múltiples marcas y expectativas cambiantes de los clientes. Así que construimos una solución middleware - gOnline - para sincronizar puntos de contacto de software fragmentados como TPV, ERP y aplicaciones de terceros, haciendo que las operaciones de restaurantes sean más fluidas y escalables.",
+      "paragraph2": "Nacido en los EAU, Grubtech creció rápidamente, al igual que los restaurantes que apoyamos. Hoy operamos en Arabia Saudita, España, Portugal y el Reino Unido, ayudando a las empresas a simplificar operaciones, aumentar la eficiencia y aumentar la rentabilidad con tecnología potente y fácil de usar.",
+      "paragraph3": "Nuestra fortaleza radica en nuestra diversidad. Nuestra familia, que abarca los EAU, Arabia Saudita, Egipto, España, Portugal, Sri Lanka y más allá, reúne talento global para crear tecnología que transforma restaurantes en todo el mundo."
+    },
+    "values": {
+      "items": [
+        {
+          "title": "Innovando Posibilidades",
+          "description": "No solo seguimos las tendencias de la industria, nos adelantamos a ellas explorando nuevas posibilidades. Nuestra tecnología evoluciona para que siempre estés equipado con las mejores herramientas para administrar tu negocio."
+        },
+        {
+          "title": "Construido Alrededor de Tu Éxito",
+          "description": "Tus victorias son nuestras victorias. Diseñamos soluciones que resuelven desafíos reales, y siempre estamos escuchando, mejorando y apoyando tu crecimiento."
+        },
+        {
+          "title": "Transparencia en Cada Paso",
+          "description": "Creemos en conversaciones abiertas, confianza y asociaciones a largo plazo que brinden resultados reales. La transparencia es uno de nuestros valores más preciados."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Nuestro Viaje",
+      "items": [
+        {
+          "year": "2019",
+          "title": "Donde todo comenzó",
+          "description": "Fundada con la misión de transformar la tecnología para restaurantes."
+        },
+        {
+          "year": "2020",
+          "title": "Conectando los puntos",
+          "description": "Lanzamos integraciones completas de TPV y plataforma de entrega en todo los EAU."
+        },
+        {
+          "year": "2021",
+          "title": "Más grande, más audaz, mejor",
+          "description": "Expandimos a los mercados del CCG, incorporando grandes marcas empresariales en toda la región."
+        },
+        {
+          "year": "2023",
+          "title": "Cambiando el juego",
+          "description": "Reconocidos como uno de los principales innovadores en tecnología de servicio de alimentos."
+        },
+        {
+          "year": "2024",
+          "title": "10 millones fuertes, más por venir",
+          "description": "Logrados múltiples hitos:\n- 10 millones de transacciones exitosas procesadas.\n- Abrimos nuevas oficinas en Riad, Barcelona y Valencia."
+        }
+      ]
+    },
+    "stats": {
+      "satisfaction": "99%",
+      "satisfactionLabel": "Satisfacción del Cliente",
+      "users": "32M",
+      "usersLabel": "Usuarios Activos",
+      "team": "125+",
+      "teamLabel": "Miembros del Equipo",
+      "growth": "240%",
+      "growthLabel": "Crecimiento de la Empresa"
+    },
+    "team": {
+      "title": "Nuestro Equipo Fundador"
+    },
+    "presence": {
+      "title": "Nuestra Presencia",
+      "offices": [
+        {
+          "city": "Dubai",
+          "country": "Emiratos Árabes Unidos",
+          "name": "Grubtech Software Design LLC",
+          "address": "Unit 1201, Ubora Tower, Business Bay, Dubai, UAE"
+        },
+        {
+          "city": "Riyadh",
+          "country": "Arabia Saudita",
+          "name": "Grubtech Software Design LLC",
+          "address": "Aliya Plaza, Abi Bakr As Siddiq Rd, Ar Rabi, Riyadh 13316, Saudi Arabia"
+        },
+        {
+          "city": "Cairo",
+          "country": "Egipto",
+          "name": "Grubtech Egypt",
+          "address": "Building 18, Block 60, Tenth District - First Floor - Zahraa El Maadi, Cairo, Egypt"
+        },
+        {
+          "city": "Barcelona",
+          "country": "España",
+          "name": "Grub Tech Europe, S.L.",
+          "address": "Calle de Pallars, 194, Officina 197, 08005, Barcelona"
+        },
+        {
+          "city": "Valencia",
+          "country": "España",
+          "name": "Grubtech Software Design LLC",
+          "address": "C. de la Travesía Poblados Marítimos 46024 Valencia"
+        },
+        {
+          "city": "Colombo",
+          "country": "Sri Lanka",
+          "name": "Grubtech Software Design LLC",
+          "address": "Elegance No, 31. Queen's Road, Colombo 03"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Vamos a configurarte",
+      "subtitle": "Ponte en contacto—te guiaremos en todo paso a paso.",
+      "button": "Habla Con Nosotros"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Ponte en Contacto",
+      "subtitle": "¿Tienes preguntas? Nos encantaría escucharte. Envíanos un mensaje y responderemos lo antes posible."
+    },
+    "info": {
+      "emailTitle": "Envíanos un Correo",
+      "email": "contact@grubtech.com",
+      "phoneTitle": "Llámanos",
+      "phone": "+971 4 123 4567",
+      "addressTitle": "Visítanos",
+      "address": "Dubai, Emiratos Árabes Unidos",
+      "hoursTitle": "Horario de Atención",
+      "hours": "Lun - Vie: 9:00 AM - 6:00 PM"
+    },
+    "form": {
+      "title": "Envíanos un Mensaje",
+      "subtitle": "Completa el formulario a continuación y nuestro equipo te responderá en 24 horas.",
+      "namePlaceholder": "Tu Nombre",
+      "emailPlaceholder": "Tu Correo",
+      "messagePlaceholder": "Tu Mensaje",
+      "submit": "Enviar Mensaje",
+      "requiredFieldsLegend": "Los campos marcados con * son obligatorios"
+    }
+  },
+  "careers": {
+    "hero": {
+      "title": "¡Estamos contratando!",
+      "subtitle": "Buscamos personas talentosas",
+      "description": "Nuestra filosofía es simple — contratar un equipo diverso de personas apasionadas y fomentar una cultura que te empodere para hacer tu mejor trabajo."
+    },
+    "positions": {
+      "title": "Posiciones Abiertas",
+      "subtitle": "Encuentra tu próxima oportunidad",
+      "loading": "Cargando vacantes...",
+      "empty": "No hay vacantes en este momento. ¡Vuelve pronto!",
+      "available": "posiciones disponibles",
+      "availableSingular": "posición disponible"
+    },
+    "apply": "Aplicar Ahora",
+    "form": {
+      "title": "¿No encontraste el puesto perfecto?",
+      "subtitle": "¡Mantengamos el contacto!",
+      "description": "Puede que no tengamos una posición abierta que se ajuste a tus habilidades ahora, pero siempre estamos ansiosos por conectar con personas talentosas para futuras oportunidades. ¡Comparte tu solicitud con nosotros y sigamos conversando!",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Número de teléfono",
+      "address": "Dirección",
+      "city": "Ciudad",
+      "country": "País",
+      "linkedin": "Perfil de LinkedIn",
+      "expertise": "¿Cuál es tu área de experiencia?",
+      "expertiseOptions": {
+        "sales": "Ventas",
+        "engineering": "Ingeniería",
+        "operations": "Operaciones",
+        "customerSuccess": "Éxito del cliente",
+        "other": "Otro"
+      },
+      "cv": "Adjunta tu CV",
+      "uploadCv": "Sube tu CV",
+      "message": "¿A qué puesto te gustaría aplicar?",
+      "messagePlaceholder": "Escribe tu mensaje...",
+      "privacy": "Aceptas nuestra política de privacidad.",
+      "submit": "Enviar Solicitud",
+      "submitting": "Enviando...",
+      "success": "¡Tu solicitud se ha enviado con éxito! Nos pondremos en contacto pronto.",
+      "error": "Error al enviar la solicitud. Por favor, inténtalo de nuevo."
+    },
+    "requirements": "Requisitos",
+    "description": "Descripción"
+  },
+  "blog": {
+    "title": "Blog de Grubtech",
+    "subtitle": "Perspectivas, consejos y tendencias para operaciones de restaurantes modernas",
+    "hero": {
+      "title": "Blog de Grubtech",
+      "subtitle": "Insights, consejos e historias del mundo de la tecnología para restaurantes"
+    },
+    "loading": "Cargando publicaciones del blog...",
+    "error": "Error al cargar las publicaciones del blog. Por favor, inténtelo de nuevo.",
+    "empty": "No hay publicaciones de blog disponibles todavía. ¡Vuelve pronto!",
+    "noPosts": "No Hay Publicaciones de Blog Todavía",
+    "checkBack": "¡Estamos trabajando en nuevo contenido. Vuelve pronto!",
+    "badgeLabel": "Publicación de Blog",
+    "readMore": "Leer Más",
+    "backToBlog": "Volver al Blog",
+    "shareArticle": "Compartir este artículo"
+  },
+  "integrations": {
+    "hero": {
+      "title": "Integraciones",
+      "subtitle": "Conecta Grubtech con todos tus sistemas existentes. Integraciones perfectas con TPV líderes, plataformas de entrega y herramientas empresariales.",
+      "requestButton": "Solicitar Integración"
+    },
+    "tabs": {
+      "pos": {
+        "title": "Sistemas POS",
+        "description": "Integra con tu sistema POS existente para un flujo de pedidos sin interrupciones",
+        "heroTitle": "Integraciones POS que manejan el show.",
+        "heroSubtitle": "Conecta tu POS a grubtech y mantén los pedidos, menús y reportes sincronizados en todos los canales — sin trabajo manual.",
+        "madeFor": "Funciona con sistemas POS líderes en la región y más allá.",
+        "benefit": "grubtech mantiene tu POS alineado con los pedidos en línea y las plataformas de delivery — para que tu equipo pase menos tiempo reconciliando y más tiempo sirviendo."
+      },
+      "delivery": {
+        "title": "Plataformas de Entrega",
+        "description": "Conecta con todas las principales plataformas de entrega desde un solo panel",
+        "heroTitle": "Integraciones de delivery que mantienen los pedidos en movimiento.",
+        "heroSubtitle": "Conéctate a todas las principales plataformas de delivery a través de grubtech — para que los pedidos fluyan limpiamente, los menús se mantengan precisos y las operaciones permanezcan bajo control.",
+        "madeFor": "Conectado a más de 300 socios globalmente.",
+        "benefit": "Mantén los pedidos y menús sincronizados en las plataformas de delivery sin actualizaciones manuales."
+      },
+      "fulfillment": {
+        "title": "Cumplimiento",
+        "description": "Optimiza las operaciones con integraciones de cumplimiento",
+        "heroTitle": "Integraciones de cumplimiento que entregan.",
+        "heroSubtitle": "Conecta tus socios logísticos preferidos a través de grubtech — para que cada pedido sea asignado, recogido y entregado sin problemas, sin coordinación manual.",
+        "madeFor": "Parte de un ecosistema conectado con más de 300 socios globales.",
+        "benefit": "grubtech te conecta con socios de última milla y cumplimiento, para que las entregas funcionen más rápido, más limpio y con visibilidad operativa total — desde la recogida hasta la entrega."
+      },
+      "erp": {
+        "title": "Sistemas ERP",
+        "description": "Sincroniza datos con tus sistemas de gestión empresarial",
+        "heroTitle": "Integraciones ERP que mantienen tus datos limpios.",
+        "heroSubtitle": "Conecta tu ERP a grubtech y mantén los pedidos, menús y datos operativos fluyendo con precisión en todo tu ecosistema — sin reconciliación manual.",
+        "madeFor": "Diseñado para flujos de trabajo empresariales y reportes listos para auditoría.",
+        "benefit": "Sincroniza las operaciones del restaurante con tu ERP para que todo permanezca preciso — desde pedidos y ventas hasta reportes."
+      }
+    },
+    "requestModal": {
+      "title": "Solicitar Integración",
+      "subtitle": "¿Interesado en asociarte con nosotros? Comparte tus detalles y nos pondremos en contacto.",
+      "emailLabel": "Dirección de Correo",
+      "emailPlaceholder": "tu@email.com",
+      "companyLabel": "Nombre de la Empresa (Opcional)",
+      "companyPlaceholder": "Tu empresa",
+      "messageLabel": "Mensaje (Opcional)",
+      "messagePlaceholder": "Cuéntanos sobre tus necesidades de integración...",
+      "submitButton": "Enviar Solicitud",
+      "cancelButton": "Cancelar",
+      "successMessage": "¡Gracias! Nos pondremos en contacto pronto.",
+      "errorMessage": "Error al enviar la solicitud. Por favor, inténtalo de nuevo."
+    },
+    "cta": {
+      "title": "¿Necesitas una Integración Personalizada?",
+      "subtitle": "Nuestro equipo puede crear integraciones personalizadas para tus necesidades específicas",
+      "button": "Contáctanos"
+    }
+  },
+  "footer": {
+    "tagline": "Conectar, Entregar, Optimizar",
+    "product": {
+      "title": "Producto",
+      "links": ["gOnline", "gOnline Lite", "gKDS", "gDispatch"]
+    },
+    "resources": {
+      "title": "Recursos",
+      "links": ["Blog", "Base de Conocimientos", "Preguntas Frecuentes", "Integraciones"]
+    },
+    "company": {
+      "title": "Empresa",
+      "links": ["Sobre Nosotros", "Carreras", "Contacto"]
+    },
+    "legal": {
+      "title": "Legal",
+      "links": ["Política de Privacidad", "Términos y Condiciones", "GDPR", "SLA"]
+    },
+    "copyright": "© 2024 Grubtech. Todos los derechos reservados.",
+    "socialLabels": {
+      "facebook": "Facebook",
+      "twitter": "X",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    }
+  },
+  "global": {
+    "nav": {
+      "restaurants": "Restaurantes",
+      "independentSMEs": "Independientes y PYMEs",
+      "regionalChains": "Cadenas Regionales",
+      "globalBrands": "Marcas Globales",
+      "darkKitchens": "Cocinas Ocultas",
+      "solutions": "Soluciones",
+      "gOnline": "gOnline",
+      "gOnlineLite": "gOnline Lite",
+      "gKDS": "gKDS",
+      "gDispatch": "gDispatch",
+      "gData": "gData",
+      "gPicker": "gPicker",
+      "integrations": "Integraciones",
+      "resources": "Recursos",
+      "blog": "Blog",
+      "knowledgeBase": "Base de Conocimientos",
+      "company": "Empresa",
+      "aboutUs": "Sobre Nosotros",
+      "careers": "Carreras",
+      "logIn": "Iniciar Sesión",
+      "letsTalk": "Hablemos"
+    },
+    "megaMenu": {
+      "solutions": {
+        "title": "Nuestras Soluciones",
+        "gOnline": "gOnline",
+        "gOnlineDesc": "Agregación de pedidos multiplataforma",
+        "gOnlineLite": "gOnline Lite",
+        "gOnlineLiteDesc": "Configuración rápida para pequeños negocios",
+        "gKDS": "gKDS",
+        "gKDSDesc": "Sistema de display de cocina",
+        "gDispatch": "gDispatch",
+        "gDispatchDesc": "Gestión inteligente de entregas",
+        "gData": "gData",
+        "gDataDesc": "Analíticas e insights",
+        "gPicker": "gPicker",
+        "gPickerDesc": "Sistema de cumplimiento de pedidos"
+      },
+      "restaurants": {
+        "title": "Tipos de Restaurantes",
+        "independentSMEs": "PYMEs Independientes",
+        "independentSMEsDesc": "Soluciones para restaurantes pequeños",
+        "regionalChains": "Cadenas Regionales",
+        "regionalChainsDesc": "Escala tu presencia regional",
+        "globalBrands": "Marcas Globales",
+        "globalBrandsDesc": "Soluciones empresariales",
+        "darkKitchens": "Cocinas Ocultas",
+        "darkKitchensDesc": "Gestión de cocinas en la nube"
+      },
+      "resources": {
+        "title": "Recursos",
+        "blog": "Blog",
+        "blogDesc": "Últimas noticias e insights",
+        "knowledgeBase": "Base de Conocimientos",
+        "knowledgeBaseDesc": "Documentación de ayuda"
+      },
+      "company": {
+        "title": "Empresa",
+        "aboutUs": "Sobre Nosotros",
+        "aboutUsDesc": "Conoce a Grubtech",
+        "careers": "Carreras",
+        "careersDesc": "Únete a nuestro equipo"
+      }
+    },
+    "footer": {
+      "restaurants": "Restaurantes",
+      "independentSMEs": "Independientes y PYMEs",
+      "regionalChains": "Cadenas Regionales",
+      "globalBrands": "Marcas Globales",
+      "darkKitchens": "Cocinas Ocultas",
+      "solutions": "Soluciones",
+      "gOnline": "gOnline",
+      "gOnlineLite": "gOnline Lite",
+      "gKDS": "gKDS",
+      "gDispatch": "gDispatch",
+      "gData": "gData",
+      "resources": "Recursos",
+      "blog": "Blog",
+      "knowledgeBase": "Base de Conocimientos",
+      "faqs": "Preguntas Frecuentes",
+      "integrations": "Integraciones",
+      "company": "Empresa",
+      "aboutUs": "Sobre Nosotros",
+      "careers": "Carreras",
+      "contact": "Contacto",
+      "legal": "Legal",
+      "privacyPolicy": "Política de Privacidad",
+      "termsConditions": "Términos y Condiciones",
+      "dpa": "DPA",
+      "sla": "SLA",
+      "gdprEU": "GDPR UE",
+      "copyright": "© 2024 Grubtech. Todos los derechos reservados."
+    },
+    "learnMore": "Saber Más",
+    "getStarted": "Comenzar",
+    "contactSupport": "Contactar Soporte"
+  },
+  "legal": {
+    "lastUpdated": "Última actualización",
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "sections": {
+        "introduction": "Introducción",
+        "informationWeCollect": "Información que Recopilamos",
+        "howWeUse": "Cómo Usamos tu Información",
+        "dataSecurity": "Seguridad de Datos",
+        "dataRetention": "Retención de Datos",
+        "yourRights": "Tus Derechos",
+        "contactUs": "Contáctanos"
+      }
+    },
+    "terms": {
+      "title": "Términos y Condiciones",
+      "sections": {
+        "acceptance": "Aceptación de Términos",
+        "serviceDescription": "Descripción del Servicio",
+        "userAccounts": "Cuentas de Usuario",
+        "paymentTerms": "Términos de Pago",
+        "acceptableUse": "Uso Aceptable",
+        "intellectualProperty": "Propiedad Intelectual",
+        "limitationLiability": "Limitación de Responsabilidad",
+        "termination": "Terminación",
+        "contactInformation": "Información de Contacto"
+      }
+    },
+    "dpa": {
+      "title": "Acuerdo de Procesamiento de Datos",
+      "sections": {
+        "definitions": "Definiciones",
+        "scopePurpose": "Alcance y Propósito",
+        "processingObligations": "Obligaciones de Procesamiento de Datos",
+        "subProcessors": "Subprocesadores",
+        "securityMeasures": "Medidas de Seguridad",
+        "dataSubjectRights": "Derechos del Titular de los Datos",
+        "internationalTransfers": "Transferencias Internacionales",
+        "audits": "Auditorías",
+        "contact": "Contacto"
+      }
+    },
+    "sla": {
+      "title": "Acuerdo de Nivel de Servicio",
+      "sections": {
+        "serviceAvailability": "Disponibilidad del Servicio",
+        "scheduledMaintenance": "Mantenimiento Programado",
+        "supportResponseTimes": "Tiempos de Respuesta de Soporte",
+        "performanceStandards": "Estándares de Rendimiento",
+        "dataBackupRecovery": "Respaldo y Recuperación de Datos",
+        "securityIncidentResponse": "Respuesta a Incidentes de Seguridad",
+        "serviceCredits": "Créditos de Servicio",
+        "exclusions": "Exclusiones",
+        "contact": "Contacto"
+      }
+    },
+    "gdpr": {
+      "title": "Cumplimiento del RGPD de la UE",
+      "sections": {
+        "commitment": "Nuestro Compromiso con el RGPD",
+        "legalBasis": "Base Legal para el Procesamiento",
+        "yourRights": "Tus Derechos bajo el RGPD",
+        "howToExercise": "Cómo Ejercer tus Derechos",
+        "dataProtection": "Medidas de Protección de Datos",
+        "breachNotification": "Notificación de Violación de Datos",
+        "internationalTransfers": "Transferencias Internacionales de Datos",
+        "dataRetention": "Retención de Datos",
+        "childrenPrivacy": "Privacidad de los Niños",
+        "supervisoryAuthority": "Autoridad Supervisora",
+        "updates": "Actualizaciones a esta Política",
+        "contactInformation": "Información de Contacto"
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.infinite-slider-wrapper {
+  width: 100%;
+}
+
+.infinite-slider-track {
+  display: flex;
+  width: max-content;
+  animation: scroll var(--duration, 30s) linear infinite;
+  animation-direction: var(--direction, normal);
+}
+
+.infinite-slider-track.pause-on-hover:hover {
+  animation-duration: calc(var(--duration, 30s) * 3);
+}
+
+.infinite-slider-content {
+  display: flex;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Disable animation when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .infinite-slider-track {
+    animation: none;
+  }
+
+  .infinite-slider-track.pause-on-hover:hover {
+    animation: none;
+  }
+}

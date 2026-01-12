@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home -->
+  <url>
+    <loc>https://grubtech.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://grubtech.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/about"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Connect With Us -->
+  <url>
+    <loc>https://grubtech.com/en/connect-with-us</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/connect-with-us"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/connect-with-us"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Careers -->
+  <url>
+    <loc>https://grubtech.com/en/careers</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/careers"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/careers"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQs -->
+  <url>
+    <loc>https://grubtech.com/en/faqs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/faqs"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/faqs"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Solutions -->
+  <url>
+    <loc>https://grubtech.com/en/gonline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/gonline"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/gonline"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/gonline-lite</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/gonline-lite"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/gonline-lite"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/gkds</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/gkds"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/gkds"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/gdispatch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/gdispatch"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/gdispatch"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/gdata</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/gdata"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/gdata"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Personas -->
+  <url>
+    <loc>https://grubtech.com/en/persona/smbs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/persona/smbs"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/persona/smbs"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/persona/regional-chains</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/persona/regional-chains"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/persona/regional-chains"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/persona/global-chains</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/persona/global-chains"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/persona/global-chains"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/persona/dark-kitchens</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/persona/dark-kitchens"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/persona/dark-kitchens"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Integrations -->
+  <url>
+    <loc>https://grubtech.com/en/integrations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/integrations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/integrations"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://grubtech.com/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/blog"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Videos -->
+  <url>
+    <loc>https://grubtech.com/en/videos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grubtech.com/en/videos"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://grubtech.com/ar/videos"/>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://grubtech.com/en/privacy-policy</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/terms-and-conditions</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/dpa</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/service-level-agreement</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://grubtech.com/en/gdpr-eu</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

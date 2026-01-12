@@ -1,0 +1,1014 @@
+/* ===========================================
+   FONT OPTIMIZATION STRATEGY
+   ===========================================
+
+   Fonts are now loaded via <link> tags in index.html with:
+   - rel="preload" for critical fonts (faster loading)
+   - rel="preconnect" to font CDN origins (reduces connection time)
+   - display=swap parameter (prevents FOIT - Flash of Invisible Text)
+
+   This approach is faster than @import because:
+   1. @import blocks CSS parsing until font CSS is loaded
+   2. <link preload> loads fonts in parallel with other resources
+   3. Browser can start using system fonts immediately with swap
+
+   Fallback font stack ensures readable text before web fonts load.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ===========================================
+   PERFORMANCE OPTIMIZED ANIMATIONS
+   =========================================== */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* GPU-accelerated animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ===========================================
+   BASE STYLES
+   =========================================== */
+@layer base {
+  :root {
+    /* CSS Custom Properties for JavaScript access */
+    --color-brand: #0d47c0;
+    --color-brand-light: #1a5fd8;
+    --color-brand-dark: #0a3a99;
+    --color-accent: #ff6b35;
+    --color-surface-brand-light: #f5faff;
+
+    /* Gradients */
+    --hero-gradient: linear-gradient(180deg, #0B1120 0%, #141B2E 15%, #1E2A45 30%, #2B4571 45%, #4A7AB8 60%, #7AA5D4 75%, #B5D4EF 85%, #E5F1FA 95%, #F8FCFF 100%);
+    --gradient-primary: linear-gradient(135deg, #0d47c0 0%, #1a5fd8 100%);
+    --gradient-accent: linear-gradient(135deg, #ff6b35 0%, #ff8c5c 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply text-text-primary bg-white;
+    /*
+      Font stack with optimized fallbacks:
+      1. Satoshi - Primary web font (loaded async via preload)
+      2. System fonts - Used immediately while Satoshi loads (font-display: swap)
+      3. Generic sans-serif - Ultimate fallback
+
+      The system fonts are size-adjusted to minimize layout shift when Satoshi loads.
+    */
+    font-family:
+      'Satoshi',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
+    line-height: 1.6;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    overflow-x: hidden;
+    /* Optimize text rendering */
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-primary;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  p {
+    @apply text-text-secondary;
+    line-height: 1.75;
+  }
+
+  /* Focus states */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  /* ===========================================
+     RTL (Right-to-Left) Support
+     For Arabic and other RTL languages
+     =========================================== */
+  [dir='rtl'] {
+    direction: rtl;
+  }
+
+  /* Mirror icons/arrows in RTL mode */
+  [dir='rtl'] .rtl-mirror {
+    transform: scaleX(-1);
+  }
+
+  /* Flip text alignment in RTL */
+  [dir='rtl'] .text-left {
+    text-align: right;
+  }
+
+  [dir='rtl'] .text-right {
+    text-align: left;
+  }
+
+  /* Flip flex direction in RTL */
+  [dir='rtl'] .rtl\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  /* Flip margins/paddings in RTL */
+  [dir='rtl'] .ml-auto {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  [dir='rtl'] .mr-auto {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  /* Flip absolute positioning in RTL */
+  [dir='rtl'] .rtl\:right-auto {
+    right: auto;
+  }
+
+  [dir='rtl'] .rtl\:left-auto {
+    left: auto;
+  }
+
+  /* Flip border radius in RTL for asymmetric corners */
+  [dir='rtl'] .rtl\:rounded-flip {
+    border-radius: 0 1rem 1rem 0;
+  }
+
+  /* Flip gradients in RTL */
+  [dir='rtl'] .rtl\:bg-gradient-to-l {
+    background-image: linear-gradient(to left, var(--tw-gradient-stops));
+  }
+
+  /* ===========================================
+     ACCESSIBILITY: REDUCED MOTION
+     Respects user's prefers-reduced-motion setting
+     =========================================== */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    body {
+      --color-brand: #0033a0;
+      --color-text-secondary: #404040;
+    }
+  }
+}
+
+/* ===========================================
+   COMPONENT CLASSES
+   Reusable component-level styles
+   =========================================== */
+@layer components {
+  /* ----- SECTION STYLES ----- */
+
+  /** Standard section with brand-light background */
+  .section-brand {
+    @apply py-12 sm:py-16 md:py-28 bg-surface-brand-light overflow-hidden relative;
+  }
+
+  /** Standard section with white background */
+  .section-white {
+    @apply py-12 sm:py-16 md:py-28 bg-white overflow-hidden;
+  }
+
+  /** Section heading - centered, responsive */
+  .section-heading {
+    @apply text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-snug mb-3 md:mb-6 text-center;
+  }
+
+  /** Section heading with brand accent */
+  .section-heading-accent {
+    @apply text-blue-600;
+  }
+
+  /** Section subheading/description */
+  .section-subheading {
+    @apply text-sm sm:text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-center;
+  }
+
+  /** Section header wrapper */
+  .section-header {
+    @apply text-center mb-8 md:mb-16;
+  }
+
+  /* ----- CARD STYLES ----- */
+
+  /** Base card with subtle styling */
+  .card-base {
+    @apply bg-white rounded-2xl border border-gray-100 transition-all duration-200;
+  }
+
+  /** Elevated card with shadow */
+  .card-elevated {
+    @apply card-base shadow-card hover:shadow-card-hover;
+  }
+
+  /** Card with brand blue shadow */
+  .card-brand {
+    @apply bg-white rounded-2xl md:rounded-3xl border border-gray-100 shadow-xl shadow-blue-500/10;
+  }
+
+  /** Feature card hover effect */
+  .card-hoverable {
+    @apply hover:border-gray-200 hover:shadow-lg hover:shadow-gray-100/50 hover:-translate-y-0.5;
+  }
+
+  /* ----- BUTTON STYLES ----- */
+
+  /** Tab/pill button inactive state */
+  .tab-button {
+    @apply px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap;
+  }
+
+  .tab-button-inactive {
+    @apply bg-white text-gray-600 hover:bg-gray-50 border border-gray-200;
+  }
+
+  .tab-button-active {
+    @apply bg-blue-600 text-white shadow-lg shadow-blue-500/30;
+  }
+
+  /* ----- NAVIGATION STYLES ----- */
+
+  /** Navigation dot base */
+  .nav-dot {
+    @apply h-2 md:h-2.5 rounded-full transition-all duration-300;
+  }
+
+  .nav-dot-active {
+    @apply w-6 md:w-10 bg-blue-600;
+  }
+
+  .nav-dot-inactive {
+    @apply w-2 md:w-2.5 bg-gray-300 hover:bg-blue-300;
+  }
+
+  /** Navigation arrow button */
+  .nav-arrow {
+    @apply p-2 md:p-3 rounded-full bg-white border border-gray-200 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 group shadow-sm;
+  }
+
+  .nav-arrow-icon {
+    @apply w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-white transition-colors;
+  }
+
+  /* ----- BADGE STYLES ----- */
+
+  /** Brand badge/tag pill */
+  .badge-brand {
+    @apply inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-semibold;
+  }
+
+  /* ----- FEATURE STYLES ----- */
+
+  /** Feature item with check icon */
+  .feature-item {
+    @apply flex items-start gap-2 md:gap-3;
+  }
+
+  .feature-check {
+    @apply flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-600 flex items-center justify-center mt-0.5;
+  }
+
+  .feature-check-icon {
+    @apply w-3 h-3 md:w-3.5 md:h-3.5 text-white;
+  }
+
+  .feature-text {
+    @apply text-sm md:text-base text-gray-700;
+  }
+
+  /* ----- LINK STYLES ----- */
+
+  /** Read more / Learn more link */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-blue-600 font-semibold text-sm md:text-base hover:gap-3 transition-all group;
+  }
+
+  .link-arrow-icon {
+    @apply w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform;
+  }
+
+  /* ----- CONTAINER STYLES ----- */
+
+  /** Standard max-width container */
+  .container-default {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /** Narrow container for content */
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /** Full width with padding */
+  .container-full {
+    @apply w-full px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   Single-purpose utility classes
+   =========================================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Glass Effects */
+  .glass-elegant {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(104, 160, 209, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(27, 40, 84, 0.1);
+  }
+
+  /* Gradient Utilities */
+  .gradient-elegant {
+    background: linear-gradient(135deg, rgba(13, 71, 192, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+  }
+
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #0d47c0 0%, #1a5fd8 100%);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #ff6b35 0%, #ff8c5c 100%);
+  }
+
+  .inset-shadow-text {
+    background: linear-gradient(135deg, #1B2854 0%, #2D7EBC 50%, #1B2854 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Brand/decorative font with fallback stack */
+  .font-brand {
+    font-family: 'Pacifico', 'Brush Script MT', cursive;
+    font-weight: 400;
+  }
+
+  /* Text effects */
+  .stroke-text {
+    -webkit-text-stroke: 2px #1B2854;
+    text-stroke: 2px #1B2854;
+    paint-order: stroke fill;
+  }
+
+  /* Transition Utilities */
+  .transition-elegant {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-fast {
+    transition: all 0.15s ease-out;
+  }
+
+  /* Hover Effects */
+  .hover-glow {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 20px rgba(13, 71, 192, 0.3));
+    transform: translateY(-2px);
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  /* Custom Cursor Styles */
+  .custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%);
+    border: 1.5px solid rgba(59, 130, 246, 0.4);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      opacity 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease;
+    will-change: transform;
+  }
+
+  .custom-cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    transition: opacity 0.3s ease;
+    will-change: transform;
+  }
+
+  .custom-cursor.cursor-hover {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+
+  .custom-cursor.cursor-hidden,
+  .custom-cursor-dot.cursor-hidden {
+    opacity: 0;
+  }
+
+  /* Scrollbar Utilities */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Scroll Snap */
+  .scroll-snap-align-start {
+    scroll-snap-align: start;
+  }
+
+  .scroll-snap-align-center {
+    scroll-snap-align: center;
+  }
+
+  /* Grid Stacking (for carousels/sliders) */
+  .grid-stack {
+    @apply grid grid-cols-1 grid-rows-1;
+  }
+
+  .grid-stack > * {
+    @apply col-start-1 row-start-1;
+  }
+}
+
+/* ===========================================
+   ANIMATIONS & KEYFRAMES
+   =========================================== */
+@layer utilities {
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 8s linear infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 7s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Premium Glass Effects */
+  .glass-premium {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  /* Text Gradients */
+  .text-gradient-shimmer {
+    background: linear-gradient(
+      to right,
+      #0d47c0 20%,
+      #2563eb 30%,
+      #60a5fa 70%,
+      #0d47c0 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* ===========================================
+     FRAMER-MOTION REPLACEMENT ANIMATIONS
+     GPU-accelerated with transform3d, respects prefers-reduced-motion
+     =========================================== */
+
+  /* Fade-in with directional slide animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fade-in-down {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translate3d(-20px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translate3d(20px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Scale and fade animation */
+  @keyframes scale-fade-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* SVG line drawing animation */
+  @keyframes draw-line {
+    from {
+      stroke-dashoffset: 1000;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Progress bar fill animation */
+  @keyframes progress-fill {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* Scroll indicator bounce animation */
+  @keyframes scroll-bounce {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate3d(0, 12px, 0);
+      opacity: 0;
+    }
+  }
+
+  /* Modal entrance/exit animation */
+  @keyframes modal-scale-fade-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Toast notification entrance animation */
+  @keyframes toast-slide-fade-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -20px, 0) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Video modal entrance animation (larger scale for more dramatic effect) */
+  @keyframes video-modal-scale-fade-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Image slider entrance animation (zoom-in from scale 1.1) */
+  @keyframes image-slider-zoom-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(1.1);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Image slider overlay fade-up animation */
+  @keyframes slider-overlay-fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Mega menu dropdown animation (fade + slide down from top) */
+  @keyframes mega-menu-fade-in-down {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -10px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Menu item slide-in animation (fade + slide from left) */
+  @keyframes menu-item-slide-in {
+    from {
+      opacity: 0;
+      transform: translate3d(-20px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Icon float animation (small vertical movement) */
+  @keyframes icon-float-small {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -3px, 0);
+    }
+  }
+
+  /* Particle pulse animation (scale + opacity) */
+  @keyframes particle-pulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Mobile menu slide-in animation (slide from right) */
+  @keyframes mobile-menu-slide-in {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Popup/banner slide-up from bottom animation */
+  @keyframes slide-up-from-bottom {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Exit intent popup entrance animation (centered modal with scale) */
+  @keyframes popup-scale-fade-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Animation classes with different durations matching framer-motion */
+
+  /* Fade-in-up variants */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-up-fast {
+    animation: fade-in-up 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-up-slow {
+    animation: fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* Fade-in-down variants */
+  .animate-fade-in-down {
+    animation: fade-in-down 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-down-fast {
+    animation: fade-in-down 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-down-slow {
+    animation: fade-in-down 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* Fade-in-left variants */
+  .animate-fade-in-left {
+    animation: fade-in-left 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-left-fast {
+    animation: fade-in-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-left-slow {
+    animation: fade-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* Fade-in-right variants */
+  .animate-fade-in-right {
+    animation: fade-in-right 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-right-fast {
+    animation: fade-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in-right-slow {
+    animation: fade-in-right 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* Scale-fade-in variants */
+  .animate-scale-fade-in {
+    animation: scale-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-scale-fade-in-fast {
+    animation: scale-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .animate-scale-fade-in-slow {
+    animation: scale-fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* Staggered animation delay utilities */
+  /* Useful for animating lists with sequential entrance */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  /* Animation fill mode utilities */
+  .animation-fill-forwards {
+    animation-fill-mode: forwards;
+  }
+
+  .animation-fill-backwards {
+    animation-fill-mode: backwards;
+  }
+
+  .animation-fill-both {
+    animation-fill-mode: both;
+  }
+
+  /* Animation timing function utilities matching framer-motion easing */
+  .animation-ease-out {
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .animation-ease-in-out {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animation-ease-spring {
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}

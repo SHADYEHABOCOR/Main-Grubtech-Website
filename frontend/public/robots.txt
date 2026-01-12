@@ -1,0 +1,18 @@
+# Grubtech Website - Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin areas
+Disallow: /admin
+Disallow: /login
+
+# Disallow API endpoints (not meant for crawling)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://grubtech.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
