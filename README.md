@@ -16,6 +16,7 @@
 - [Development](#-development)
 - [Deployment](#-deployment)
 - [Environment Variables](#-environment-variables)
+- [Documentation](#-documentation)
 - [Contributing](#-contributing)
 
 ---
@@ -337,6 +338,18 @@ npm run test              # Watch mode
 npm run test:run          # Single run
 npm run test:coverage     # With coverage
 ```
+
+---
+
+## 📚 Documentation
+
+Detailed documentation is available in the [`.docs/`](.docs/) folder:
+
+- **[Deployment Setup Guide](.docs/DEPLOYMENT_SETUP.md)** - Complete Cloudflare infrastructure setup
+- **[Frontend Deployment Guide](.docs/FRONTEND_DEPLOYMENT.md)** - Deploy frontend to Cloudflare Pages
+- **[Quick Start Guide](.docs/QUICK_START_FRONTEND.md)** - Fast 5-minute deployment guide
+- **[Deployment Status](.docs/DEPLOYMENT_STATUS.md)** - Current deployment status and resources
+- **[Performance Optimizations](.docs/PERFORMANCE_OPTIMIZATIONS.md)** - Performance improvements and best practices
 
 ---
 
