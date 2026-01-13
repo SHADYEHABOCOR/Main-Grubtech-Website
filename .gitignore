@@ -53,11 +53,11 @@ dist-ssr
 *.backup
 *.bak
 
-# Documentation (keep important docs)
+# Documentation (generated docs, keep only README.md)
 docs/
+.docs/
+TESTING_AND_MONITORING.md
 !README.md
-!DEPLOYMENT.md
-!QUICKSTART.md
 
 # Old structure cleanup (for migration period)
 /src/
