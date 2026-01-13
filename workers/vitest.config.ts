@@ -31,8 +31,9 @@ export default defineWorkersConfig({
       },
     },
     coverage: {
-      provider: 'v8',
+      provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
+      reportsDirectory: './coverage',
       exclude: [
         'node_modules/',
         'src/__tests__/',
@@ -40,6 +41,7 @@ export default defineWorkersConfig({
         '**/*.config.*',
         'dist/',
         'migrations/',
+        'scripts/',
       ],
     },
   },

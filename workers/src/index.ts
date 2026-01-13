@@ -262,8 +262,47 @@ app.route('/api/team', teamRoutes);
 app.route('/api/video-galleries', videoGalleriesRoutes);
 app.route('/api/careers', careersRoutes);
 
-// File uploads
+// File uploads (API routes)
 app.route('/api/uploads', uploadsRoutes);
+
+// Public file serving route (serves files from R2 at /uploads/*)
+app.get('/uploads/*', async (c) => {
+  try {
+    // Get the path after /uploads/
+    const path = c.req.path.replace(/^\/uploads\//, '');
+
+    if (!path || path.includes('..')) {
+      return c.json({ error: 'Invalid path' }, 400);
+    }
+
+    // Get file from R2
+    const object = await c.env.UPLOADS.get(path);
+
+    if (!object) {
+      return c.json({ error: 'File not found' }, 404);
+    }
+
+    // Determine content type
+    const contentType = object.httpMetadata?.contentType ||
+      (path.endsWith('.webp') ? 'image/webp' :
+       path.endsWith('.png') ? 'image/png' :
+       path.endsWith('.jpg') || path.endsWith('.jpeg') ? 'image/jpeg' :
+       path.endsWith('.svg') ? 'image/svg+xml' :
+       path.endsWith('.gif') ? 'image/gif' :
+       'application/octet-stream');
+
+    // Return the file with caching headers
+    return new Response(object.body, {
+      headers: {
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  } catch (error) {
+    return c.json({ error: 'Failed to retrieve file' }, 500);
+  }
+});
 
 // Analytics
 app.route('/api/analytics', analyticsRoutes);

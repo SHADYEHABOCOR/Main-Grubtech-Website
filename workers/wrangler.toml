@@ -50,7 +50,7 @@ ENVIRONMENT = "production"
 ALLOWED_ORIGINS = "https://grubtech.com,https://www.grubtech.com,https://main-grubtech-website.pages.dev"
 LOG_LEVEL = "info"
 RATE_LIMIT_WINDOW_MS = "900000"
-RATE_LIMIT_MAX_REQUESTS = "100"
+RATE_LIMIT_MAX_REQUESTS = "1000"
 
 # ============================================================================
 # Secrets (DO NOT store sensitive values here)

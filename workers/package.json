@@ -29,7 +29,7 @@
     "@cloudflare/vitest-pool-workers": "^0.5.0",
     "@cloudflare/workers-types": "^4.20250109.0",
     "@types/node": "^22.0.0",
-    "@vitest/coverage-v8": "^2.1.0",
+    "@vitest/coverage-istanbul": "^2.1.9",
     "typescript": "^5.7.0",
     "vitest": "^2.1.0",
     "wrangler": "^3.99.0"

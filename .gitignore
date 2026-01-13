@@ -43,6 +43,11 @@ dist-ssr
 *.db-shm
 *.sqlite
 *.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+
+# Wrangler local state
+.wrangler/
 
 # Backup files
 *.backup
@@ -84,3 +89,9 @@ email-preview.html
 
 # Claude AI assistant files
 .claude/
+
+# Test reports and coverage (generated locally)
+reports/
+coverage/
+**/reports/
+**/coverage/

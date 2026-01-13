@@ -15,10 +15,16 @@
  * Uses vitest with @cloudflare/vitest-pool-workers for Cloudflare Workers testing.
  */
 
+/// <reference types="@cloudflare/workers-types" />
+
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { Hono } from 'hono';
 import type { Context } from 'hono';
 import type { Env, Variables } from '../types/bindings';
+
+// Type for JSON response bodies in tests
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type JsonBody = Record<string, any>;
 import {
   createRateLimiter,
   loginRateLimiter,
@@ -573,10 +579,10 @@ describe('Pre-configured Rate Limiters', () => {
   let mockKV: MockKVNamespace;
 
   beforeEach(() => {
+    vi.clearAllMocks();
     mockKV = createMockKV();
     mockKV.get.mockResolvedValue(null);
     mockKV.put.mockResolvedValue(undefined);
-    vi.clearAllMocks();
   });
 
   afterEach(() => {
@@ -608,12 +614,16 @@ describe('Pre-configured Rate Limiters', () => {
     });
 
     it('should use production limits in production environment', async () => {
-      const mockEnv = createMockEnv(mockKV, { ENVIRONMENT: 'production' });
+      // Clear RATE_LIMIT_MAX_REQUESTS to use default production limits (20)
+      const mockEnv = createMockEnv(mockKV, {
+        ENVIRONMENT: 'production',
+        RATE_LIMIT_MAX_REQUESTS: '', // Empty to use defaults
+      });
       const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
-      // Set count at production limit (20)
+      // Set count above production limit (20) - rate limit triggers when count > max
       const existingRecord = JSON.stringify({
-        count: 20,
+        count: 21,
         firstRequest: Date.now(),
       });
       mockKV.get.mockResolvedValue(existingRecord);
@@ -631,7 +641,7 @@ describe('Pre-configured Rate Limiters', () => {
       });
 
       const res = await app.fetch(req, mockEnv);
-      const body = await res.json();
+      const body: JsonBody = await res.json();
 
       // Should be rate limited (count > 20)
       expect(res.status).toBe(429);
@@ -693,12 +703,16 @@ describe('Pre-configured Rate Limiters', () => {
     });
 
     it('should enforce strict rate limits for spam prevention', async () => {
-      const mockEnv = createMockEnv(mockKV, { ENVIRONMENT: 'production' });
+      // Clear RATE_LIMIT_MAX_REQUESTS to use default production limits (10)
+      const mockEnv = createMockEnv(mockKV, {
+        ENVIRONMENT: 'production',
+        RATE_LIMIT_MAX_REQUESTS: '', // Empty to use defaults
+      });
       const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
-      // Set count at production limit (10)
+      // Set count above production limit (10) - rate limit triggers when count > max
       const existingRecord = JSON.stringify({
-        count: 10,
+        count: 11,
         firstRequest: Date.now(),
       });
       mockKV.get.mockResolvedValue(existingRecord);
@@ -716,7 +730,7 @@ describe('Pre-configured Rate Limiters', () => {
       });
 
       const res = await app.fetch(req, mockEnv);
-      const body = await res.json();
+      const body: JsonBody = await res.json();
 
       expect(res.status).toBe(429);
       expect(body.error).toContain('Too many form submissions');
@@ -743,7 +757,11 @@ describe('Pre-configured Rate Limiters', () => {
     });
 
     it('should have high limits for API abuse protection', async () => {
-      const mockEnv = createMockEnv(mockKV, { ENVIRONMENT: 'production' });
+      // Don't set RATE_LIMIT_MAX_REQUESTS to use default production limits (1000)
+      const mockEnv = createMockEnv(mockKV, {
+        ENVIRONMENT: 'production',
+        RATE_LIMIT_MAX_REQUESTS: '', // Empty to use defaults
+      });
       const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
       // Set count at 500 (below production limit of 1000)
@@ -792,7 +810,11 @@ describe('Pre-configured Rate Limiters', () => {
     });
 
     it('should have highest limits for high-frequency tracking', async () => {
-      const mockEnv = createMockEnv(mockKV, { ENVIRONMENT: 'production' });
+      // Don't set RATE_LIMIT_MAX_REQUESTS to use default production limits (500)
+      const mockEnv = createMockEnv(mockKV, {
+        ENVIRONMENT: 'production',
+        RATE_LIMIT_MAX_REQUESTS: '', // Empty to use defaults
+      });
       const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
       // Set count at 300 (below production limit of 500)
@@ -867,7 +889,7 @@ describe('Pre-configured Rate Limiters', () => {
       });
 
       const res = await app.fetch(req, mockEnv);
-      const body = await res.json();
+      const body: JsonBody = await res.json();
 
       expect(res.status).toBe(429);
       expect(body.error).toContain('Too many setup attempts');
@@ -978,7 +1000,7 @@ describe('customRateLimiter', () => {
     });
 
     const res = await app.fetch(req, mockEnv);
-    const body = await res.json();
+    const body: JsonBody = await res.json();
 
     expect(res.status).toBe(429);
     expect(body.error).toBe('Upload limit reached, try again later');
