@@ -118,14 +118,14 @@ function AnalyticsTracker() {
 
   // Initialize session and deferred analytics on app load
   useEffect(() => {
-    analytics.initSession();
+    // analytics.initSession(); // Disabled - using Google Analytics instead
     // Initialize deferred analytics (loads after 3s delay on eligible pages)
     initDeferredAnalytics();
   }, []);
 
   // Track page views on route change and load analytics if needed
   useEffect(() => {
-    analytics.trackPageView();
+    // analytics.trackPageView(); // Disabled - using Google Analytics instead
     // Check if analytics should be loaded for this route (SPA navigation)
     loadAnalyticsIfNeeded(location.pathname);
   }, [location]);
