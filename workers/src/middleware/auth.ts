@@ -16,7 +16,7 @@ export const REFRESH_COOKIE_NAME = 'grubtech_refresh';
 export const ACCESS_COOKIE_OPTIONS = {
   httpOnly: true,
   secure: true, // Always secure in Workers (production environment)
-  sameSite: 'Strict' as const,
+  sameSite: 'None' as const, // Changed from Strict to None for cross-site requests
   maxAge: ACCESS_TOKEN_EXPIRY_SECONDS,
   path: '/',
 };
@@ -25,7 +25,7 @@ export const ACCESS_COOKIE_OPTIONS = {
 export const REFRESH_COOKIE_OPTIONS = {
   httpOnly: true,
   secure: true,
-  sameSite: 'Strict' as const,
+  sameSite: 'None' as const, // Changed from Strict to None for cross-site requests
   maxAge: REFRESH_TOKEN_EXPIRY_SECONDS,
   path: '/api/auth', // Only sent to auth endpoints
 };
