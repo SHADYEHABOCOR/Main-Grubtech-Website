@@ -8,7 +8,7 @@ import { AnimatedElement } from '../ui/AnimatedElement';
 
 // Import local images
 import smbsImage from '../../assets/images/67dc711c8f07d9dd28e15139_4.webp';
-import regionalImage from '../../assets/images/67dc711cb7049fc8aa1b44b0_5.webp';
+import regionalImage from '../../assets/images/regional-chains.webp';
 import globalImage from '../../assets/images/67dc711ca538931a3fa8e856_1.webp';
 import darkKitchensImage from '../../assets/images/67dc711be26f722ed5e512d0_2.webp';
 
