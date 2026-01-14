@@ -7,7 +7,7 @@ import slideImage2 from '../../assets/images/regional-chains.webp';
 import slideImage3 from '../../assets/images/regional-chains.webp';
 import slideImage4 from '../../assets/images/67e3fc0d212d34c973c8916f_Group-499.webp';
 import slideImage5 from '../../assets/images/67e4f7769e2f66451a12fcf4_Group-781.webp';
-import challengesImage from '../../assets/images/67e4f77992b25496c5f2bac1_Group-801.webp';
+import challengesImage from '../../assets/images/live-tracking.webp';
 import featuresImage from '../../assets/images/67e6566bf38258101582b959_Group-847.webp';
 
 /**
