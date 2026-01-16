@@ -180,8 +180,8 @@ careersRoutes.post('/apply', async (c) => {
       data = parseResult.data;
 
       // Handle CV upload
-      const cvFile = formData.get('cv');
-      if (cvFile && cvFile instanceof File && cvFile.size > 0) {
+      const cvFile = formData.get('cv') as File | null;
+      if (cvFile && typeof cvFile !== 'string' && cvFile.size > 0) {
         const storage = createStorageService(c.env);
         const arrayBuffer = await cvFile.arrayBuffer();
 
