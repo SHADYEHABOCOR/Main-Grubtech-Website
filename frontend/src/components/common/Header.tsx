@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
     },
     {
       label: t('global.nav.integrations'),
-      path: '/integrations',
+      path: `/${i18n.language}/integrations`,
     },
     {
       label: t('global.nav.resources'),

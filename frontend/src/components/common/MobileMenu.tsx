@@ -30,21 +30,21 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       key: 'restaurants',
       label: t('global.nav.restaurants'),
       items: [
-        { label: t('global.nav.independentSMEs'), path: '/persona/smbs' },
-        { label: t('global.nav.regionalChains'), path: '/persona/regional-chains' },
-        { label: t('global.nav.globalBrands'), path: '/persona/global-chains' },
-        { label: t('global.nav.darkKitchens'), path: '/persona/dark-kitchens' },
+        { label: t('global.nav.independentSMEs'), path: `/${i18n.language}/persona/smbs` },
+        { label: t('global.nav.regionalChains'), path: `/${i18n.language}/persona/regional-chains` },
+        { label: t('global.nav.globalBrands'), path: `/${i18n.language}/persona/global-chains` },
+        { label: t('global.nav.darkKitchens'), path: `/${i18n.language}/persona/dark-kitchens` },
       ],
     },
     {
       key: 'solutions',
       label: t('global.nav.solutions'),
       items: [
-        { label: t('global.nav.gOnline'), path: '/gonline' },
-        { label: t('global.nav.gOnlineLite'), path: '/gonline-lite' },
-        { label: t('global.nav.gKDS'), path: '/gkds' },
-        { label: t('global.nav.gDispatch'), path: '/gdispatch' },
-        { label: t('global.nav.gData'), path: '/gdata' },
+        { label: t('global.nav.gOnline'), path: `/${i18n.language}/solutions/gonline` },
+        { label: t('global.nav.gOnlineLite'), path: `/${i18n.language}/solutions/gonline-lite` },
+        { label: t('global.nav.gKDS'), path: `/${i18n.language}/solutions/gkds` },
+        { label: t('global.nav.gDispatch'), path: `/${i18n.language}/solutions/gdispatch` },
+        { label: t('global.nav.gData'), path: `/${i18n.language}/solutions/gdata` },
       ],
     },
     {
@@ -59,8 +59,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       key: 'company',
       label: t('global.nav.company'),
       items: [
-        { label: t('global.nav.aboutUs'), path: '/about' },
-        { label: t('global.nav.careers'), path: '/careers' },
+        { label: t('global.nav.aboutUs'), path: `/${i18n.language}/about` },
+        { label: t('global.nav.careers'), path: `/${i18n.language}/careers` },
       ],
     },
   ];
@@ -193,7 +193,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 ))}
                 <li>
                   <Link
-                    to="/integrations"
+                    to={`/${i18n.language}/integrations`}
                     onClick={onClose}
                     className="block py-3 text-text-primary hover:text-primary font-medium transition-colors"
                   >
