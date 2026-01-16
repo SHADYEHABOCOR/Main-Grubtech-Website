@@ -100,7 +100,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/email is required/i)).toBeInTheDocument();
+        expect(screen.getByText('Email is required')).toBeInTheDocument();
       });
     });
 
@@ -146,14 +146,14 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/email is required/i)).toBeInTheDocument();
+        expect(screen.getByText('Email is required')).toBeInTheDocument();
       });
 
       // Start typing - error should clear
       await user.type(emailInput, 't');
 
       await waitFor(() => {
-        expect(screen.queryByText(/email is required/i)).not.toBeInTheDocument();
+        expect(screen.queryByText('Email is required')).not.toBeInTheDocument();
       });
     });
 
@@ -168,8 +168,10 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(emailInput).toHaveClass('border-red-500');
+        expect(screen.getByText('Email is required')).toBeInTheDocument();
       });
+
+      expect(emailInput).toHaveClass('border-red-500');
     });
 
     it('shows normal styling on email input when there is no error', () => {
@@ -228,7 +230,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/email is required/i)).toBeInTheDocument();
+        expect(screen.getByText('Email is required')).toBeInTheDocument();
       });
 
       expect(contactService.subscribeNewsletter).not.toHaveBeenCalled();
@@ -370,7 +372,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/failed to subscribe/i)).toBeInTheDocument();
+        expect(screen.getByText(/unable to subscribe/i)).toBeInTheDocument();
       });
     });
 
@@ -389,7 +391,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/failed to subscribe/i)).toBeInTheDocument();
+        expect(screen.getByText(/unable to subscribe/i)).toBeInTheDocument();
       });
 
       // Success message should not be shown
@@ -411,7 +413,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        const errorMessage = screen.getByText(/failed to subscribe/i);
+        const errorMessage = screen.getByText(/unable to subscribe/i);
         expect(errorMessage).toHaveClass('text-red-500');
       });
     });
@@ -431,7 +433,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/failed to subscribe/i)).toBeInTheDocument();
+        expect(screen.getByText(/unable to subscribe/i)).toBeInTheDocument();
       });
 
       // Email should still be in the input
@@ -453,14 +455,14 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/failed to subscribe/i)).toBeInTheDocument();
+        expect(screen.getByText(/unable to subscribe/i)).toBeInTheDocument();
       });
 
       // Type more characters - error should clear
       await user.type(emailInput, 'x');
 
       await waitFor(() => {
-        expect(screen.queryByText(/failed to subscribe/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/unable to subscribe/i)).not.toBeInTheDocument();
       });
     });
   });
@@ -527,7 +529,7 @@ describe('SubscribeForm Component', () => {
 
       // Wait for error
       await waitFor(() => {
-        expect(screen.getByText(/failed to subscribe/i)).toBeInTheDocument();
+        expect(screen.getByText(/unable to subscribe/i)).toBeInTheDocument();
       });
 
       // Input should be enabled again
@@ -581,6 +583,16 @@ describe('SubscribeForm Component', () => {
   });
 
   describe('Integration with Subscription Service', () => {
+    beforeEach(async () => {
+      // Reset the language mock to English before each test in this section
+      const { useLanguage } = await import('../../../context/LanguageContext');
+      vi.mocked(useLanguage).mockReturnValue({
+        currentLanguage: 'en',
+        changeLanguage: vi.fn(),
+        isRTL: false,
+      });
+    });
+
     it('calls subscribeNewsletter with correct parameters', async () => {
       const user = userEvent.setup();
       render(<SubscribeForm />);
@@ -635,7 +647,7 @@ describe('SubscribeForm Component', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByText(/failed to subscribe/i)).toBeInTheDocument();
+        expect(screen.getByText(/unable to subscribe/i)).toBeInTheDocument();
       });
 
       // Form should still be visible for retry

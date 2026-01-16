@@ -72,6 +72,7 @@ export const SubscribeForm: React.FC = () => {
           />
         </div>
         <Button
+          type="submit"
           variant="primary"
           size="md"
           className="whitespace-nowrap"
