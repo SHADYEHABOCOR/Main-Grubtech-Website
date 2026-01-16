@@ -32,6 +32,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png'],
       manifest: false, // We're using our custom manifest.json
+      // Defer SW registration until browser is idle to not block initial render
+      injectRegister: 'script-defer',
       workbox: {
         // PERF FIX: Only precache essential assets, not all JS chunks
         // Previous setting '**/*.{js,css,html,...}' was precaching ALL lazy-loaded pages

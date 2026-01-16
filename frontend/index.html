@@ -101,10 +101,12 @@
       href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap"
     />
 
-    <!-- Load Pacifico font (decorative/brand font) -->
+    <!-- Load Pacifico font (decorative/brand font) - loaded async to not block render -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
 
     <!-- Primary Meta Tags -->
