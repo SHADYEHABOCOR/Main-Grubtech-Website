@@ -31,6 +31,10 @@ export interface Env {
   ADMIN_EMAIL: string;
   SETUP_SECRET_TOKEN: string;
   SENTRY_DSN?: string;
+
+  // BambooHR Integration (optional - for careers page)
+  BAMBOOHR_API_KEY?: string;
+  BAMBOOHR_SUBDOMAIN?: string;
 }
 
 /**

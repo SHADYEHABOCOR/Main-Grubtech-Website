@@ -27,6 +27,7 @@ import { createDatabaseService } from '../db';
 import { authenticateToken } from '../middleware/auth';
 import { createStorageService } from '../services/storage';
 import { createEmailService, type LeadData } from '../services/email';
+import { createBambooHRService } from '../services/bamboohr';
 
 // Job application record type from database
 interface JobApplicationRecord {
@@ -716,11 +717,25 @@ careersRoutes.delete(
 /**
  * GET /api/careers
  * Get all active job vacancies (public)
+ * Uses BambooHR if configured, otherwise falls back to database
  */
 careersRoutes.get('/', async (c) => {
   try {
-    const db = createDatabaseService(c.env);
+    const bambooHR = createBambooHRService(c.env);
 
+    // Use BambooHR if configured
+    if (bambooHR.isConfigured()) {
+      try {
+        const jobs = await bambooHR.getJobs();
+        return c.json(jobs);
+      } catch (bambooError) {
+        console.error('BambooHR fetch failed, falling back to database:', bambooError);
+        // Fall through to database fallback
+      }
+    }
+
+    // Fallback to database
+    const db = createDatabaseService(c.env);
     const vacancies = await db.query<JobVacancyRecord>(
       "SELECT * FROM job_vacancies WHERE status = 'active' ORDER BY created_at DESC"
     );
@@ -734,6 +749,7 @@ careersRoutes.get('/', async (c) => {
 /**
  * GET /api/careers/:id
  * Get single job vacancy by ID (public) - MUST come after admin routes
+ * Uses BambooHR if configured, otherwise falls back to database
  */
 careersRoutes.get(
   '/:id',
@@ -745,8 +761,24 @@ careersRoutes.get(
   async (c) => {
     try {
       const { id } = c.req.valid('param');
-      const db = createDatabaseService(c.env);
+      const bambooHR = createBambooHRService(c.env);
 
+      // Use BambooHR if configured
+      if (bambooHR.isConfigured()) {
+        try {
+          const job = await bambooHR.getJobById(Number(id));
+          if (job) {
+            return c.json(job);
+          }
+          // Job not found in BambooHR, try database
+        } catch (bambooError) {
+          console.error('BambooHR fetch failed, falling back to database:', bambooError);
+          // Fall through to database fallback
+        }
+      }
+
+      // Fallback to database
+      const db = createDatabaseService(c.env);
       const vacancy = await db.queryFirst<JobVacancyRecord>(
         "SELECT * FROM job_vacancies WHERE id = ? AND status = 'active'",
         [id]
