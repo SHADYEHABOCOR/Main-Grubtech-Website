@@ -476,7 +476,8 @@ describe('Button Component', () => {
       });
 
       it('re-evaluates animations when reduced motion preference changes', () => {
-        const { rerender } = render(<Button variant="primary">Button</Button>);
+        // Use a key to force React.memo to re-render when we change the mock
+        const { rerender } = render(<Button key="1" variant="primary">Button</Button>);
         let button = screen.getByRole('button');
 
         // Initially with animations (false)
@@ -484,9 +485,9 @@ describe('Button Component', () => {
         let gradientOverlay = button.querySelector('.bg-gradient-to-r.from-primary-light');
         expect(gradientOverlay).toBeInTheDocument();
 
-        // Change to reduced motion (true)
+        // Change to reduced motion (true) - use different key to force remount
         vi.mocked(useReducedMotion).mockReturnValue(true);
-        rerender(<Button variant="primary">Button</Button>);
+        rerender(<Button key="2" variant="primary">Button</Button>);
         button = screen.getByRole('button');
 
         // Should not have animations
@@ -494,9 +495,9 @@ describe('Button Component', () => {
         gradientOverlay = button.querySelector('.bg-gradient-to-r.from-primary-light');
         expect(gradientOverlay).not.toBeInTheDocument();
 
-        // Change back to normal motion (false)
+        // Change back to normal motion (false) - use different key to force remount
         vi.mocked(useReducedMotion).mockReturnValue(false);
-        rerender(<Button variant="primary">Button</Button>);
+        rerender(<Button key="3" variant="primary">Button</Button>);
         button = screen.getByRole('button');
 
         // Should have animations again
