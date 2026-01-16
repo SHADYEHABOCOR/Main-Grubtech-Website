@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AnimatedElement } from '../ui/AnimatedElement';
 import { OptimizedImage } from '../ui/OptimizedImage';
@@ -82,19 +82,13 @@ export const PersonaChallengesSection: React.FC<PersonaChallengesSectionProps> =
     </AnimatedElement>
   );
 
-  // Content component
+  // Content component (challenges grid only)
   const contentElement = (
     <AnimatedElement
       animation={config.imagePosition === 'left' ? 'fade-left' : 'fade-right'}
       scrollTrigger
       once
     >
-      <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
-        {titleText}
-      </h2>
-      <p className="text-base text-gray-600 mb-8">
-        {subtitleText}
-      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {challengeItems.map((challenge, index) => (
           <AnimatedElement
@@ -106,8 +100,8 @@ export const PersonaChallengesSection: React.FC<PersonaChallengesSectionProps> =
             once
             className={`flex items-center gap-3 p-4 ${getChallengeItemClass()} rounded-xl border border-gray-100 hover:border-gray-200 transition-colors duration-300`}
           >
-            <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Check className="w-4 h-4 text-primary" />
+            <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center">
+              <AlertTriangle className="w-4 h-4 text-red-500" />
             </div>
             <span className="text-sm font-medium text-gray-900">{challenge}</span>
           </AnimatedElement>
@@ -119,6 +113,16 @@ export const PersonaChallengesSection: React.FC<PersonaChallengesSectionProps> =
   return (
     <section className={`py-16 md:py-24 ${getBackgroundClass()}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Centered title and subtitle */}
+        <AnimatedElement animation="fade-up" scrollTrigger once className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
+            {titleText}
+          </h2>
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            {subtitleText}
+          </p>
+        </AnimatedElement>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {config.imagePosition === 'left' ? (
             <>
