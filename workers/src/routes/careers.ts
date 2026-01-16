@@ -710,6 +710,35 @@ careersRoutes.delete(
   }
 );
 
+/**
+ * POST /api/careers/admin/refresh-bamboohr
+ * Clear BambooHR cache and force refetch (protected)
+ */
+careersRoutes.post('/admin/refresh-bamboohr', authenticateToken, async (c) => {
+  try {
+    const bambooHR = createBambooHRService(c.env);
+
+    if (!bambooHR.isConfigured()) {
+      return c.json({ error: 'BambooHR not configured' }, 400);
+    }
+
+    await bambooHR.clearCache();
+    const jobs = await bambooHR.getJobs();
+
+    return c.json({
+      success: true,
+      message: 'BambooHR cache cleared and refreshed',
+      jobCount: jobs.length,
+      jobs,
+    });
+  } catch (error) {
+    return c.json({
+      error: 'Failed to refresh BambooHR',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, 500);
+  }
+});
+
 // ============================================================================
 // Public Routes
 // ============================================================================

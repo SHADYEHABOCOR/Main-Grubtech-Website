@@ -11,39 +11,34 @@ import type { Env } from '../types/bindings';
 
 /**
  * BambooHR Job response from API
+ * Note: BambooHR returns jobs as an array directly, not wrapped in { jobs: [] }
+ * Fields like title, department, location are objects with { id, label }
  */
 interface BambooHRJob {
   id: number;
-  title: string;
+  title: {
+    id: number | null;
+    label: string;
+  };
   department?: {
     id: number;
-    name: string;
+    label: string;
   };
   location?: {
-    id: number;
-    name: string;
-    city?: string;
-    state?: string;
-    country?: string;
+    id: number | null;
+    label: string | null;
+    address?: {
+      city?: string | null;
+      state?: string | null;
+      country?: string | null;
+    };
   };
-  employmentType?: string;
-  minimumExperience?: string;
-  compensation?: string;
-  jobDescription?: string;
-  applicationUrl?: string;
   status?: {
     id: number;
-    name: string;
+    label: string;
   };
-  datePosted?: string;
-  dateLastModified?: string;
-}
-
-/**
- * BambooHR Jobs API response
- */
-interface BambooHRJobsResponse {
-  jobs?: BambooHRJob[];
+  postedDate?: string;
+  postingUrl?: string;
 }
 
 /**
@@ -102,6 +97,7 @@ export function createBambooHRService(env: Env) {
     }
 
     const url = `https://api.bamboohr.com/api/gateway.php/${subdomain}/v1/applicant_tracking/jobs`;
+    console.log('Fetching jobs from BambooHR:', url);
 
     try {
       const response = await fetch(url, {
@@ -111,6 +107,8 @@ export function createBambooHRService(env: Env) {
           Accept: 'application/json',
         },
       });
+
+      console.log('BambooHR response status:', response.status);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -129,8 +127,10 @@ export function createBambooHRService(env: Env) {
         throw new Error(`BambooHR API error: ${response.status}`);
       }
 
-      const data = (await response.json()) as BambooHRJobsResponse;
-      return data.jobs || [];
+      // BambooHR returns jobs as an array directly, not wrapped in { jobs: [] }
+      const data = (await response.json()) as BambooHRJob[];
+      console.log('BambooHR raw response:', JSON.stringify(data));
+      return data || [];
     } catch (error) {
       console.error('Failed to fetch jobs from BambooHR:', error);
       throw error;
@@ -144,26 +144,31 @@ export function createBambooHRService(env: Env) {
     // Build location string from location object
     let locationString = 'Remote';
     if (bambooJob.location) {
-      const parts = [
-        bambooJob.location.city,
-        bambooJob.location.state,
-        bambooJob.location.country,
-      ].filter(Boolean);
-      locationString = parts.length > 0 ? parts.join(', ') : bambooJob.location.name || 'Remote';
+      const address = bambooJob.location.address;
+      if (address) {
+        const parts = [
+          address.city,
+          address.state,
+          address.country,
+        ].filter(Boolean);
+        locationString = parts.length > 0 ? parts.join(', ') : bambooJob.location.label || 'Remote';
+      } else {
+        locationString = bambooJob.location.label || 'Remote';
+      }
     }
 
     return {
       id: bambooJob.id,
-      title: bambooJob.title || 'Untitled Position',
-      department: bambooJob.department?.name || 'General',
+      title: bambooJob.title?.label || 'Untitled Position',
+      department: bambooJob.department?.label || 'General',
       location: locationString,
-      type: bambooJob.employmentType || 'Full-time',
-      description: bambooJob.jobDescription || null,
-      requirements: bambooJob.minimumExperience || null,
-      application_link: bambooJob.applicationUrl || null,
+      type: 'Full-time', // BambooHR doesn't return employmentType in this endpoint
+      description: null, // Job description needs separate API call
+      requirements: null,
+      application_link: bambooJob.postingUrl || null,
       status: 'active', // All fetched jobs are active
-      created_at: bambooJob.datePosted || new Date().toISOString(),
-      updated_at: bambooJob.dateLastModified || new Date().toISOString(),
+      created_at: bambooJob.postedDate || new Date().toISOString(),
+      updated_at: bambooJob.postedDate || new Date().toISOString(),
     };
   }
 
@@ -175,27 +180,34 @@ export function createBambooHRService(env: Env) {
     try {
       const cached = await env.CACHE.get(JOBS_CACHE_KEY);
       if (cached) {
-        console.log('Returning cached BambooHR jobs');
-        return JSON.parse(cached) as Job[];
+        const cachedJobs = JSON.parse(cached) as Job[];
+        console.log(`Returning ${cachedJobs.length} cached BambooHR jobs`);
+        return cachedJobs;
       }
+      console.log('No cached BambooHR jobs found, fetching from API');
     } catch (error) {
       console.warn('Cache read failed:', error);
     }
 
     // Fetch from API
     const bambooJobs = await fetchJobsFromAPI();
+    console.log(`Fetched ${bambooJobs.length} jobs from BambooHR API`);
 
     // Transform to our format
     const jobs = bambooJobs.map(transformJob);
 
-    // Cache the results
-    try {
-      await env.CACHE.put(JOBS_CACHE_KEY, JSON.stringify(jobs), {
-        expirationTtl: CACHE_TTL,
-      });
-      console.log(`Cached ${jobs.length} jobs for ${CACHE_TTL}s`);
-    } catch (error) {
-      console.warn('Cache write failed:', error);
+    // Only cache non-empty results to avoid caching errors
+    if (jobs.length > 0) {
+      try {
+        await env.CACHE.put(JOBS_CACHE_KEY, JSON.stringify(jobs), {
+          expirationTtl: CACHE_TTL,
+        });
+        console.log(`Cached ${jobs.length} jobs for ${CACHE_TTL}s`);
+      } catch (error) {
+        console.warn('Cache write failed:', error);
+      }
+    } else {
+      console.log('Not caching empty jobs result');
     }
 
     return jobs;
