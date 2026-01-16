@@ -7,3 +7,4 @@
  */
 
 export { PersonaPageTemplate } from './PersonaPageTemplate';
+export { SolutionPageTemplate } from './SolutionPageTemplate';
