@@ -51,24 +51,20 @@ export const HeroSection: React.FC = memo(() => {
             animation="fade-up"
             className="space-y-8 text-center lg:text-left"
           >
-            <AnimatedElement
-              as="h1"
-              animation="fade-up"
-              delay={200}
-              className="font-bold leading-[1.1] tracking-tight"
-            >
+            {/* No delay on headline - critical for LCP */}
+            <h1 className="font-bold leading-[1.1] tracking-tight">
               <span className="block text-5xl sm:text-6xl lg:text-7xl text-gray-900 mb-2">
                 {t('homepage.hero.headlinePart1', 'One system runs')}
               </span>
               <span className="block text-5xl sm:text-6xl lg:text-7xl text-blue-600 pb-4">
                 {t('homepage.hero.headlinePart2', 'your restaurant.')}
               </span>
-            </AnimatedElement>
+            </h1>
 
             <AnimatedElement
               as="p"
               animation="fade-up"
-              delay={300}
+              delay={100}
               className="text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0"
             >
               {t('homepage.hero.subheading')}
@@ -76,7 +72,7 @@ export const HeroSection: React.FC = memo(() => {
 
             <AnimatedElement
               animation="fade-up"
-              delay={400}
+              delay={200}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
             >
               <Link to={`/${i18n.language}/connect-with-us`}>
@@ -96,7 +92,7 @@ export const HeroSection: React.FC = memo(() => {
           <AnimatedElement
             animation="fade-right"
             speed="slow"
-            delay={300}
+            delay={100}
             className="relative"
           >
             <div className="relative rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 p-2 shadow-2xl shadow-blue-500/10">

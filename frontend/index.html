@@ -72,8 +72,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- Preload primary font for faster LCP -->
+    <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" />
+
     <!-- Critical: API Backend (preconnect for data fetching) -->
-    <link rel="preconnect" href="https://grubtech-website-2.onrender.com" crossorigin />
+    <link rel="preconnect" href="https://grubtech-api.shady-ehab.workers.dev" crossorigin />
 
     <!--
       NOTE: Analytics and video preconnects have been removed from here.
