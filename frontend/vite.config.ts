@@ -33,7 +33,16 @@ export default defineConfig({
       includeAssets: ['favicon.png'],
       manifest: false, // We're using our custom manifest.json
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        // PERF FIX: Only precache essential assets, not all JS chunks
+        // Previous setting '**/*.{js,css,html,...}' was precaching ALL lazy-loaded pages
+        // which caused 100+ unnecessary HTTP requests on first visit
+        globPatterns: [
+          'index.html',
+          'assets/css/*.css',
+          // Only precache vendor chunks and core entry point
+          'assets/js/vendor-*.js',
+          'assets/js/index-*.js',
+        ],
         // Increase cache size limits for better performance
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB
         // Precache critical routes for offline support
