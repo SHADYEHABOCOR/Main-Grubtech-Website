@@ -174,7 +174,7 @@ export async function authenticateToken(c: AppContext, next: Next) {
     const payload = await verify(token, c.env.JWT_SECRET);
 
     // Set user in context for downstream handlers
-    c.set('user', payload as JWTPayload);
+    c.set('user', payload as unknown as JWTPayload);
 
     await next();
   } catch (err: unknown) {

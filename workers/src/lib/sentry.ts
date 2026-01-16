@@ -291,7 +291,7 @@ export class SentryClient {
  * Create Sentry client from environment
  */
 export function createSentryClient(env: Env): SentryClient | null {
-  const dsn = (env as Record<string, unknown>).SENTRY_DSN as string | undefined;
+  const dsn = (env as unknown as Record<string, unknown>).SENTRY_DSN as string | undefined;
 
   if (!dsn) {
     return null;

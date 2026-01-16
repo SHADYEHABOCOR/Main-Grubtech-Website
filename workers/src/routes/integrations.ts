@@ -188,8 +188,8 @@ integrationsRoutes.post('/admin/create', authenticateToken, async (c) => {
       data = parseResult.data;
 
       // Handle logo upload
-      const logoFile = formData.get('logo');
-      if (logoFile && logoFile instanceof File && logoFile.size > 0) {
+      const logoFile = formData.get('logo') as File | null;
+      if (logoFile && logoFile.size > 0 && typeof logoFile.arrayBuffer === 'function') {
         const storage = createStorageService(c.env);
         const arrayBuffer = await logoFile.arrayBuffer();
 
@@ -321,8 +321,8 @@ integrationsRoutes.put(
         data = parseResult.data;
 
         // Handle logo upload
-        const logoFile = formData.get('logo');
-        if (logoFile && logoFile instanceof File && logoFile.size > 0) {
+        const logoFile = formData.get('logo') as File | null;
+        if (logoFile && logoFile.size > 0 && typeof logoFile.arrayBuffer === 'function') {
           const storage = createStorageService(c.env);
           const arrayBuffer = await logoFile.arrayBuffer();
 

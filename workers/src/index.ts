@@ -103,7 +103,7 @@ app.use(
 
       // Parse allowed origins from environment
       const allowedOrigins = env.ALLOWED_ORIGINS
-        ? env.ALLOWED_ORIGINS.split(',').map((o) => o.trim())
+        ? env.ALLOWED_ORIGINS.split(',').map((o: string) => o.trim())
         : [];
 
       // Check explicit allowlist
@@ -207,19 +207,21 @@ app.get('/api/health', async (c) => {
   }
 
   // Check R2
-  try {
-    const start = Date.now();
-    await c.env.UPLOADS.head('health-check');
-    health.checks.r2 = {
-      status: 'healthy',
-      latency: Date.now() - start,
-    };
-  } catch (error) {
-    // R2 head returning null is fine - the bucket exists
-    health.checks.r2 = {
-      status: 'healthy',
-      latency: Date.now() - start,
-    };
+  {
+    const r2Start = Date.now();
+    try {
+      await c.env.UPLOADS.head('health-check');
+      health.checks.r2 = {
+        status: 'healthy',
+        latency: Date.now() - r2Start,
+      };
+    } catch (error) {
+      // R2 head returning null is fine - the bucket exists
+      health.checks.r2 = {
+        status: 'healthy',
+        latency: Date.now() - r2Start,
+      };
+    }
   }
 
   const statusCode = health.status === 'unhealthy' ? 503 : 200;

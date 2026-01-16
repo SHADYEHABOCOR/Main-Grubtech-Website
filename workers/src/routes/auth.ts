@@ -55,7 +55,7 @@ async function verifyPassword(
 ): Promise<boolean> {
   // Handle bcrypt hashes (starts with $2a$, $2b$, or $2y$)
   if (hashedPassword.startsWith('$2')) {
-    return await bcrypt.compare(plainPassword, hashedPassword);
+    return bcrypt.compareSync(plainPassword, hashedPassword);
   }
 
   // SHA-256 fallback for development/testing

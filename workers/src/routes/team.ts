@@ -248,8 +248,8 @@ teamRoutes.post('/admin/create', authenticateToken, async (c) => {
       data = parseResult.data;
 
       // Handle image upload
-      const imageFile = formData.get('image');
-      if (imageFile && imageFile instanceof File && imageFile.size > 0) {
+      const imageFile = formData.get('image') as File | null;
+      if (imageFile && imageFile.size > 0 && typeof imageFile.arrayBuffer === 'function') {
         const storage = createStorageService(c.env);
         const arrayBuffer = await imageFile.arrayBuffer();
 
@@ -403,8 +403,8 @@ teamRoutes.put(
         data = parseResult.data;
 
         // Handle image upload
-        const imageFile = formData.get('image');
-        if (imageFile && imageFile instanceof File && imageFile.size > 0) {
+        const imageFile = formData.get('image') as File | null;
+        if (imageFile && imageFile.size > 0 && typeof imageFile.arrayBuffer === 'function') {
           const storage = createStorageService(c.env);
           const arrayBuffer = await imageFile.arrayBuffer();
 

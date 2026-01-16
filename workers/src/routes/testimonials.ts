@@ -207,8 +207,8 @@ testimonialsRoutes.post('/admin/create', authenticateToken, async (c) => {
       data = parseResult.data;
 
       // Handle image upload
-      const imageFile = formData.get('image');
-      if (imageFile && imageFile instanceof File && imageFile.size > 0) {
+      const imageFile = formData.get('image') as File | null;
+      if (imageFile && imageFile.size > 0 && typeof imageFile.arrayBuffer === 'function') {
         const storage = createStorageService(c.env);
         const arrayBuffer = await imageFile.arrayBuffer();
 
@@ -231,8 +231,8 @@ testimonialsRoutes.post('/admin/create', authenticateToken, async (c) => {
       }
 
       // Handle company logo upload
-      const companyLogoFile = formData.get('company_logo');
-      if (companyLogoFile && companyLogoFile instanceof File && companyLogoFile.size > 0) {
+      const companyLogoFile = formData.get('company_logo') as File | null;
+      if (companyLogoFile && companyLogoFile.size > 0 && typeof companyLogoFile.arrayBuffer === 'function') {
         const storage = createStorageService(c.env);
         const arrayBuffer = await companyLogoFile.arrayBuffer();
 
@@ -376,8 +376,8 @@ testimonialsRoutes.put(
         data = parseResult.data;
 
         // Handle image upload
-        const imageFile = formData.get('image');
-        if (imageFile && imageFile instanceof File && imageFile.size > 0) {
+        const imageFile = formData.get('image') as File | null;
+        if (imageFile && imageFile.size > 0 && typeof imageFile.arrayBuffer === 'function') {
           const storage = createStorageService(c.env);
           const arrayBuffer = await imageFile.arrayBuffer();
 
@@ -400,8 +400,8 @@ testimonialsRoutes.put(
         }
 
         // Handle company logo upload
-        const companyLogoFile = formData.get('company_logo');
-        if (companyLogoFile && companyLogoFile instanceof File && companyLogoFile.size > 0) {
+        const companyLogoFile = formData.get('company_logo') as File | null;
+        if (companyLogoFile && companyLogoFile.size > 0 && typeof companyLogoFile.arrayBuffer === 'function') {
           const storage = createStorageService(c.env);
           const arrayBuffer = await companyLogoFile.arrayBuffer();
 

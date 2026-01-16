@@ -125,9 +125,9 @@ uploadsRoutes.post('/image', authenticateToken, async (c) => {
     }
 
     const formData = await c.req.formData();
-    const imageFile = formData.get('image');
+    const imageFile = formData.get('image') as File | null;
 
-    if (!imageFile || !(imageFile instanceof File)) {
+    if (!imageFile || imageFile.size === 0 || typeof imageFile.arrayBuffer !== 'function') {
       return c.json(
         {
           success: false,
@@ -211,8 +211,11 @@ uploadsRoutes.post('/images', authenticateToken, async (c) => {
 
     // Collect all image files from form data
     for (const [key, value] of formData.entries()) {
-      if (key === 'images' && value instanceof File) {
-        files.push(value);
+      if (key === 'images') {
+        const file = value as unknown as File;
+        if (file && file.size > 0 && typeof file.arrayBuffer === 'function') {
+          files.push(file);
+        }
       }
     }
 

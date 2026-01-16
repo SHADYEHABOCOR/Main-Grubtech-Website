@@ -253,7 +253,7 @@ export class StorageService {
         contentType,
         cacheControl: 'public, max-age=31536000', // 1 year cache
       },
-      customMetadata: customMetadata as Record<string, string>,
+      customMetadata: customMetadata as unknown as Record<string, string>,
     });
 
     return {

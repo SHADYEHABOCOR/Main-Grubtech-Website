@@ -327,7 +327,7 @@ export function requestLogger(
       }
 
       // Get user ID if authenticated
-      const user = c.get('user');
+      const user = c.get('user') as { id?: string; userId?: string } | undefined;
       const userId = user?.userId || user?.id;
 
       // Build response log entry
@@ -461,7 +461,7 @@ export function auditLog(
   details: Record<string, unknown> = {}
 ): void {
   const requestId = c.get('requestId') || 'unknown';
-  const user = c.get('user');
+  const user = c.get('user') as { id?: string; userId?: string } | undefined;
 
   const auditEntry = JSON.stringify({
     timestamp: new Date().toISOString(),
