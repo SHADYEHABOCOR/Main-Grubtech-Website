@@ -408,6 +408,12 @@ export const API_ENDPOINTS = {
     ADMIN_ALL: getApiUrl('/api/policies/admin/all'),
     ADMIN_BY_ID: (id: string) => getApiUrl(`/api/policies/admin/${id}`),
   },
+  TEAM: {
+    BASE: getApiUrl('/api/team'),
+    ADMIN_ALL: getApiUrl('/api/team/admin/all'),
+    ADMIN_CREATE: getApiUrl('/api/team/admin/create'),
+    ADMIN_BY_ID: (id: string) => getApiUrl(`/api/team/admin/${id}`),
+  },
   CONTENT: {
     BASE: getApiUrl('/api/content'),
     ADMIN_ALL: getApiUrl('/api/content/admin/all'),
