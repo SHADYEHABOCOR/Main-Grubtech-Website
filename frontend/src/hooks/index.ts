@@ -10,7 +10,6 @@
 export { useBlogPosts, useBlogPost, useAdminBlogPosts, useDeleteBlogPost } from './useBlogPosts';
 export { useCareers, useCareer, useAdminCareers, useDeleteCareer } from './useCareers';
 export { usePolicies, usePolicy, useAdminPolicies, useDeletePolicy } from './usePolicies';
-export { useTeam, useTeamMember, useAdminTeam, useDeleteTeamMember } from './useTeam';
 export { useTestimonials, useTestimonial, useFeaturedTestimonials, useAdminTestimonials, useDeleteTestimonial } from './useTestimonials';
 export { useIntegrations, useIntegration, useIntegrationCategories, useAdminIntegrations, useDeleteIntegration } from './useIntegrations';
 export { useVideos, useVideo, useAdminVideos, useDeleteVideo } from './useVideos';
@@ -18,6 +17,7 @@ export { useContent } from './useContent';
 
 // Utility hooks
 export { useDebounce } from './useDebounce';
+export { useDateFormatter, useMultipleDateFormatters } from './useDateFormatter';
 export { useFetch } from './useFetch';
 export { useForm } from './useForm';
 export { useResponsive } from './useResponsive';

@@ -4,6 +4,7 @@ import { Plus, Edit, Trash2, Search } from 'lucide-react';
 import { useAdmin } from '../../context/AdminContext';
 import { blogApi } from '../../services/adminApi';
 import { useDebounce } from '../../hooks/useDebounce';
+import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { DataState } from '../../components/ui/DataState';
 import fallbackBlogImage from '../../assets/images/67dc711ca538931a3fa8e856_1.webp';
 
@@ -74,6 +75,13 @@ export const BlogList: React.FC = () => {
     const matchesLanguage = filterLanguage === 'all' || post.language === filterLanguage;
     return matchesSearch && matchesStatus && matchesLanguage;
   });
+
+  // Memoize date formatting for filtered posts
+  const formattedDates = useDateFormatter(
+    filteredPosts,
+    post => post.created_at,
+    { formatType: 'date' }
+  );
 
   return (
     <div className="space-y-4 md:space-y-5">
@@ -203,7 +211,7 @@ export const BlogList: React.FC = () => {
                       </span>
                     </td>
                     <td className={`px-6 py-4 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                      {new Date(post.created_at).toLocaleDateString()}
+                      {formattedDates.get(post)}
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
@@ -252,7 +260,7 @@ export const BlogList: React.FC = () => {
                         {post.status}
                       </span>
                       <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                        {new Date(post.created_at).toLocaleDateString()}
+                        {formattedDates.get(post)}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">

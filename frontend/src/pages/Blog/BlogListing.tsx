@@ -11,7 +11,7 @@ import { logError } from '../../utils/logger';
 import { API_ENDPOINTS } from '../../config/api';
 import { useTranslation } from 'react-i18next';
 import { OptimizedImage } from '../../components/ui/OptimizedImage';
-import { stripHtml } from '../../utils/sanitizeHtml';
+import { useDateFormatter } from '../../hooks/useDateFormatter';
 
 interface BlogPost {
   id: number;
@@ -34,6 +34,9 @@ export const BlogListing: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
+  // Memoize date formatting for list performance
+  const formattedDates = useDateFormatter(posts, post => post.created_at);
+
   const fetchPosts = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -55,6 +58,13 @@ export const BlogListing: React.FC = () => {
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]); // Re-fetch when language changes
+
+  // Helper function to strip HTML tags and get plain text
+  const stripHtml = (html: string) => {
+    const tmp = document.createElement('DIV');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -146,7 +156,7 @@ export const BlogListing: React.FC = () => {
                       <div className="flex items-center justify-between text-sm text-text-secondary pt-4 border-t border-border">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
-                          {new Date(post.created_at).toLocaleDateString()}
+                          {formattedDates.get(post)}
                         </span>
                       </div>
 

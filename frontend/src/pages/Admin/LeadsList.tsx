@@ -3,6 +3,7 @@ import { Search, Download, Mail, Phone, Building2, Calendar, Filter, Eye } from 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDebounce } from '../../hooks/useDebounce';
+import { useMultipleDateFormatters } from '../../hooks/useDateFormatter';
 import { DataState } from '../../components/ui/DataState';
 
 interface Lead {
@@ -82,7 +83,7 @@ export const LeadsList: React.FC = () => {
       lead.message || '',
       lead.form_type,
       lead.source_page || '',
-      new Date(lead.created_at).toLocaleString()
+      dateTimes.get(lead) || ''
     ]);
 
     const csv = [
@@ -108,6 +109,17 @@ export const LeadsList: React.FC = () => {
 
     return matchesSearch && matchesFilter;
   });
+
+  // Memoize date and time formatting for all filtered leads
+  const { dates, times, dateTimes } = useMultipleDateFormatters(
+    filteredLeads,
+    lead => lead.created_at,
+    {
+      dates: { formatType: 'date' },
+      times: { formatType: 'time' },
+      dateTimes: { formatType: 'datetime' }
+    }
+  );
 
   const getFormTypeBadge = (type: string) => {
     const colors: Record<string, string> = {
@@ -284,10 +296,10 @@ export const LeadsList: React.FC = () => {
                     <td className="px-2 md:px-6 py-2 md:py-4 hidden lg:table-cell">
                       <div className="flex items-center gap-1 md:gap-2 text-[11px] md:text-sm text-gray-600">
                         <Calendar className="w-2.5 h-2.5 md:w-4 md:h-4 text-gray-400" />
-                        {new Date(lead.created_at).toLocaleDateString()}
+                        {dates.get(lead)}
                       </div>
                       <div className="text-[9px] md:text-xs text-gray-500 mt-0.5">
-                        {new Date(lead.created_at).toLocaleTimeString()}
+                        {times.get(lead)}
                       </div>
                     </td>
                     <td className="px-2 md:px-6 py-2 md:py-4">

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Search, Download, Mail, Phone, Calendar, Filter, FileText, Linkedin, MapPin, Briefcase, Trash2, ChevronDown } from 'lucide-react';
 import { apiClient, API_ENDPOINTS, getFileUrl } from '../../config/api';
 import { useDebounce } from '../../hooks/useDebounce';
+import { useMultipleDateFormatters } from '../../hooks/useDateFormatter';
 import { DataState } from '../../components/ui/DataState';
 
 interface JobApplication {
@@ -73,6 +74,29 @@ export const JobApplicationsList: React.FC = () => {
     }
   };
 
+  const filteredApplications = applications.filter(app => {
+    const fullName = `${app.first_name} ${app.last_name}`.toLowerCase();
+    const matchesSearch =
+      fullName.includes(debouncedSearchTerm.toLowerCase()) ||
+      app.email.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+      app.expertise?.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+
+    const matchesFilter = filterStatus === 'all' || app.status === filterStatus;
+
+    return matchesSearch && matchesFilter;
+  });
+
+  // Memoize date and time formatting for better performance
+  const { dates, times, dateTimes } = useMultipleDateFormatters(
+    filteredApplications,
+    app => app.created_at,
+    {
+      dates: { formatType: 'date' },
+      times: { formatType: 'time' },
+      dateTimes: { formatType: 'datetime' }
+    }
+  );
+
   const exportToCSV = () => {
     const headers = ['ID', 'Name', 'Email', 'Phone', 'City', 'Country', 'LinkedIn', 'Expertise', 'Message', 'Status', 'Date'];
     const rows = filteredApplications.map(app => [
@@ -86,7 +110,7 @@ export const JobApplicationsList: React.FC = () => {
       app.expertise || '',
       app.message || '',
       app.status,
-      new Date(app.created_at).toLocaleString()
+      dateTimes.get(app) || ''
     ]);
 
     const csv = [
@@ -101,18 +125,6 @@ export const JobApplicationsList: React.FC = () => {
     a.download = `job-applications-${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
   };
-
-  const filteredApplications = applications.filter(app => {
-    const fullName = `${app.first_name} ${app.last_name}`.toLowerCase();
-    const matchesSearch =
-      fullName.includes(debouncedSearchTerm.toLowerCase()) ||
-      app.email.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-      app.expertise?.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
-
-    const matchesFilter = filterStatus === 'all' || app.status === filterStatus;
-
-    return matchesSearch && matchesFilter;
-  });
 
   const getStatusBadge = (status: string) => {
     const colors: Record<string, string> = {
@@ -328,10 +340,10 @@ export const JobApplicationsList: React.FC = () => {
                     <td className="px-2 md:px-6 py-2 md:py-4 hidden lg:table-cell">
                       <div className="flex items-center gap-1 md:gap-2 text-[11px] md:text-sm text-gray-600">
                         <Calendar className="w-2.5 h-2.5 md:w-4 md:h-4 text-gray-400" />
-                        {new Date(app.created_at).toLocaleDateString()}
+                        {dates.get(app)}
                       </div>
                       <div className="text-[9px] md:text-xs text-gray-500 mt-0.5">
-                        {new Date(app.created_at).toLocaleTimeString()}
+                        {times.get(app)}
                       </div>
                     </td>
                     <td className="px-2 md:px-6 py-2 md:py-4">
