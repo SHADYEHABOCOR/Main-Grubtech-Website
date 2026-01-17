@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useMultipleDateFormatters } from '../../hooks/useDateFormatter';
 import { DataState } from '../../components/ui/DataState';
+import { API_BASE_URL } from '../../config/api';
 
 interface Lead {
   id: number;
@@ -39,7 +40,7 @@ export const LeadsList: React.FC = () => {
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+  const API_URL = `${API_BASE_URL}/api`;
 
   const fetchLeads = useCallback(async () => {
     try {

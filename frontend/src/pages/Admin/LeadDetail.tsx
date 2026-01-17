@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Mail, Phone, Building2, Calendar, Tag, Globe, MessageSquare } from 'lucide-react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config/api';
 
 interface Lead {
   id: number;
@@ -22,7 +23,7 @@ export const LeadDetail: React.FC = () => {
   const [lead, setLead] = useState<Lead | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+  const API_URL = `${API_BASE_URL}/api`;
 
   useEffect(() => {
     if (id) {

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 interface WebsiteAnalyticsSummary {
   totalPageViews: number;
@@ -70,7 +71,7 @@ export function useWebsiteAnalytics(options: UseWebsiteAnalyticsOptions = {}) {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+  const API_URL = `${API_BASE_URL}/api`;
 
   const fetchAnalytics = useCallback(async () => {
     if (!enabled) return;

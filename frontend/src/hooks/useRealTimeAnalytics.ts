@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 interface Lead {
   id: number;
@@ -42,7 +43,7 @@ export const useRealTimeAnalytics = (options: UseRealTimeAnalyticsOptions = {}) 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const isMountedRef = useRef(true);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+  const API_URL = `${API_BASE_URL}/api`;
 
   const fetchAnalytics = useCallback(async () => {
     if (!enabled) return;

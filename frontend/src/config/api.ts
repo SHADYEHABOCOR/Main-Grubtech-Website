@@ -5,9 +5,23 @@ import axios, { AxiosError, InternalAxiosRequestConfig, AxiosResponse } from 'ax
 
 /**
  * Get the base API URL from environment variables
- * Falls back to localhost for development
+ * Falls back to production URL if not set (for builds without .env.production)
+ * Use localhost:3001 only when VITE_DEV_API=true is set
  */
-export const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3001').replace(/\/api$/, '');
+const getApiBaseUrl = (): string => {
+  // If explicitly set via env var, use that
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL.replace(/\/api$/, '');
+  }
+  // In development mode with local backend
+  if (import.meta.env.DEV && import.meta.env.VITE_DEV_API === 'true') {
+    return 'http://localhost:3001';
+  }
+  // Default to production API
+  return 'https://grubtech-api.shady-ehab.workers.dev';
+};
+
+export const API_BASE_URL = getApiBaseUrl();
 
 // Timeout configuration (30 seconds max as per security requirements)
 const DEFAULT_TIMEOUT = 30000; // 30 seconds
