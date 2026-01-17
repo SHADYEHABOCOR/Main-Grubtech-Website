@@ -11,6 +11,7 @@ import { logError } from '../../utils/logger';
 import { API_ENDPOINTS } from '../../config/api';
 import { useTranslation } from 'react-i18next';
 import { OptimizedImage } from '../../components/ui/OptimizedImage';
+import { stripHtml } from '../../utils/sanitizeHtml';
 
 interface BlogPost {
   id: number;
@@ -54,13 +55,6 @@ export const BlogListing: React.FC = () => {
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]); // Re-fetch when language changes
-
-  // Helper function to strip HTML tags and get plain text
-  const stripHtml = (html: string) => {
-    const tmp = document.createElement('DIV');
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || '';
-  };
 
   return (
     <div className="min-h-screen bg-white">
