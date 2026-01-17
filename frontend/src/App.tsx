@@ -64,9 +64,6 @@ const BlogDetail = lazy(() => import('./pages/Blog/BlogDetail').then(m => ({ def
 // Video Showcase Page
 const VideoShowcase = lazy(() => import('./pages/VideoShowcase').then(m => ({ default: m.VideoShowcase })));
 
-// Toast Test Page (for development/testing)
-const ToastTest = lazy(() => import('./pages/ToastTest').then(m => ({ default: m.ToastTest })));
-
 // 404 Not Found Page
 const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
 
@@ -240,9 +237,6 @@ function App() {
 
                           {/* Video Showcase */}
                           <Route path="/videos" element={<VideoShowcase />} />
-
-                          {/* Toast Test Page (development/testing) */}
-                          <Route path="/toast-test" element={<ToastTest />} />
 
                           {/* 404 Not Found - Catch all unmatched routes */}
                           <Route path="*" element={<NotFound />} />

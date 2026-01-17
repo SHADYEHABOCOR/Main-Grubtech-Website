@@ -19,11 +19,10 @@ enabled = true
 # ============================================================================
 
 # D1 Database - SQLite-compatible serverless database
-# Note: database_id is environment-specific and should be set via environment variables
-# For production: CLOUDFLARE_D1_ID environment variable
 [[d1_databases]]
 binding = "DB"
 database_name = "grubtech-production"
+database_id = "1d633fdf-42ed-4434-8795-24f490e14e0d"
 migrations_dir = "migrations"
 
 # KV Namespace - Key-value storage for caching and rate limiting
