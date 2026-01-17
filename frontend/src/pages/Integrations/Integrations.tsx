@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ExternalLink, Puzzle } from 'lucide-react';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import { PillTabs } from '../../components/ui/PillTabs';
@@ -17,12 +18,44 @@ import type { Integration } from '../../types';
 
 type TabType = 'POS' | 'Delivery' | 'Fulfillment' | 'ERP';
 
+/**
+ * Hook to track window width for responsive column calculation
+ */
+const useWindowWidth = () => {
+  const [width, setWidth] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return width;
+};
+
+/**
+ * Calculate number of columns based on window width
+ * Matches Tailwind breakpoints: grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+ */
+const getColumnCount = (width: number): number => {
+  if (width >= 1024) return 4; // lg breakpoint
+  if (width >= 640) return 2;  // sm breakpoint
+  return 1;
+};
+
 export const Integrations: React.FC = () => {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabType>('POS');
   const [initialLoad, setInitialLoad] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Virtual scrolling setup
+  const parentRef = useRef<HTMLDivElement>(null);
+  const windowWidth = useWindowWidth();
+  const columnCount = getColumnCount(windowWidth);
 
   const allTabs = [
     { id: 'POS' as TabType, label: 'POS Systems' },
@@ -42,6 +75,20 @@ export const Integrations: React.FC = () => {
     limit: 500
   });
   const integrations = integrationsData?.data || [];
+
+  // Calculate virtual rows based on column count
+  const rowCount = useMemo(
+    () => Math.ceil(integrations.length / columnCount),
+    [integrations.length, columnCount]
+  );
+
+  // Setup virtualizer for rows
+  const rowVirtualizer = useVirtualizer({
+    count: rowCount,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 400, // Estimated row height (card height + gap)
+    overscan: 2, // Render 2 extra rows above and below viewport
+  });
 
   // Set initial tab from URL or first available category
   useEffect(() => {
@@ -157,40 +204,72 @@ export const Integrations: React.FC = () => {
                 error: t('integrations.error'),
               }}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {integrations.map((integration: Integration, index: number) => (
-                  <AnimatedElement
-                    key={integration.id}
-                    animation="scale-in"
-                    speed="fast"
-                    delay={index * 50}
-                  >
-                    <Card className="text-center h-full hover:shadow-lg transition-shadow flex flex-col items-center justify-between p-8">
-                      <div className="flex-1 flex flex-col items-center justify-center">
-                        <div className="mb-4 h-20 flex items-center justify-center w-full">
-                          <OptimizedImage
-                            src={getFileUrl(integration.logo_url)}
-                            alt={integration.name}
-                            className="max-h-full max-w-full object-contain rounded-lg"
-                          />
+              {/* Virtual scrolling container */}
+              <div
+                ref={parentRef}
+                className="overflow-auto"
+                style={{ height: '800px' }}
+              >
+                <div
+                  style={{
+                    height: `${rowVirtualizer.getTotalSize()}px`,
+                    width: '100%',
+                    position: 'relative',
+                  }}
+                >
+                  {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                    const startIndex = virtualRow.index * columnCount;
+                    const rowIntegrations = integrations.slice(startIndex, startIndex + columnCount);
+
+                    return (
+                      <div
+                        key={virtualRow.key}
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          transform: `translateY(${virtualRow.start}px)`,
+                        }}
+                      >
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                          {rowIntegrations.map((integration: Integration) => (
+                            <AnimatedElement
+                              key={integration.id}
+                              animation="fade-up"
+                              speed="fast"
+                            >
+                              <Card className="text-center h-full hover:shadow-lg transition-shadow flex flex-col items-center justify-between p-8">
+                                <div className="flex-1 flex flex-col items-center justify-center">
+                                  <div className="mb-4 h-20 flex items-center justify-center w-full">
+                                    <OptimizedImage
+                                      src={getFileUrl(integration.logo_url)}
+                                      alt={integration.name}
+                                      className="max-h-full max-w-full object-contain rounded-lg"
+                                    />
+                                  </div>
+                                  <h3 className="text-lg font-bold text-text-primary mb-2">{integration.name}</h3>
+                                  <p className="text-sm text-text-secondary mb-4">{integration.description}</p>
+                                </div>
+                                {integration.website_url && (
+                                  <a
+                                    href={integration.website_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors text-sm font-semibold"
+                                  >
+                                    Visit Website
+                                    <ExternalLink className="w-4 h-4" />
+                                  </a>
+                                )}
+                              </Card>
+                            </AnimatedElement>
+                          ))}
                         </div>
-                        <h3 className="text-lg font-bold text-text-primary mb-2">{integration.name}</h3>
-                        <p className="text-sm text-text-secondary mb-4">{integration.description}</p>
                       </div>
-                      {integration.website_url && (
-                        <a
-                          href={integration.website_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors text-sm font-semibold"
-                        >
-                          Visit Website
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
-                    </Card>
-                  </AnimatedElement>
-                ))}
+                    );
+                  })}
+                </div>
               </div>
             </DataState>
           </AnimatedElement>
