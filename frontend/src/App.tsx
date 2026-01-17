@@ -5,6 +5,7 @@ import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
 import { useLenis } from './hooks/useLenis';
 import { LanguageRedirect } from './components/i18n/LanguageRedirect';
+import { ValidatedLanguageRoute } from './components/i18n/ValidatedLanguageRoute';
 import { RTLProvider } from './components/i18n/RTLProvider';
 import { CookieConsentBanner } from './components/lead-generation';
 import { RateLimitProvider } from './context/RateLimitContext';
@@ -12,7 +13,6 @@ import { ErrorBoundary, RouteErrorBoundary } from './components/ErrorBoundary';
 import { OfflineIndicator } from './components/common/OfflineIndicator';
 import { ToastProvider } from './components/ui/Toast';
 import { ScrollRestoration } from './hooks/useScrollRestoration';
-import { analytics } from './utils/analytics/tracker';
 import { initWebVitals } from './utils/analytics/webVitals';
 import { initDeferredAnalytics, loadAnalyticsIfNeeded } from './utils/analytics';
 import { SkipLink } from './components/accessibility';
@@ -191,6 +191,7 @@ function App() {
 
               {/* Language-prefixed routes */}
               <Route path="/:lang/*" element={
+                <ValidatedLanguageRoute>
                 <div className="min-h-screen flex flex-col relative">
                   <SkipLink targetId="main-content" />
                   <Header />
@@ -250,53 +251,12 @@ function App() {
                   </main>
                   <Footer />
                 </div>
+                </ValidatedLanguageRoute>
               } />
 
               {/* Fallback routes without language prefix - redirect handled by LanguageRedirect */}
-              <Route path="/*" element={
-                <div className="min-h-screen flex flex-col relative">
-                  <SkipLink targetId="main-content" />
-                  <Header />
-                  <main id="main-content" className="flex-grow relative z-10" tabIndex={-1}>
-                    <RouteErrorBoundary>
-                        <Routes>
-                          <Route path="/" element={<Home />} />
-                          <Route path="/about" element={<About />} />
-                          <Route path="/connect-with-us" element={<ConnectWithUs />} />
-                          <Route path="/careers" element={<Careers />} />
-                          <Route path="/faqs" element={<FAQs />} />
-                          <Route path="/gonline" element={<GOnline />} />
-                          <Route path="/gonline-lite" element={<GOnlineLite />} />
-                          <Route path="/gkds" element={<GKDS />} />
-                          <Route path="/gdispatch" element={<GDispatch />} />
-                          <Route path="/gdata" element={<GData />} />
-                          <Route path="/gpicker" element={<GPicker />} />
-                          <Route path="/solutions/gonline" element={<GOnline />} />
-                          <Route path="/solutions/gkds" element={<GKDS />} />
-                          <Route path="/persona/smbs" element={<SMBs />} />
-                          <Route path="/persona/regional-chains" element={<RegionalChains />} />
-                          <Route path="/persona/global-chains" element={<GlobalChains />} />
-                          <Route path="/persona/dark-kitchens" element={<DarkKitchens />} />
-                          <Route path="/integrations" element={<Integrations />} />
-                          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                          <Route path="/terms-and-conditions" element={<Terms />} />
-                          <Route path="/dpa" element={<DPA />} />
-                          <Route path="/service-level-agreement" element={<SLA />} />
-                          <Route path="/gdpr-eu" element={<GDPR />} />
-                          <Route path="/cookie-settings" element={<CookieSettings />} />
-                          <Route path="/blog" element={<BlogListing />} />
-                          <Route path="/blog/:slug" element={<BlogDetail />} />
-                          <Route path="/videos" element={<VideoShowcase />} />
-                          <Route path="/toast-test" element={<ToastTest />} />
-
-                          {/* 404 Not Found - Catch all unmatched routes */}
-                          <Route path="*" element={<NotFound />} />
-                        </Routes>
-                    </RouteErrorBoundary>
-                  </main>
-                  <Footer />
-                </div>
-              } />
+              {/* This renders nothing while LanguageRedirect performs the redirect */}
+              <Route path="/*" element={null} />
             </Routes>
           </Suspense>
             </Router>
