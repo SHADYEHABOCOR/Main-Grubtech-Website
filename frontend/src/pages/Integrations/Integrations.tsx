@@ -209,6 +209,9 @@ export const Integrations: React.FC = () => {
                 ref={parentRef}
                 className="overflow-auto"
                 style={{ height: '800px' }}
+                role="feed"
+                aria-label={t(`integrations.tabs.${activeTab.toLowerCase()}.title`)}
+                aria-busy={integrationsLoading}
               >
                 <div
                   style={{
@@ -232,35 +235,41 @@ export const Integrations: React.FC = () => {
                           transform: `translateY(${virtualRow.start}px)`,
                         }}
                       >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
                           {rowIntegrations.map((integration: Integration) => (
-                            <Card
-                              key={integration.id}
-                              className="text-center h-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-between p-8"
+                            <article
+                              role="listitem"
+                              aria-label={`${integration.name} integration`}
                             >
-                              <div className="flex-1 flex flex-col items-center justify-center">
-                                <div className="mb-4 h-20 flex items-center justify-center w-full">
-                                  <OptimizedImage
-                                    src={getFileUrl(integration.logo_url)}
-                                    alt={integration.name}
-                                    className="max-h-full max-w-full object-contain rounded-lg"
-                                  />
+                              <Card
+                                key={integration.id}
+                                className="text-center h-full hover:shadow-lg transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-between p-8"
+                              >
+                                <div className="flex-1 flex flex-col items-center justify-center">
+                                  <div className="mb-4 h-20 flex items-center justify-center w-full">
+                                    <OptimizedImage
+                                      src={getFileUrl(integration.logo_url)}
+                                      alt={`${integration.name} logo`}
+                                      className="max-h-full max-w-full object-contain rounded-lg"
+                                    />
+                                  </div>
+                                  <h3 className="text-lg font-bold text-text-primary mb-2">{integration.name}</h3>
+                                  <p className="text-sm text-text-secondary mb-4">{integration.description}</p>
                                 </div>
-                                <h3 className="text-lg font-bold text-text-primary mb-2">{integration.name}</h3>
-                                <p className="text-sm text-text-secondary mb-4">{integration.description}</p>
-                              </div>
-                              {integration.website_url && (
-                                <a
-                                  href={integration.website_url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors text-sm font-semibold"
-                                >
-                                  Visit Website
-                                  <ExternalLink className="w-4 h-4" />
-                                </a>
-                              )}
-                            </Card>
+                                {integration.website_url && (
+                                  <a
+                                    href={integration.website_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors text-sm font-semibold"
+                                    aria-label={`Visit ${integration.name} website (opens in new window)`}
+                                  >
+                                    Visit Website
+                                    <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                                  </a>
+                                )}
+                              </Card>
+                            </article>
                           ))}
                         </div>
                       </div>
