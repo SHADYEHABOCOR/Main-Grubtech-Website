@@ -215,11 +215,18 @@ export const AnimatedElement: React.FC<AnimatedElementProps> = ({
   // Skip animations on mobile or if user prefers reduced motion
   const shouldAnimate = prefersReducedMotion ? false : (scrollTrigger ? isInView : true);
 
+  // LCP OPTIMIZATION: For non-scroll-triggered animations without delay,
+  // start visible to improve LCP metrics. The animation will still play
+  // but content is immediately visible to the browser's LCP calculation.
+  const isImmediateAnimation = !scrollTrigger && delay === 0;
+
   const baseClassName = shouldAnimate
     ? `${animationClass} ${delayClass} ${timingClass} animation-fill-forwards`
     : prefersReducedMotion
       ? '' // On mobile/reduced motion, show content immediately without opacity-0
-      : 'opacity-0';
+      : isImmediateAnimation
+        ? '' // For immediate animations, start visible for better LCP
+        : 'opacity-0';
 
   const finalClassName = `${baseClassName} ${className}`.trim().replace(/\s+/g, ' ');
 

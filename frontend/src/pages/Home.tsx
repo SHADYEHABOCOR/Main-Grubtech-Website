@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useVideos } from '../hooks/useVideos';
@@ -7,6 +7,32 @@ import { PartnersSection } from '../components/sections/PartnersSection';
 
 import { SEO, StructuredData, ResourcePreloader } from '../components/seo';
 import { generateOrganizationSchema, generateWebsiteSchema } from '../utils/seo/structuredData';
+
+// Custom hook to defer data fetching until after initial render (LCP optimization)
+const useDeferredVideos = () => {
+  const [shouldFetch, setShouldFetch] = useState(false);
+
+  useEffect(() => {
+    // Defer video fetching until after LCP by waiting for idle callback or timeout
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(() => setShouldFetch(true), { timeout: 2000 });
+      return () => window.cancelIdleCallback(id);
+    } else {
+      // Fallback: defer by 1 second to allow LCP to complete
+      const timer = setTimeout(() => setShouldFetch(true), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const result = useVideos();
+
+  // Return empty data until we should fetch
+  if (!shouldFetch) {
+    return { data: [], isLoading: true };
+  }
+
+  return result;
+};
 
 // Lazy load below-the-fold sections for better initial load performance
 const StatsSection = lazy(() => import('../components/sections/StatsSection').then(m => ({ default: m.StatsSection })));
@@ -33,7 +59,8 @@ const SectionPlaceholder = () => (
 
 export const Home: React.FC = () => {
   const { t } = useTranslation();
-  const { data: productVideos = [], isLoading: loading } = useVideos();
+  // Use deferred video fetching to prioritize LCP
+  const { data: productVideos = [], isLoading: loading } = useDeferredVideos();
 
   return (
     <>

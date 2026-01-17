@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { InfiniteSlider } from '../ui/InfiniteSlider';
 import { AnimatedElement } from '../ui/AnimatedElement';
+import { OptimizedImage } from '../ui/OptimizedImage';
 
 // Import logos
 import burgerKing from '../../assets/logos/burger-king.svg';
@@ -68,13 +69,14 @@ export const PartnersSection: React.FC = () => {
                 key={index}
                 className="flex-shrink-0 w-16 h-10 md:w-20 md:h-12 flex items-center justify-center mx-4 md:mx-6"
               >
-                {/* Partner logos with explicit dimensions to prevent CLS */}
-                <img
+                {/* Partner logos with lazy loading - not LCP critical */}
+                <OptimizedImage
                   src={logo}
                   alt={`Partner logo ${(index % logos.length) + 1}`}
                   width={80}
                   height={48}
                   className="max-w-full max-h-full object-contain grayscale opacity-60"
+                  priority={false}
                 />
               </div>
             ))}

@@ -1,29 +1,11 @@
-import React, { lazy, Suspense, memo, useState, useEffect } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Store, Globe2, Clock, Users } from 'lucide-react';
 import { AnimatedElement } from '../ui/AnimatedElement';
-
-// Lazy load the dashboard component
-const HeroDashboard = lazy(() => import('./HeroDashboard').then(m => ({ default: m.HeroDashboard })));
-
-// Dashboard loading skeleton
-const DashboardSkeleton = () => (
-  <div className="rounded-2xl md:rounded-3xl p-5 md:p-8 bg-white border border-gray-200 shadow-lg">
-    <div className="flex items-center justify-between mb-6">
-      <div className="h-5 w-24 bg-gray-200 rounded" />
-      <div className="h-6 w-16 bg-emerald-100 rounded-full" />
-    </div>
-    <div className="grid grid-cols-3 gap-3 mb-6">
-      {[1, 2, 3].map(i => (
-        <div key={i} className="h-16 bg-gray-100 rounded-xl" />
-      ))}
-    </div>
-    <div className="h-20 bg-gray-100 rounded-lg mb-6" />
-    <div className="h-2 bg-gray-100 rounded-full" />
-  </div>
-);
+// Direct import for LCP optimization - HeroDashboard is above-the-fold critical content
+import { HeroDashboard } from './HeroDashboard';
 
 // Memoize to prevent unnecessary re-renders
 export const HeroSection: React.FC = memo(() => {
@@ -96,9 +78,7 @@ export const HeroSection: React.FC = memo(() => {
             className="relative"
           >
             <div className="relative rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 p-2 shadow-2xl shadow-blue-500/10">
-              <Suspense fallback={<DashboardSkeleton />}>
-                <HeroDashboard />
-              </Suspense>
+              <HeroDashboard />
             </div>
           </AnimatedElement>
         </div>

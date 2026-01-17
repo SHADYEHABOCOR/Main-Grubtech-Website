@@ -7,6 +7,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { MobileMenu } from './MobileMenu';
 import { MegaMenu } from './MegaMenu';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { OptimizedImage } from '../ui/OptimizedImage';
 import grubtechLogo from '../../assets/icons/grubtech-logo-black.svg';
 
 interface NavItem {
@@ -111,13 +112,14 @@ export const Header: React.FC = () => {
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 md:h-18">
             <Link to="/" className={`flex items-center ${!prefersReducedMotion ? 'transition-smooth hover:opacity-80' : ''}`} aria-label="Grubtech - Go to homepage">
-              {/* Logo with explicit dimensions to prevent CLS */}
-              <img
+              {/* Logo with priority loading for LCP optimization */}
+              <OptimizedImage
                 src={grubtechLogo}
                 alt="Grubtech"
                 width={120}
                 height={40}
                 className="h-8 md:h-10 w-auto"
+                priority={true}
               />
             </Link>
 
