@@ -32,7 +32,6 @@ import { authRoutes } from './routes/auth';
 import { setupAdminRoutes } from './routes/setup-admin';
 import { leadsRoutes } from './routes/leads';
 import { sitemapRoutes } from './routes/sitemap';
-import { analyticsRoutes } from './routes/analytics';
 import { blogRoutes } from './routes/blog';
 import { testimonialsRoutes } from './routes/testimonials';
 import { integrationsRoutes } from './routes/integrations';
@@ -305,9 +304,6 @@ app.get('/uploads/*', async (c) => {
     return c.json({ error: 'Failed to retrieve file' }, 500);
   }
 });
-
-// Analytics
-app.route('/api/analytics', analyticsRoutes);
 
 // SEO routes (sitemap.xml, robots.txt)
 app.route('/api', sitemapRoutes);

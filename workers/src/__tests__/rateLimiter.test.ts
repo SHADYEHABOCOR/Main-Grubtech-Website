@@ -9,7 +9,7 @@
  * - skipSuccessfulRequests option
  * - Custom handlers
  * - KV error handling (fail open)
- * - Pre-configured rate limiters (login, lead, api, analytics, setup)
+ * - Pre-configured rate limiters (login, lead, api, setup)
  * - Environment-aware configuration
  *
  * Uses vitest with @cloudflare/vitest-pool-workers for Cloudflare Workers testing.
@@ -30,7 +30,6 @@ import {
   loginRateLimiter,
   leadRateLimiter,
   apiRateLimiter,
-  analyticsRateLimiter,
   setupRateLimiter,
   customRateLimiter,
 } from '../middleware/rateLimiter';
@@ -782,62 +781,6 @@ describe('Pre-configured Rate Limiters', () => {
       const res = await app.fetch(req, mockEnv);
 
       // Should not be rate limited yet
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('analyticsRateLimiter', () => {
-    it('should create a rate limiter for analytics tracking', async () => {
-      const mockEnv = createMockEnv(mockKV);
-      const app = new Hono<{ Bindings: Env; Variables: Variables }>();
-
-      app.use('/analytics/*', analyticsRateLimiter());
-      app.post('/analytics/track', (c) => c.json({ tracked: true }));
-
-      const req = new Request('http://localhost/analytics/track', {
-        method: 'POST',
-        headers: {
-          'CF-Connecting-IP': '1.2.3.4',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ event: 'pageview' }),
-      });
-
-      const res = await app.fetch(req, mockEnv);
-
-      expect(res.status).toBe(200);
-      expect(mockKV.get).toHaveBeenCalledWith('ratelimit:analytics:1.2.3.4');
-    });
-
-    it('should have highest limits for high-frequency tracking', async () => {
-      // Don't set RATE_LIMIT_MAX_REQUESTS to use default production limits (500)
-      const mockEnv = createMockEnv(mockKV, {
-        ENVIRONMENT: 'production',
-        RATE_LIMIT_MAX_REQUESTS: '', // Empty to use defaults
-      });
-      const app = new Hono<{ Bindings: Env; Variables: Variables }>();
-
-      // Set count at 300 (below production limit of 500)
-      const existingRecord = JSON.stringify({
-        count: 300,
-        firstRequest: Date.now(),
-      });
-      mockKV.get.mockResolvedValue(existingRecord);
-
-      app.use('/analytics/*', analyticsRateLimiter());
-      app.post('/analytics/track', (c) => c.json({ tracked: true }));
-
-      const req = new Request('http://localhost/analytics/track', {
-        method: 'POST',
-        headers: {
-          'CF-Connecting-IP': '1.2.3.4',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ event: 'pageview' }),
-      });
-
-      const res = await app.fetch(req, mockEnv);
-
       expect(res.status).toBe(200);
     });
   });

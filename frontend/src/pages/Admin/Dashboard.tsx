@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, MessageSquare, Briefcase, Plug, ArrowRight, BarChart3, Users, PenLine, Plus } from 'lucide-react';
+import { FileText, MessageSquare, Briefcase, Plug, ArrowRight, Users, PenLine, Plus } from 'lucide-react';
 import { useAdmin } from '../../context/AdminContext';
 import { blogApi, testimonialsApi, careersApi } from '../../services/adminApi';
 import { apiClient, getApiUrl } from '../../config/api';
@@ -53,8 +53,7 @@ export const Dashboard: React.FC = () => {
   ];
 
   const quickActions = [
-    { label: 'View Analytics', icon: BarChart3, link: '/admin/analytics', primary: true },
-    { label: 'View Leads', icon: Users, link: '/admin/leads' },
+    { label: 'View Leads', icon: Users, link: '/admin/leads', primary: true },
     { label: 'New Blog Post', icon: PenLine, link: '/admin/blog/new' },
     { label: 'Add Testimonial', icon: Plus, link: '/admin/testimonials/new' },
   ];
@@ -178,14 +177,14 @@ export const Dashboard: React.FC = () => {
                 <div className={`p-4 rounded-xl ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                   <div className="flex items-start gap-3">
                     <div className={`p-2 rounded-lg ${isDarkMode ? 'bg-gray-700' : 'bg-white'}`}>
-                      <BarChart3 className={`w-4 h-4 ${isDarkMode ? 'text-blue-400' : 'text-blue-500'}`} />
+                      <Users className={`w-4 h-4 ${isDarkMode ? 'text-blue-400' : 'text-blue-500'}`} />
                     </div>
                     <div>
                       <h3 className={`text-sm font-medium mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                        Real-Time Analytics
+                        Lead Management
                       </h3>
                       <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                        Track lead generation, view trend charts, and monitor website performance metrics in real-time.
+                        View and manage leads from contact forms, track submissions, and export data for follow-up.
                       </p>
                     </div>
                   </div>

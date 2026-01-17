@@ -13,7 +13,6 @@ import {
   Menu,
   X,
   LogOut,
-  BarChart3,
   UserCheck,
   Scale,
 } from 'lucide-react';
@@ -28,7 +27,6 @@ export const AdminLayout: React.FC = () => {
 
   const navItems = [
     { path: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
-    // { path: '/admin/analytics', icon: BarChart3, label: 'Analytics' }, // Disabled - using Google Analytics
     { path: '/admin/leads', icon: Users, label: 'Leads' },
     { path: '/admin/job-applications', icon: UserCheck, label: 'Job Applications' },
     { path: '/admin/blog', icon: FileText, label: 'Blog' },

@@ -28,7 +28,5 @@ export { useLenis } from './useLenis';
 export { ScrollRestoration } from './useScrollRestoration';
 export { useChartReady } from './useChartReady';
 
-// Analytics hooks
-export { useWebsiteAnalytics } from './useWebsiteAnalytics';
-export { useRealTimeAnalytics } from './useRealTimeAnalytics';
+// Utility hooks
 export { useOnlineStatus } from './useOnlineStatus';

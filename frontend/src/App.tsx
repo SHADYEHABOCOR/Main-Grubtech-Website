@@ -86,7 +86,6 @@ const VideoGalleriesForm = lazy(() => import('./pages/Admin/VideoGalleriesForm')
 const LeadsList = lazy(() => import('./pages/Admin/LeadsList').then(m => ({ default: m.LeadsList })));
 const LeadDetail = lazy(() => import('./pages/Admin/LeadDetail').then(m => ({ default: m.LeadDetail })));
 const JobApplicationsList = lazy(() => import('./pages/Admin/JobApplicationsList').then(m => ({ default: m.JobApplicationsList })));
-const Analytics = lazy(() => import('./pages/Admin/Analytics').then(m => ({ default: m.Analytics })));
 const PoliciesList = lazy(() => import('./pages/Admin/PoliciesList').then(m => ({ default: m.PoliciesList })));
 const PoliciesForm = lazy(() => import('./pages/Admin/PoliciesForm').then(m => ({ default: m.PoliciesForm })));
 
@@ -180,7 +179,6 @@ function App() {
                 <Route path="leads" element={<LeadsList />} />
                 <Route path="leads/:id" element={<LeadDetail />} />
                 <Route path="job-applications" element={<JobApplicationsList />} />
-                <Route path="analytics" element={<Analytics />} />
                 <Route path="policies" element={<PoliciesList />} />
                 <Route path="policies/new" element={<PoliciesForm />} />
                 <Route path="policies/:id" element={<PoliciesForm />} />

@@ -220,11 +220,6 @@ const DEFAULTS = {
   API_MAX_PRODUCTION: 1000,
   API_MAX_DEVELOPMENT: 5000,
 
-  // Analytics rate limiter
-  ANALYTICS_WINDOW_MS: 60 * 1000, // 1 minute
-  ANALYTICS_MAX_PRODUCTION: 500,
-  ANALYTICS_MAX_DEVELOPMENT: 2000,
-
   // Lead form rate limiter
   LEAD_WINDOW_MS: 60 * 60 * 1000, // 1 hour
   LEAD_MAX_PRODUCTION: 10,
@@ -325,33 +320,6 @@ export function apiRateLimiter(): MiddlewareHandler<{ Bindings: Env; Variables: 
       windowMs: getWindowMs(c.env, DEFAULTS.API_WINDOW_MS),
       max: getMaxRequests(c.env, DEFAULTS.API_MAX_PRODUCTION, DEFAULTS.API_MAX_DEVELOPMENT),
       message: 'Too many requests from this IP, please try again later',
-    });
-    return limiter(c, next);
-  };
-}
-
-/**
- * Analytics Rate Limiter - Prevents Tracking Abuse
- *
- * Protects analytics and tracking endpoints from abuse while allowing legitimate
- * automatic page view and event tracking. Has the highest limits since analytics
- * tracking can generate many requests during normal browsing.
- *
- * CONFIGURATION:
- * - Window: 1 minute
- * - Max Requests: 500 (production), 2000 (development)
- */
-export function analyticsRateLimiter(): MiddlewareHandler<{ Bindings: Env; Variables: Variables }> {
-  return async (c: AppContext, next: Next) => {
-    const limiter = createRateLimiter({
-      type: 'analytics',
-      windowMs: getWindowMs(c.env, DEFAULTS.ANALYTICS_WINDOW_MS),
-      max: getMaxRequests(
-        c.env,
-        DEFAULTS.ANALYTICS_MAX_PRODUCTION,
-        DEFAULTS.ANALYTICS_MAX_DEVELOPMENT
-      ),
-      message: 'Too many analytics requests, please slow down',
     });
     return limiter(c, next);
   };
