@@ -76,6 +76,7 @@ TESTING_AND_MONITORING.md
 .worktrees/
 CHANGELOG.md
 .auto-claude-status
+.auto-claude-security.json
 .claude_settings.json
 
 # Test scripts and verification files
