@@ -18,7 +18,7 @@
     "deploy": "npm-run-all deploy:workers deploy:pages",
     "deploy:workers": "cd workers && npm run deploy",
     "deploy:workers:staging": "cd workers && npm run deploy:staging",
-    "deploy:pages": "cd frontend && npm run build && wrangler pages deploy dist --project-name=grubtech-website",
+    "deploy:pages": "cd frontend && npm run build && wrangler pages deploy dist --project-name=main-grubtech-website",
     "test": "npm-run-all test:frontend test:workers",
     "test:frontend": "cd frontend && npm run test:run",
     "test:workers": "cd workers && npm run test:run",
