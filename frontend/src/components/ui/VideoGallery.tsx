@@ -1,5 +1,5 @@
 import React, { useState, useRef, lazy, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from './MotionComponents.lazy';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { VideoCard } from './VideoCard';

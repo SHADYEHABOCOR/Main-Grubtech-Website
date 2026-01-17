@@ -167,7 +167,6 @@ manualChunks: {
           // Group all vendor chunks explicitly to avoid circular dependency issues
           'vendor-react': ['react', 'react-dom', 'scheduler'],
           'vendor-router': ['react-router', 'react-router-dom'],
-          'vendor-animations': ['framer-motion'],
           'vendor-i18n': ['i18next', 'react-i18next', 'i18next-browser-languagedetector', 'i18next-http-backend'],
           'vendor-query': ['@tanstack/react-query'],
           'vendor-sentry': ['@sentry/react'],
