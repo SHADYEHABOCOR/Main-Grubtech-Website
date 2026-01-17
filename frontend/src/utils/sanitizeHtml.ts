@@ -57,7 +57,7 @@ export function sanitizeHtml(html: string): string {
  * Strip all HTML tags and return plain text
  *
  * Safely removes all HTML tags and returns only the text content.
- * Uses DOMPurify to avoid DOM-based XSS vulnerabilities.
+ * Uses regex-based approach to avoid DOM operations.
  *
  * @param html - The HTML string to strip
  * @returns Plain text content without any HTML tags
@@ -69,13 +69,7 @@ export function sanitizeHtml(html: string): string {
  * ```
  */
 export function stripHtml(html: string): string {
-  // Use DOMPurify to strip all tags (ALLOWED_TAGS: [])
-  // This is safer than using DOM manipulation directly
-  const cleaned = DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: [],
-    ALLOWED_ATTR: [],
-    KEEP_CONTENT: true,
-  });
-
-  return cleaned;
+  // Use regex to strip all HTML tags
+  // More performant than DOM-based approaches
+  return html.replace(/<[^>]*>/g, '');
 }
