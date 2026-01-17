@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor } from '../../../test/testUtils';
+import { render, screen, waitFor, act } from '../../../test/testUtils';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { LeadCaptureForm } from '../LeadCaptureForm';
@@ -21,7 +21,6 @@ describe('LeadCaptureForm Component', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    vi.useFakeTimers();
 
     // Default successful fetch response
     vi.mocked(global.fetch).mockResolvedValue({
@@ -58,7 +57,7 @@ describe('LeadCaptureForm Component', () => {
     it('renders required fields legend', () => {
       render(<LeadCaptureForm />);
 
-      expect(screen.getByText(/indicates required field/i)).toBeInTheDocument();
+      expect(screen.getByText(/fields marked with.*are required/i)).toBeInTheDocument();
     });
 
     it('sets correct input types for fields', () => {
@@ -437,15 +436,13 @@ describe('LeadCaptureForm Component', () => {
         expect(screen.getByRole('button', { name: /sent successfully!/i })).toBeInTheDocument();
       });
 
-      // Fast-forward 3 seconds
-      vi.advanceTimersByTime(3000);
-
+      // Wait for the form to reset after 3 seconds (using real timers)
       await waitFor(() => {
         expect(screen.getByRole('button', { name: /send message/i })).toBeInTheDocument();
         expect(screen.getByLabelText(/full name/i)).toHaveValue('');
         expect(screen.getByLabelText(/email address/i)).toHaveValue('');
         expect(screen.getByLabelText(/company.*restaurant name/i)).toHaveValue('');
-      });
+      }, { timeout: 5000 });
     });
   });
 
@@ -553,13 +550,11 @@ describe('LeadCaptureForm Component', () => {
         expect(screen.getByRole('button', { name: /error - try again/i })).toBeInTheDocument();
       });
 
-      // Fast-forward 5 seconds
-      vi.advanceTimersByTime(5000);
-
+      // Wait for error state to clear after 5 seconds (using real timers)
       await waitFor(() => {
         expect(screen.getByRole('button', { name: /send message/i })).toBeInTheDocument();
         expect(screen.queryByText(/something went wrong. please try again./i)).not.toBeInTheDocument();
-      });
+      }, { timeout: 7000 });
     });
 
     it('does not call onSuccess on submission failure', async () => {
@@ -637,8 +632,11 @@ describe('LeadCaptureForm Component', () => {
         expect(screen.getByRole('button', { name: /sending\.\.\./i })).toBeInTheDocument();
       });
 
-      // Resolve the promise
-      resolveSubmit!({ ok: true, json: async () => ({ success: true }) });
+      // Resolve the promise and wait for state update
+      await act(async () => {
+        resolveSubmit!({ ok: true, json: async () => ({ success: true }) });
+        await new Promise(resolve => setTimeout(resolve, 0));
+      });
     });
 
     it('disables submit button during submission', async () => {
