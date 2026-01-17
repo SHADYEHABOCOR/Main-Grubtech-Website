@@ -10,6 +10,7 @@
 export { useBlogPosts, useBlogPost, useAdminBlogPosts, useDeleteBlogPost } from './useBlogPosts';
 export { useCareers, useCareer, useAdminCareers, useDeleteCareer } from './useCareers';
 export { usePolicies, usePolicy, useAdminPolicies, useDeletePolicy } from './usePolicies';
+export { useTeam, useTeamMember, useAdminTeam, useDeleteTeamMember } from './useTeam';
 export { useTestimonials, useTestimonial, useFeaturedTestimonials, useAdminTestimonials, useDeleteTestimonial } from './useTestimonials';
 export { useIntegrations, useIntegration, useIntegrationCategories, useAdminIntegrations, useDeleteIntegration } from './useIntegrations';
 export { useVideos, useVideo, useAdminVideos, useDeleteVideo } from './useVideos';
